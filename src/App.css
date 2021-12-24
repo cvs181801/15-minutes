@@ -43,8 +43,9 @@
   height: 482px;
   left: 45px;
   top: 178px;
-
-  background: url('./pics/TV.png');
+  background-color: rgba(255, 251, 251, 0.3);
+  background-image: url('./pics/TV.png');
+  background-blend-mode: lighten;
   border: 15px solid #000000;
   border-radius: 13px;
 }
@@ -75,4 +76,62 @@
 .showcaseBtn {
   left: 280px;
   top: 770px;
+}
+
+@media (min-width: 600px) {
+  .container {
+    width: 677px;
+    height: 470px;
+    left: 78px;
+    top: 325px;
+  }
+  .searchBtn,
+  .homeBtn,
+  .showcaseBtn {
+    width: 175px;
+    height: 81px;
+
+  }
+  .searchBtn {
+    left: 33px;
+    top: 902px;
+  }
+  .homeBtn {
+    left: 303px;
+    top: 902px;
+  }
+  .showcaseBtn {
+    left: 612px;
+top: 902px;
+  }
+
+}
+
+@media (min-width: 1025px) {
+
+  .container {
+    width: 857px;
+    height: 477px;
+    left: 295px;
+    top: 191px;
+  }
+  .searchBtn,
+  .homeBtn,
+  .showcaseBtn {
+    width: 302px;
+    height: 105px;
+  }
+  .searchBtn {
+    left: 207px;
+    top: 738px;
+  }
+  .homeBtn {
+    left: 604px;
+    top: 738px;
+  }
+  .showcaseBtn {
+    left: 1001px;
+    top: 738px;
+  }
+  
 }
