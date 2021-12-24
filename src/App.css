@@ -66,3 +66,13 @@
   box-sizing: border-box;
   border-radius: 13px;
 }
+
+.homeBtn {
+  left: 145px;
+  top: 770px;
+}
+
+.showcaseBtn {
+  left: 280px;
+  top: 770px;
+}
