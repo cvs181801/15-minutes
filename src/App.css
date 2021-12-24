@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  position: absolute;
+  width: 324px;
+  height: 482px;
+  left: 45px;
+  top: 178px;
+
+  background: url('./pics/TV.png');
+  border: 15px solid #000000;
+  border-radius: 13px;
+}
+
+.buttonsContainer {
+  display: flex;
+}
+
+.searchBtn,
+.homeBtn,
+.showcaseBtn {
+  position: absolute;
+  width: 117px;
+  height: 40px;
+  left: 10px;
+  top: 766px;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 13px;
+}
