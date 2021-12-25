@@ -22,7 +22,9 @@ export default function Search() {
                 <button className="searchBtnContent">Search by Content</button>
                 <input type="text" placeholder="Type search item here..."></input>
             </div>
-            <div className="searchResultContainer"></div>
+            <div className="searchResultContainer">
+                <div className="searchResult"></div>
+            </div>
         </div>
     )
 }
