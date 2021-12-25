@@ -1,11 +1,11 @@
 import './App.css';
-import {Link, Router, Switch, Route} from "react-router-dom"
+import {BrowserRouter, Link, Router, Route, Routes} from "react-router-dom"
 import Showcase from './Showcase'
 import Search from './Search'
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
     <div className="App">
       <div className="container">
         <div className="contentContainer">
@@ -20,18 +20,17 @@ function App() {
           </div>
       </div>
       <div className="buttonsContainer">
-        <button className="searchBtn"><Link to="/search">Search Tweets</Link></button>
-        <button className="homeBtn"><Link to="/">Home</Link></button>
-        <button className="showcaseBtn"><Link to="/showcase">Go to Showcase</Link></button>
+        <Link to="/search">Search Tweets</Link>  {/*<button className="searchBtn"></button> */}
+        <Link to="/">Home</Link>  {/*<button className="homeBtn"></button> */}
+         <Link to="/showcase">Go to Showcase</Link>  {/*<button className="showcaseBtn"></button> */}
 
-        <Switch>
-            <Route path="/search"><Search /></Route>
-            <Route path="/"><App /></Route>
-            <Route path="/showcase"><Showcase /></Route>
-        </Switch>
+        <Routes>
+            <Route path="/search" element={<Search />} />
+            <Route path="/showcase" element={<Showcase />} />
+        </Routes>
       </div>
     </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
