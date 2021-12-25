@@ -6,12 +6,15 @@ export default function Search() {
     return (
         <div className="searchContainer"
             style={{
-                backgroundColor: 'red',
+                position: 'absolute',
+                top: '50px',
+                left: '0px',
                 width: '100vw',
-                height: '100vh'
-                // backgroundColor: 'rgba(255, 251, 251, 0.3)',
-                // backgroundImage: `url(${TV})`,
-                // backgroundBlendMode: 'lighten',
+                height: '100%',
+                backgroundColor: 'rgba(255, 251, 251, 0.3)',
+                backgroundImage: `url(${TV})`,
+                backgroundBlendMode: 'lighten',
+                zIndex: '1'
             }}
         >
             <div className="searchBtnsContainer">
