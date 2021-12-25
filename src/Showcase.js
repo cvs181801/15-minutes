@@ -35,7 +35,9 @@ export default function Showcase() {
             
             
             <div>
-                <div className="showcaseResultContainer"></div>
+                <div className="showcaseResultContainer">
+                <div className="showcaseResult"></div>
+                </div>
             </div>
         </div>
     )
