@@ -45,7 +45,7 @@ body {
   z-index: 2;
 }
 
-.searchBtn,
+/* .searchBtn,
 .homeBtn,
 .showcaseBtn {
   position: absolute;
@@ -68,7 +68,7 @@ body {
 .showcaseBtn {
   left: 280px;
   top: 770px;
-}
+} */
 
 .searchResultContainer {
   position: absolute;
@@ -82,23 +82,26 @@ body {
 }
 
 .searchBtnUser {
+  font-size: .7rem;
   position: absolute;
-  width: 44px;
-  height: 36px;
+  width: 50px;
+  height: 50px;
   left: 7px;
-  top: 81px;
+  top: 60px;
   background: #FFFFFF;
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 13px;
+  cursor: pointer;
 }
 
 .searchBtnContent {
+  font-size: .7rem;
   position: absolute;
-  width: 44px;
-  height: 31px;
+  width: 50px;
+  height: 50px;
   left: 67px;
-  top: 82px;
+  top: 60px;
   background: #FFFFFF;
   border: 1px solid #000000;
   box-sizing: border-box;
@@ -110,7 +113,7 @@ body {
   width: 266px;
   height: 32px;
   left: 124px;
-  top: 81px;
+  top: 60px;
   background: #FFFFFF;
   border: 1px solid #000000;
   box-sizing: border-box;
