@@ -1,24 +1,14 @@
-import './App.css';
+import './index.css';
 import {BrowserRouter, Link, Router, Route, Routes} from "react-router-dom"
 import Showcase from './Showcase'
 import Search from './Search'
+import Home from './Home'
 
 function App() {
   return (
     <BrowserRouter>
     <div className="App">
-      <div className="container">
-        <div className="contentContainer">
-            <h1>15 Minutes</h1>
-            <p>A new way to search Twitter.
-            <br/> 
-            <br/>
-            How will you use your 15 minutes? 
-            <br/>
-            <br/>
-            Select ‘Go to Showcase’ to browse tweets from celebrities using their fame for good.</p>
-          </div>
-      </div>
+     
       <div className="buttonsContainer">
         <Link to="/search">Search Tweets</Link>  {/*<button className="searchBtn"></button> */}
         <Link to="/">Home</Link>  {/*<button className="homeBtn"></button> */}
@@ -27,6 +17,7 @@ function App() {
         <Routes>
             <Route path="/search" element={<Search />} />
             <Route path="/showcase" element={<Showcase />} />
+            <Route path="/" element={<Home />} />
         </Routes>
       </div>
     </div>
