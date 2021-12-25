@@ -2,6 +2,14 @@ import React from 'react'
 import './index.css'
 import TV from './pics/TV.png'
 import SelectBtn from './SelectBtn'
+import selectBtnData from './selectBtnData'
+
+console.log(selectBtnData)
+ const newArray = selectBtnData.map(button => {
+     return <SelectBtn key={button.id} id={button.id} className={button.className} name={button.name} left={button.left} top={button.top}/>
+    })
+
+    console.log(newArray)
 
 export default function Showcase() {
     return (
@@ -18,21 +26,27 @@ export default function Showcase() {
             zIndex: '1'
         }}
         >
+            {/* <SelectBtn
+                  
+            ></SelectBtn>
             <SelectBtn
-                id="oprah"
-            />
+                
+            ></SelectBtn>
             <SelectBtn
-                id="reese"
-            />
+                className="selectBtn"
+                id="Reese"
+            ></SelectBtn>
             <SelectBtn
-                id="keanu"
-            />
+                className="selectBtn"
+                id="Ashton"
+            ></SelectBtn>
             <SelectBtn
-                id="ashton"
-            />
-            <SelectBtn
-                id="beyonce"
-            />
+                className="selectBtn"
+                id="Beyonce"
+            ></SelectBtn> */}
+
+            {newArray}
+            
             <div>
                 <div className="showcaseResultContainer"></div>
             </div>
