@@ -8,16 +8,17 @@ export default function SelectBtn(props) {
         <div>
             <button
                 style={{
-                    position: 'absolute', 
+                    position: 'inline-block', 
                     height: '32px', 
                     width: '106px', 
                     background: '#FFFFFF',
                     border: '1px solid #000000',
                     boxSizing: 'border-box',
                     borderRadius:'13px',
-                    top: `${props.top}`,
-                    left: `${props.left}`,
-                    cursor: 'pointer'
+                    // top: `${props.top}`,
+                    // left: `${props.left}`,
+                    cursor: 'pointer',
+                    margin: `0 .2em .2em .2em`
                 }}>
             {props.name}</button>
         </div>

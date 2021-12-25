@@ -137,6 +137,17 @@ body {
   height: 32px;
 }
 
+.showcaseBtnsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  border: 2px solid red;
+  max-width: 322px;
+}
+
 
 @media (min-width: 600px) {
   .container {
@@ -180,6 +191,7 @@ body {
     border: 5px solid #000000;
     border-radius: 13px;
   }
+  
 
 }
 
@@ -228,5 +240,6 @@ body {
     border: 5px solid #000000;
     border-radius: 13px;
   }
+  
   
 }

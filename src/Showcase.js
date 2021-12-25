@@ -6,7 +6,9 @@ import selectBtnData from './selectBtnData'
 
 console.log(selectBtnData)
  const newArray = selectBtnData.map(button => {
-     return <SelectBtn key={button.id} id={button.id} className={button.className} name={button.name} left={button.left} top={button.top}/>
+     return <SelectBtn key={button.id} id={button.id} className={button.className} name={button.name} 
+     left={button.left} top={button.top}
+     />
     })
 
     console.log(newArray)
@@ -26,26 +28,11 @@ export default function Showcase() {
             zIndex: '1'
         }}
         >
-            {/* <SelectBtn
-                  
-            ></SelectBtn>
-            <SelectBtn
-                
-            ></SelectBtn>
-            <SelectBtn
-                className="selectBtn"
-                id="Reese"
-            ></SelectBtn>
-            <SelectBtn
-                className="selectBtn"
-                id="Ashton"
-            ></SelectBtn>
-            <SelectBtn
-                className="selectBtn"
-                id="Beyonce"
-            ></SelectBtn> */}
-
-            {newArray}
+            <div
+                className="showcaseBtnsContainer"
+            >{newArray}
+            </div>
+            
             
             <div>
                 <div className="showcaseResultContainer"></div>
