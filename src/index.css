@@ -147,8 +147,7 @@ body {
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  border: 2px solid red;
-  max-width: 322px;
+  width: 322px;
 }
 
 
@@ -197,7 +196,7 @@ body {
 
   .showcaseBtnsContainer {
     width: 778px;
-
+    left: 25px;
   }
 
 }
@@ -249,6 +248,7 @@ body {
   }
   .showcaseBtnsContainer {
     width: 1219px;
+    left: 104px;
   }
 
 }
