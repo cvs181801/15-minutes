@@ -12,7 +12,7 @@ function App() {
       <div className="buttonsContainer">
         <Link to="/search">Search Tweets</Link>  {/*<button className="searchBtn"></button> */}
         <Link to="/">Home</Link>  {/*<button className="homeBtn"></button> */}
-         <Link to="/showcase">Go to Showcase</Link>  {/*<button className="showcaseBtn"></button> */}
+        <Link to="/showcase">Go to Showcase</Link>  {/*<button className="showcaseBtn"></button> */}
 
         <Routes>
             <Route path="/search" element={<Search />} />
