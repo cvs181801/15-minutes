@@ -7,6 +7,7 @@ export default function Home() {
             <div className="container">
                 <div className="contentContainer">
                     <h1>15 Minutes</h1>
+                    <br/>
                     <p>A new way to search Twitter.
                     <br/> 
                     <br/>

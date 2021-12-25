@@ -45,30 +45,11 @@ body {
   z-index: 2;
 }
 
-/* .searchBtn,
-.homeBtn,
-.showcaseBtn {
-  position: absolute;
-  width: 117px;
-  height: 40px;
-  left: 10px;
-  top: 766px;
-  background: #FFFFFF;
-  border: 1px solid #000000;
-  box-sizing: border-box;
-  border-radius: 13px;
-  z-index: 2;
+.contentContainer {
+  font-size: .9rem;
+  letter-spacing: .1rem;
+  line-height: 1.3rem;
 }
-
-.homeBtn {
-  left: 145px;
-  top: 770px;
-}
-
-.showcaseBtn {
-  left: 280px;
-  top: 770px;
-} */
 
 .searchResultContainer {
   position: absolute;
@@ -170,24 +151,9 @@ body {
     left: 78px;
     top: 325px;
   }
-  .searchBtn,
-  .homeBtn,
-  .showcaseBtn {
-    width: 175px;
-    height: 81px;
 
-  }
-  .searchBtn {
-    left: 33px;
-    top: 902px;
-  }
-  .homeBtn {
-    left: 303px;
-    top: 902px;
-  }
-  .showcaseBtn {
-    left: 612px;
-    top: 902px;
+  .contentContainer {
+    font-size: 1rem;
   }
   .searchResultContainer {
     width: 784px;
@@ -231,27 +197,13 @@ body {
     left: 295px;
     top: 191px;
   }
+  .contentContainer {
+    font-size: 1.2rem;
+  }
   .buttonsContainer { 
     width: 40%;
   }
-  .searchBtn,
-  .homeBtn,
-  .showcaseBtn {
-    width: 302px;
-    height: 105px;
-  }
-  .searchBtn {
-    left: 207px;
-    top: 738px;
-  }
-  .homeBtn {
-    left: 604px;
-    top: 738px;
-  }
-  .showcaseBtn {
-    left: 1001px;
-    top: 738px;
-  }
+ 
   .searchResultContainer {
     width: 1232px;
     height: 697px;
