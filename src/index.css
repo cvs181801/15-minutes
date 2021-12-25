@@ -66,6 +66,60 @@ body {
   top: 770px;
 }
 
+/* .searchContainer {
+  border: 2px solid red;
+  position: absolute;
+  background-color: rgba(255, 251, 251, 0.3);
+  background-image: url('./pics/TV.png');
+  background-blend-mode: lighten;
+} */
+
+.searchResultContainer {
+  position: absolute;
+  width: 299px;
+  height: 717px;
+  left: 55px;
+  top: 132px;
+  background: #FFFFFF;
+  border: 5px solid #000000;
+  border-radius: 13px;
+}
+
+.searchBtnUser {
+  position: absolute;
+  width: 44px;
+  height: 36px;
+  left: 7px;
+  top: 81px;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 13px;
+}
+
+.searchBtnContent {
+  position: absolute;
+  width: 44px;
+  height: 31px;
+  left: 67px;
+  top: 82px;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 13px;
+}
+
+.searchBtnsContainer > input {
+  position: absolute;
+  width: 266px;
+  height: 32px;
+  left: 124px;
+  top: 81px;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 13px;
+}
 
 
 @media (min-width: 600px) {
@@ -92,7 +146,13 @@ body {
   }
   .showcaseBtn {
     left: 612px;
-top: 902px;
+    top: 902px;
+  }
+  .searchResultContainer {
+    width: 784px;
+    height: 930px;
+    left: 21px;
+    top: 223px;
   }
 
 }
@@ -122,6 +182,12 @@ top: 902px;
   .showcaseBtn {
     left: 1001px;
     top: 738px;
+  }
+  .searchResultContainer {
+    width: 1232px;
+    height: 697px;
+    left: 104px;
+    top: 243px;
   }
   
 }
