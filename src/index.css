@@ -138,6 +138,9 @@ body {
 }
 
 .showcaseBtnsContainer {
+  position: absolute;
+  left: 45px;
+  top: 100px;
   display: flex;
   flex-wrap: wrap;
   text-align: center;
@@ -191,7 +194,11 @@ body {
     border: 5px solid #000000;
     border-radius: 13px;
   }
-  
+
+  .showcaseBtnsContainer {
+    width: 778px;
+
+  }
 
 }
 
@@ -240,6 +247,8 @@ body {
     border: 5px solid #000000;
     border-radius: 13px;
   }
-  
-  
+  .showcaseBtnsContainer {
+    width: 1219px;
+  }
+
 }
