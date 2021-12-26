@@ -2,6 +2,9 @@ import React, {useState} from 'react'
 import './index.css'
 import TV from './pics/TV.png'
 import test from './test'
+import DOMpurify from 'dompurify'
+
+let clean = DOMpurify.sanitize() //getting started w DOM purify...
 
 export default function Search() {
 
