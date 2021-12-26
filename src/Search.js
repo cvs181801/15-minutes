@@ -8,15 +8,16 @@ export default function Search() {
     const [searchresult, setSearchresult] = useState('')
     const [inputValue, setInputValue] = useState('')
 
-    function handleClick() {
-        setSearchresult('hi')
+    function handleClickUser() {
+        setSearchresult('')
+        console.log(test.find(element => element == {username: inputValue}))
+        setSearchresult('Hi')
     }
 
-    function handleChange(event) {
-        event.preventDefault();
-        const {name, value} = event.target
-        setInputValue({ [name]:value }) 
-      }
+    function handleClickContent() {
+        setSearchresult('')
+        setSearchresult('Yo')
+    }
 
     return (
         <div className="searchContainer"
@@ -35,15 +36,17 @@ export default function Search() {
             <div className="searchBtnsContainer">
                 <button 
                     className="searchBtnUser"
-                    onClick={handleClick}
+                    onClick={handleClickUser}
                 >Search by User</button>
-                <button className="searchBtnContent">Search by Content</button>
+                <button 
+                    className="searchBtnContent"
+                    onClick={handleClickContent}
+                >Search by Content</button>
                 <input 
                     type="text"     
                     placeholder="Type search item here..."
                     value={inputValue}
-                    onChange={event=>handleChange(event)}>
-                
+                    onChange={event=>setInputValue(event.target.value)}>
                 </input>
             </div>
             <div className="searchResultContainer">
