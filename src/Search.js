@@ -1,8 +1,23 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './index.css'
 import TV from './pics/TV.png'
+import test from './test'
 
 export default function Search() {
+
+    const [searchresult, setSearchresult] = useState('')
+    const [inputValue, setInputValue] = useState('')
+
+    function handleClick() {
+        setSearchresult('hi')
+    }
+
+    function handleChange(event) {
+        event.preventDefault();
+        const {name, value} = event.target
+        setInputValue({ [name]:value }) 
+      }
+
     return (
         <div className="searchContainer"
             style={{
@@ -18,12 +33,21 @@ export default function Search() {
             }}
         >
             <div className="searchBtnsContainer">
-                <button className="searchBtnUser">Search by User</button>
+                <button 
+                    className="searchBtnUser"
+                    onClick={handleClick}
+                >Search by User</button>
                 <button className="searchBtnContent">Search by Content</button>
-                <input type="text" placeholder="Type search item here..."></input>
+                <input 
+                    type="text"     
+                    placeholder="Type search item here..."
+                    value={inputValue}
+                    onChange={event=>handleChange(event)}>
+                
+                </input>
             </div>
             <div className="searchResultContainer">
-                <div className="searchResult"></div>
+                <div className="searchResult">{searchresult}</div>
             </div>
         </div>
     )

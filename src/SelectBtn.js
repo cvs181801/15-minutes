@@ -1,9 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './index.css'
 
 export default function SelectBtn(props) {
     console.log(props)
-    
+
+    const [show, setShow] = useState('')
+
+    function handleClick(event) {
+        event.preventDefault();
+        console.log("hi")
+        //setShow('')
+        setShow('Hi')
+    }
+
     return (
         <div>
             <button

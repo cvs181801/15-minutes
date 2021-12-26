@@ -11,11 +11,12 @@ export default function Showcase() {
 
     function handleClick(event) {
         event.preventDefault();
+        console.log("hi")
         //setShow('')
-        setShow(test[0].text)
+        setShow('Hi')
     }
     
-    const newArray = selectBtnData.map(button => {
+    const newButtonArray = selectBtnData.map(button => {
         return <SelectBtn key={button.id} id={button.id} className={button.className} name={button.name} 
         left={button.left} top={button.top} onClick={handleClick}
         />
@@ -37,14 +38,14 @@ export default function Showcase() {
         >
             <div
                 className="showcaseBtnsContainer"
-            >{newArray}
+            >{newButtonArray}
             </div>
             
             
             <div>
                 <div className="showcaseResultContainer">
                 <div className="showcaseResult">
-                    {show}
+                    
                 </div>
                 </div>
             </div>
