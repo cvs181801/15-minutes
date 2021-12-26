@@ -13,7 +13,7 @@ export default function Showcase() {
         event.preventDefault();
         console.log("hi")
         //setShow('')
-        setShow('Hi')
+        setShow(test[0].username)
     }
     
     const newButtonArray = selectBtnData.map(button => {
@@ -45,7 +45,7 @@ export default function Showcase() {
             <div>
                 <div className="showcaseResultContainer">
                 <div className="showcaseResult">
-                    
+                    {/* this is where the result will render */}
                 </div>
                 </div>
             </div>
