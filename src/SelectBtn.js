@@ -7,6 +7,7 @@ export default function SelectBtn(props) {
     return (
         <div>
             <button
+                onClick={props.handleClick}
                 style={{
                     position: 'inline-block', 
                     height: '32px', 

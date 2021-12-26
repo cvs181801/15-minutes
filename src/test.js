@@ -1,20 +1,49 @@
 const test = [
     {
-        username: "Jake",
+        username: "Oprah",
         text: "lorem ipsum ;olijalekdijacns isu,danfl;djlnfiv udjlsacisjd!!!",
         image: '#',
         video: '#',
         gif: '#',
-        retweetCount: 4,
-        favoritedCount: 17
+        retweetCount: 4996832,
+        favoritedCount: 1759373
     },
     {
-        username: "SallyLoo",
-        text: "lorem ipsum ;olijalekdijacns isu,danfl;djlnfiv udjlsacisjd!!!",
+        username: "Keanu",
+        text: "lorem ipsumk fhdajkhlskd akljfdhakdkal hfdhjdahl afw df l",
         image: '#',
         video: '#',
         gif: '#',
-        retweetCount: 6,
-        favoritedCount: 207 
+        retweetCount: 6994732,
+        favoritedCount: 32407 
+    },
+    {
+        username: "Reese",
+        text: "lorem ipsum ,dsakuhsdfnsiwulacwkervhfnl gfds!",
+        image: '#',
+        video: '#',
+        gif: '#',
+        retweetCount: 2585532,
+        favoritedCount: 65303
+    },
+    {
+        username: "Ashton",
+        text: "lorem ipsu fkdailjsdaijlfn di,a nhlfaki,dsnuanlfkiudjkaslvfds",
+        image: '#',
+        video: '#',
+        gif: '#',
+        retweetCount: 229484,
+        favoritedCount: 33345
+    },
+    {
+        username: "Beyonce",
+        text: "lorem ipsggoerisuliknavjfscdfvfavdvfdvdd s",
+        image: '#',
+        video: '#',
+        gif: '#',
+        retweetCount: 598092,
+        favoritedCount: 948274
     }
 ]
+
+export default test

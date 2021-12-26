@@ -1,19 +1,26 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './index.css'
 import TV from './pics/TV.png'
 import SelectBtn from './SelectBtn'
 import selectBtnData from './selectBtnData'
-
-console.log(selectBtnData)
- const newArray = selectBtnData.map(button => {
-     return <SelectBtn key={button.id} id={button.id} className={button.className} name={button.name} 
-     left={button.left} top={button.top}
-     />
-    })
-
-    console.log(newArray)
+import test from './test'
 
 export default function Showcase() {
+
+    const [show, setShow] = useState('')
+
+    function handleClick(event) {
+        event.preventDefault();
+        //setShow('')
+        setShow(test[0].text)
+    }
+    
+    const newArray = selectBtnData.map(button => {
+        return <SelectBtn key={button.id} id={button.id} className={button.className} name={button.name} 
+        left={button.left} top={button.top} onClick={handleClick}
+        />
+    })
+
     return (
         <div className="showcaseContainer"
         style={{
@@ -36,7 +43,9 @@ export default function Showcase() {
             
             <div>
                 <div className="showcaseResultContainer">
-                <div className="showcaseResult"></div>
+                <div className="showcaseResult">
+                    {show}
+                </div>
                 </div>
             </div>
         </div>
