@@ -17,6 +17,31 @@ export default function Showcase() {
         setShow('')
         setShow({username: test[1].username, text: test[1].text})
     }
+
+    function handleClickOprah(event) {
+        event.preventDefault();
+        setShow('')
+        setShow({username: test[0].username, text: test[0].text})
+    }
+
+    function handleClickReese(event) {
+        event.preventDefault();
+        setShow('')
+        setShow({username: test[2].username, text: test[2].text})
+    }
+
+    function handleClickAshton(event) {
+        event.preventDefault();
+        setShow('')
+        setShow({username: test[3].username, text: test[3].text})
+    }
+
+    function handleClickBeyonce(event) {
+        event.preventDefault();
+        setShow('')
+        setShow({username: test[4].username, text: test[4].text})
+    }
+    
     
     // const newButtonArray = selectBtnData.map(button => {
     //     return <SelectBtn key={button.id} id={button.id} className={button.className} name={button.name} 
@@ -65,6 +90,94 @@ export default function Showcase() {
                     borderRadius:'13px',
                 }}     
             >Keanu</button> 
+
+            <button
+                className="selectBtn"
+                onClick={handleClickOprah}
+                style={{
+                    left: "85px",
+                    top: "82px",
+                    cursor: 'pointer',
+                    margin: `0 .2em .2em .2em`,
+                    position: 'inline-block', 
+                    height: '32px', 
+                    width: '106px', 
+                    background: '#FFFFFF',
+                    fontSize: '.6rem',
+                    letterSpacing: '.1rem',
+                    textTransform: 'uppercase',
+                    lineHeight: '.8rem',
+                    border: '1px solid #000000',
+                    boxSizing: 'border-box',
+                    borderRadius:'13px',
+                }}     
+            >Oprah</button> 
+
+            <button
+                className="selectBtn"
+                onClick={handleClickReese}
+                style={{
+                    left: "85px",
+                    top: "82px",
+                    cursor: 'pointer',
+                    margin: `0 .2em .2em .2em`,
+                    position: 'inline-block', 
+                    height: '32px', 
+                    width: '106px', 
+                    background: '#FFFFFF',
+                    fontSize: '.6rem',
+                    letterSpacing: '.1rem',
+                    textTransform: 'uppercase',
+                    lineHeight: '.8rem',
+                    border: '1px solid #000000',
+                    boxSizing: 'border-box',
+                    borderRadius:'13px',
+                }}     
+            >Reese</button> 
+
+            <button
+                className="selectBtn"
+                onClick={handleClickAshton}
+                style={{
+                    left: "85px",
+                    top: "82px",
+                    cursor: 'pointer',
+                    margin: `0 .2em .2em .2em`,
+                    position: 'inline-block', 
+                    height: '32px', 
+                    width: '106px', 
+                    background: '#FFFFFF',
+                    fontSize: '.6rem',
+                    letterSpacing: '.1rem',
+                    textTransform: 'uppercase',
+                    lineHeight: '.8rem',
+                    border: '1px solid #000000',
+                    boxSizing: 'border-box',
+                    borderRadius:'13px',
+                }}     
+            >Ashton</button> 
+
+            <button
+                className="selectBtn"
+                onClick={handleClickBeyonce}
+                style={{
+                    left: "85px",
+                    top: "82px",
+                    cursor: 'pointer',
+                    margin: `0 .2em .2em .2em`,
+                    position: 'inline-block', 
+                    height: '32px', 
+                    width: '106px', 
+                    background: '#FFFFFF',
+                    fontSize: '.6rem',
+                    letterSpacing: '.1rem',
+                    textTransform: 'uppercase',
+                    lineHeight: '.8rem',
+                    border: '1px solid #000000',
+                    boxSizing: 'border-box',
+                    borderRadius:'13px',
+                }}     
+            >Beyonce</button> 
             
             
             <div>
