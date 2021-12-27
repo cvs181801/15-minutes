@@ -4,7 +4,9 @@ import TV from './pics/TV.png'
 import test from './test'
 import DOMpurify from 'dompurify'
 
-let clean = DOMpurify.sanitize() //getting started w DOM purify...
+function cleanData(userInput) {
+    return DOMpurify.sanitize(userInput)
+}   //need to add something to the html file as well to make this work!
 
 export default function Search() {
 
@@ -49,7 +51,7 @@ export default function Search() {
                     type="text"     
                     placeholder="Type search item here..."
                     value={inputValue}
-                    onChange={event=>setInputValue(event.target.value)}>
+                    onChange={event=>setInputValue(cleanData(event.target.value))}>
                 </input>
             </div>
             <div className="searchResultContainer">
