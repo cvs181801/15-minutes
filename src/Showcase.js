@@ -3,24 +3,26 @@ import './index.css'
 import TV from './pics/TV.png'
 import SelectBtn from './SelectBtn'
 import selectBtnData from './selectBtnData'
+import ShowcaseResult from './ShowcaseResult'
 import test from './test'
+
+console.log(selectBtnData.top)
 
 export default function Showcase() {
 
     const [show, setShow] = useState('')
 
-    function handleClick(event) {
+    function handleClickKeanu(event) {
         event.preventDefault();
-        console.log("hi")
-        //setShow('')
-        setShow(test[0].username)
+        setShow('')
+        setShow({username: test[1].username, text: test[1].text})
     }
     
-    const newButtonArray = selectBtnData.map(button => {
-        return <SelectBtn key={button.id} id={button.id} className={button.className} name={button.name} 
-        left={button.left} top={button.top} onClick={handleClick}
-        />
-    })
+    // const newButtonArray = selectBtnData.map(button => {
+    //     return <SelectBtn key={button.id} id={button.id} className={button.className} name={button.name} 
+    //     left={button.left} top={button.top} onClick={handleClick}
+    //     />
+    // })
 
     return (
         <div className="showcaseContainer"
@@ -38,14 +40,39 @@ export default function Showcase() {
         >
             <div
                 className="showcaseBtnsContainer"
-            >{newButtonArray}
+            >
+                {/* {newButtonArray} */}
             </div>
+
+            <button
+                className="selectBtn"
+                onClick={handleClickKeanu}
+                style={{
+                    left: "85px",
+                    top: "82px",
+                    cursor: 'pointer',
+                    margin: `0 .2em .2em .2em`,
+                    position: 'inline-block', 
+                    height: '32px', 
+                    width: '106px', 
+                    background: '#FFFFFF',
+                    fontSize: '.6rem',
+                    letterSpacing: '.1rem',
+                    textTransform: 'uppercase',
+                    lineHeight: '.8rem',
+                    border: '1px solid #000000',
+                    boxSizing: 'border-box',
+                    borderRadius:'13px',
+                }}     
+            >Keanu</button> 
             
             
             <div>
                 <div className="showcaseResultContainer">
                 <div className="showcaseResult">
-                    {/* this is where the result will render */}
+                    <ShowcaseResult
+                        result={show}
+                    />
                 </div>
                 </div>
             </div>

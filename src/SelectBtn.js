@@ -2,21 +2,11 @@ import React, {useState} from 'react'
 import './index.css'
 
 export default function SelectBtn(props) {
-    console.log(props)
 
-    const [show, setShow] = useState('')
-
-    function handleClick(event) {
-        event.preventDefault();
-        console.log("hi")
-        //setShow('')
-        setShow('Hi')
-    }
 
     return (
         <div>
             <button
-                onClick={props.handleClick}
                 style={{
                     position: 'inline-block', 
                     height: '32px', 
@@ -29,8 +19,8 @@ export default function SelectBtn(props) {
                     border: '1px solid #000000',
                     boxSizing: 'border-box',
                     borderRadius:'13px',
-                    // top: `${props.top}`,
-                    // left: `${props.left}`,
+                    top: `${props.top}`,
+                    left: `${props.left}`,
                     cursor: 'pointer',
                     margin: `0 .2em .2em .2em`
                 }}>
