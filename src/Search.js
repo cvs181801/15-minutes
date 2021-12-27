@@ -8,6 +8,14 @@ function cleanData(userInput) {
     return DOMpurify.sanitize(userInput)
 }   //need to add something to the html file as well to make this work!
 
+let searchByContentArray = [];
+test.forEach((object) => {
+    //console.log((Object.values(object)))
+    [...(Object.values(object))]
+
+})
+
+
 export default function Search() {
 
     const [searchresult, setSearchresult] = useState('')
