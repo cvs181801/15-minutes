@@ -15,8 +15,16 @@ export default function Search() {
 
     function handleClickUser() {
         setSearchresult('')
-        //console.log(test.find(element => element == {username: inputValue}))
-        setSearchresult('Hi')
+        test.forEach(object => {
+            if(object.username === inputValue) {
+                setSearchresult({
+                    username: object.username,
+                    text: object.text,
+                    retweetCount: object.retweetCount,
+                    favoritedCount: object.favoritedCount
+                    })
+            }
+        })
     }
 
     function handleClickContent() {
