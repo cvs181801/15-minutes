@@ -8,12 +8,6 @@ function cleanData(userInput) {
     return DOMpurify.sanitize(userInput)
 }   //need to add something to the html file as well to make this work!
 
-let searchByContentArray = [];
-//let iterator = (Object.values(object));
-let objectArray = [];
-
-
-
 export default function Search() {
 
     const [searchresult, setSearchresult] = useState('')
@@ -29,15 +23,17 @@ export default function Search() {
         setSearchresult('')
         test.forEach((object) => {
             if(Object.values(object).includes("Oprah")) {
-                 setSearchresult({username: object.username,
+                 setSearchresult({
+                                username: object.username,
                                 text: object.text,
                                 retweetCount: object.retweetCount,
                                 favoritedCount: object.favoritedCount
-                            })
-                 console.log(searchresult)
-            }
-         })
-    }
+                                })
+                            }
+                        })
+                    }
+
+    console.log(searchresult.username)
 
     return (
         <div className="searchContainer"
@@ -70,7 +66,13 @@ export default function Search() {
                 </input>
             </div>
             <div className="searchResultContainer">
-                {/* <div className="searchResult">{searchresult}</div> */}
+                <div className="searchResult">
+                    <p>{searchresult.username}</p>
+                    <p>{searchresult.text}</p>
+                    <p>Favorited: {searchresult.favoritedCount}</p>
+                    <p>Retweeted: {searchresult.retweetCount}</p>
+                </div> 
+
             </div>
         </div>
     )
