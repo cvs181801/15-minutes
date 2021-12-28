@@ -9,11 +9,9 @@ function cleanData(userInput) {
 }   //need to add something to the html file as well to make this work!
 
 let searchByContentArray = [];
-test.forEach((object) => {
-    //console.log((Object.values(object)))
-    [...(Object.values(object))]
+//let iterator = (Object.values(object));
+let objectArray = [];
 
-})
 
 
 export default function Search() {
@@ -29,7 +27,16 @@ export default function Search() {
 
     function handleClickContent() {
         setSearchresult('')
-        setSearchresult('Yo')
+        test.forEach((object) => {
+            if(Object.values(object).includes("Oprah")) {
+                 setSearchresult({username: object.username,
+                                text: object.text,
+                                retweetCount: object.retweetCount,
+                                favoritedCount: object.favoritedCount
+                            })
+                 console.log(searchresult)
+            }
+         })
     }
 
     return (
@@ -63,7 +70,7 @@ export default function Search() {
                 </input>
             </div>
             <div className="searchResultContainer">
-                <div className="searchResult">{searchresult}</div>
+                {/* <div className="searchResult">{searchresult}</div> */}
             </div>
         </div>
     )
