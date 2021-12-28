@@ -15,14 +15,14 @@ export default function Search() {
 
     function handleClickUser() {
         setSearchresult('')
-        console.log(test.find(element => element == {username: inputValue}))
+        //console.log(test.find(element => element == {username: inputValue}))
         setSearchresult('Hi')
     }
 
     function handleClickContent() {
         setSearchresult('')
         test.forEach((object) => {
-            if(Object.values(object).includes("Oprah")) {
+            if(Object.values(object).includes(inputValue)) {
                  setSearchresult({
                                 username: object.username,
                                 text: object.text,
