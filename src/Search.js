@@ -12,6 +12,7 @@ export default function Search() {
 
     const [searchresult, setSearchresult] = useState('')
     const [inputValue, setInputValue] = useState('')
+    const [errorValue, setErrorValue] = useState(false)
 
     function handleClickUser() {
         setSearchresult('')
@@ -23,6 +24,9 @@ export default function Search() {
                     retweetCount: object.retweetCount,
                     favoritedCount: object.favoritedCount
                     })
+            } else {
+                setErrorValue(true)
+
             }
         })
     }
@@ -79,6 +83,7 @@ export default function Search() {
                     <p>{searchresult.text}</p>
                     <p>Favorited: {searchresult.favoritedCount}</p>
                     <p>Retweeted: {searchresult.retweetCount}</p>
+                    <p>{errorValue ? "I couldn't find anyone Twitter by that username.  Please try again :) " : ''}</p>
                 </div> 
 
             </div>
