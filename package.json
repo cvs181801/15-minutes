@@ -36,5 +36,21 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cvs181801/15-minutes.git"
+  },
+  "keywords": [
+    "15-minutes"
+  ],
+  "author": "Cas Spicer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cvs181801/15-minutes/issues"
+  },
+  "homepage": "https://github.com/cvs181801/15-minutes#readme"
 }
