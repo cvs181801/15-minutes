@@ -4,9 +4,7 @@ import TV from './pics/TV.png'
 import SelectBtn from './SelectBtn'
 import selectBtnData from './selectBtnData'
 import ShowcaseResult from './ShowcaseResult'
-import test from './test'
-
-console.log(selectBtnData.top)
+//import test from './test'
 
 export default function Showcase() {
 
@@ -89,7 +87,7 @@ export default function Showcase() {
                     boxSizing: 'border-box',
                     borderRadius:'13px',
                 }}     
-        >   Gaga</button> 
+            >Gaga</button> 
 
             <button
                 className="selectBtn"
