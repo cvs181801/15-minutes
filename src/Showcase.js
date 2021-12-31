@@ -12,7 +12,7 @@ export default function Showcase() {
 
     const [show, setShow] = useState('')
 
-    function handleClickKeanu(event) {
+    function handleClickGaga(event) {
         event.preventDefault();
         setShow('')
         setShow({username: test[1].username, text: test[1].text})
@@ -71,7 +71,7 @@ export default function Showcase() {
 
             <button
                 className="selectBtn"
-                onClick={handleClickKeanu}
+                onClick={handleClickGaga}
                 style={{
                     left: "85px",
                     top: "82px",
@@ -89,7 +89,7 @@ export default function Showcase() {
                     boxSizing: 'border-box',
                     borderRadius:'13px',
                 }}     
-            >Keanu</button> 
+        >   Gaga</button> 
 
             <button
                 className="selectBtn"

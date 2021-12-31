@@ -1,8 +1,8 @@
 const selectBtnData = [
     {
         className: "selectBtn",
-        id: "keanu",
-        name: "Keanu",
+        id: "gaga",
+        name: "Gaga",
         width: "106px",
         height: "32px",
         left: "85px",
