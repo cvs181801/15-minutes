@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './index.css'
 import TV from './pics/TV.png'
 import SelectBtn from './SelectBtn'
@@ -9,44 +9,36 @@ import ShowcaseResult from './ShowcaseResult'
 export default function Showcase() {
 
     const [show, setShow] = useState('')
+    const [buttonpushed, setButtonpushed] = useState(false)
 
     function handleClickGaga(event) {
-        event.preventDefault();
-        setShow('')
-        fetch('/api/showcasedata')
-            .then(response => response.json)
-            .then(jsonData => {
-                console.log(jsonData)
-            })
-      
-        //setShow({username: test[1].username, text: test[1].text})
+        event.preventDefault(); 
+        setButtonpushed(true) 
     }
 
     function handleClickOprah(event) {
         event.preventDefault();
-        setShow('')
+        setButtonpushed(true) 
         
         //setShow({username: test[0].username, text: test[0].text})
     }
 
     function handleClickReese(event) {
         event.preventDefault();
-        setShow('')
-        
+        setButtonpushed(true) 
         //setShow({username: test[2].username, text: test[2].text})
     }
 
     function handleClickAshton(event) {
         event.preventDefault();
-        setShow('')
+        setButtonpushed(true) 
 
         //setShow({username: test[3].username, text: test[3].text})
     }
 
     function handleClickBeyonce(event) {
         event.preventDefault();
-        setShow('')
-     
+        setButtonpushed(true) 
         //setShow({username: test[4].username, text: test[4].text})
     }
     
@@ -56,6 +48,21 @@ export default function Showcase() {
     //     left={button.left} top={button.top} onClick={handleClick}
     //     />
     // })
+
+
+    useEffect(()=> {
+        if (buttonpushed) {
+            setShow('')
+                fetch('/api/showcasedata')
+                    .then(response => response.json)
+                    .then(jsonData => {
+                        console.log(jsonData)
+                        //setShow({jsonData})
+                        //setShowcleared(false)  
+                    })
+                setButtonpushed(false)
+            }
+        }, [buttonpushed])   
 
     return (
         <div className="showcaseContainer"
