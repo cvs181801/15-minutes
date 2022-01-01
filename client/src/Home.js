@@ -16,6 +16,7 @@ export default function Home() {
                     <br/>
                     Select ‘Go to Showcase’ to browse tweets from celebrities using their fame for good.</p>
                 </div>
+                <p>Why did I build this?  Read the blog post here.</p>
             </div>
         </div>
     )

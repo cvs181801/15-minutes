@@ -13,31 +13,41 @@ export default function Showcase() {
     function handleClickGaga(event) {
         event.preventDefault();
         setShow('')
-        setShow({username: test[1].username, text: test[1].text})
+        fetch('/api/showcasedata')
+            .then(response => response.json)
+            .then(jsonData => {
+                console.log(jsonData)
+            })
+      
+        //setShow({username: test[1].username, text: test[1].text})
     }
 
     function handleClickOprah(event) {
         event.preventDefault();
         setShow('')
-        setShow({username: test[0].username, text: test[0].text})
+        
+        //setShow({username: test[0].username, text: test[0].text})
     }
 
     function handleClickReese(event) {
         event.preventDefault();
         setShow('')
-        setShow({username: test[2].username, text: test[2].text})
+        
+        //setShow({username: test[2].username, text: test[2].text})
     }
 
     function handleClickAshton(event) {
         event.preventDefault();
         setShow('')
-        setShow({username: test[3].username, text: test[3].text})
+
+        //setShow({username: test[3].username, text: test[3].text})
     }
 
     function handleClickBeyonce(event) {
         event.preventDefault();
         setShow('')
-        setShow({username: test[4].username, text: test[4].text})
+     
+        //setShow({username: test[4].username, text: test[4].text})
     }
     
     
@@ -187,6 +197,7 @@ export default function Showcase() {
                 </div>
                 </div>
             </div>
+                <p>Why did I build this?  Read the blog post here.</p>
         </div>
     )
 }

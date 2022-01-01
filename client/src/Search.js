@@ -6,7 +6,7 @@ import DOMpurify from 'dompurify'
 
 function cleanData(userInput) {
     return DOMpurify.sanitize(userInput)
-}   //need to add something to the html file as well to make this work!
+}   
 
 export default function Search() {
 
@@ -85,7 +85,7 @@ export default function Search() {
                     <p>Retweeted: {searchresult.retweetCount}</p>
                     <p>{errorValue ? "I couldn't find anyone Twitter by that username.  Please try again :) " : ''}</p>
                 </div> 
-
+                    <p>Why did I build this?  Read the blog post here.</p> 
             </div>
         </div>
     )
