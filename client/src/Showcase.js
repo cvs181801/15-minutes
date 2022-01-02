@@ -54,7 +54,7 @@ export default function Showcase() {
         if (buttonpushed) {
             setShow('')
                 fetch('/api/showcasedata')
-                    .then(response => response.json)
+                    .then(response => response.json())
                     .then(jsonData => {
                         console.log(jsonData)
                         //setShow({jsonData})

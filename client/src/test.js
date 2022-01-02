@@ -9,7 +9,7 @@ const test = [
         favoritedCount: 1759373
     },
     {
-        username: "Keanu",
+        username: "Gaga",
         text: "lorem ipsumk fhdajkhlskd akljfdhakdkal hfdhjdahl afw df l",
         image: '#',
         video: '#',

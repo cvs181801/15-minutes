@@ -19,7 +19,7 @@ app.listen(port, () => {
 
 const showcaseData = [
     {
-        username: "Oprah",
+        username: "Oprahserver",
         text: "lorem ipsum ;olijalekdijacns isu,danfl;djlnfiv udjlsacisjd!!!",
         image: '#',
         video: '#',
@@ -28,7 +28,7 @@ const showcaseData = [
         favoritedCount: 1759373
     },
     {
-        username: "Keanu",
+        username: "Gagaserver",
         text: "lorem ipsumk fhdajkhlskd akljfdhakdkal hfdhjdahl afw df l",
         image: '#',
         video: '#',
@@ -37,7 +37,7 @@ const showcaseData = [
         favoritedCount: 32407 
     },
     {
-        username: "Reese",
+        username: "Reeseserver",
         text: "lorem ipsum ,dsakuhsdfnsiwulacwkervhfnl gfds!",
         image: '#',
         video: '#',
@@ -46,7 +46,7 @@ const showcaseData = [
         favoritedCount: 65303
     },
     {
-        username: "Ashton",
+        username: "Ashtonserver",
         text: "lorem ipsu fkdailjsdaijlfn di,a nhlfaki,dsnuanlfkiudjkaslvfds",
         image: '#',
         video: '#',
@@ -55,7 +55,7 @@ const showcaseData = [
         favoritedCount: 33345
     },
     {
-        username: "Beyonce",
+        username: "Beyonceserver",
         text: "lorem ipsggoerisuliknavjfscdfvfavdvfdvdd s",
         image: '#',
         video: '#',
