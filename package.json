@@ -9,24 +9,6 @@
   "scripts": {
     "dev": "nodemon server.js & npm run watch --prefix client"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "server.js",
   "repository": {
@@ -40,8 +22,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/cvs181801/15-minutes/issues"
-  },
-  "devDependencies": {
-    "cra-build-watch": "^3.4.0"
   }
 }

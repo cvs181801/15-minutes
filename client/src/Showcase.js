@@ -53,7 +53,7 @@ export default function Showcase() {
     useEffect(()=> {
         if (buttonpushed) {
             setShow('')
-                fetch('https://jsonplaceholder.typicode.com/todos/1')
+                fetch('/api/showcasedata')
                     .then(response => response.json())
                     .then(jsonData => {
                         console.log(jsonData)
