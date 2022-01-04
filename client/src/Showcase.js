@@ -53,12 +53,13 @@ export default function Showcase() {
     useEffect(()=> {
         if (buttonpushed) {
             setShow('')
-                fetch('/api/showcasedata')
+                fetch('https://jsonplaceholder.typicode.com/todos/1')
                     .then(response => response.json())
                     .then(jsonData => {
                         console.log(jsonData)
                         //setShow({jsonData})
                         //setShowcleared(false)  
+                        
                     })
                 setButtonpushed(false)
             }
@@ -88,10 +89,10 @@ export default function Showcase() {
                 className="selectBtn"
                 onClick={handleClickGaga}
                 style={{
-                    left: "85px",
-                    top: "82px",
+                    // left: "85px",
+                    // top: "82px",
                     cursor: 'pointer',
-                    margin: `0 .2em .2em .2em`,
+                    margin: `0 .2em 1em .2em`,
                     position: 'inline-block', 
                     height: '32px', 
                     width: '106px', 
@@ -110,10 +111,10 @@ export default function Showcase() {
                 className="selectBtn"
                 onClick={handleClickOprah}
                 style={{
-                    left: "85px",
-                    top: "82px",
+                    // left: "85px",
+                    // top: "82px",
                     cursor: 'pointer',
-                    margin: `0 .2em .2em .2em`,
+                    margin: `0 .2em 1em .2em`,
                     position: 'inline-block', 
                     height: '32px', 
                     width: '106px', 
@@ -132,10 +133,10 @@ export default function Showcase() {
                 className="selectBtn"
                 onClick={handleClickReese}
                 style={{
-                    left: "85px",
-                    top: "82px",
+                    // left: "85px",
+                    // top: "82px",
                     cursor: 'pointer',
-                    margin: `0 .2em .2em .2em`,
+                    margin: `0 .2em 1em .2em`,
                     position: 'inline-block', 
                     height: '32px', 
                     width: '106px', 
@@ -154,10 +155,10 @@ export default function Showcase() {
                 className="selectBtn"
                 onClick={handleClickAshton}
                 style={{
-                    left: "85px",
-                    top: "82px",
+                    // left: "85px",
+                    // top: "82px",
                     cursor: 'pointer',
-                    margin: `0 .2em .2em .2em`,
+                    margin: `0 .2em 1em .2em`,
                     position: 'inline-block', 
                     height: '32px', 
                     width: '106px', 
@@ -176,10 +177,10 @@ export default function Showcase() {
                 className="selectBtn"
                 onClick={handleClickBeyonce}
                 style={{
-                    left: "85px",
-                    top: "82px",
+                    // left: "85px",
+                    // top: "82px",
                     cursor: 'pointer',
-                    margin: `0 .2em .2em .2em`,
+                    margin: `0 .2em 1em .2em`,
                     position: 'inline-block', 
                     height: '32px', 
                     width: '106px', 
