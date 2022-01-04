@@ -9,36 +9,36 @@ import ShowcaseResult from './ShowcaseResult'
 export default function Showcase() {
 
     const [show, setShow] = useState('')
-    const [buttonpushed, setButtonpushed] = useState(false)
+    const [buttonpushed, setButtonpushed] = useState('')
 
     function handleClickGaga(event) {
         event.preventDefault(); 
-        setButtonpushed(true) 
+        setButtonpushed('gaga') 
     }
 
     function handleClickOprah(event) {
         event.preventDefault();
-        setButtonpushed(true) 
+        setButtonpushed('oprah') 
         
         //setShow({username: test[0].username, text: test[0].text})
     }
 
     function handleClickReese(event) {
         event.preventDefault();
-        setButtonpushed(true) 
+        setButtonpushed('reese') 
         //setShow({username: test[2].username, text: test[2].text})
     }
 
     function handleClickAshton(event) {
         event.preventDefault();
-        setButtonpushed(true) 
+        setButtonpushed('ashton') 
 
         //setShow({username: test[3].username, text: test[3].text})
     }
 
     function handleClickBeyonce(event) {
         event.preventDefault();
-        setButtonpushed(true) 
+        setButtonpushed('beyonce') 
         //setShow({username: test[4].username, text: test[4].text})
     }
     
@@ -56,12 +56,38 @@ export default function Showcase() {
                 fetch('/api/showcasedata')
                     .then(response => response.json())
                     .then(jsonData => {
-                        console.log(jsonData)
-                        //setShow({jsonData})
-                        //setShowcleared(false)  
+                        
+                        if(buttonpushed === 'gaga') {
+                            setShow({
+                                username: jsonData[1].username,
+                                text: jsonData[1].text
+                            })
+                        } else if (buttonpushed === 'oprah') {
+                            setShow({
+                                username: jsonData[0].username,
+                                text: jsonData[0].text
+                            })
+                        } else if (buttonpushed === 'reese') {
+                            setShow({
+                                username: jsonData[2].username,
+                                text: jsonData[2].text
+                            }) 
+                        } else if (buttonpushed === 'ashton') {
+                            setShow({
+                                username: jsonData[3].username,
+                                text: jsonData[3].text
+                            })
+                        } else if (buttonpushed === 'beyonce') {
+                            setShow({
+                                username: jsonData[4].username,
+                                text: jsonData[4].text
+                            })
+                        }
+                        
+                        setButtonpushed(false)  
                         
                     })
-                setButtonpushed(false)
+                setButtonpushed('')
             }
         }, [buttonpushed])   
 
