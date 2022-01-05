@@ -8,6 +8,11 @@ import Home from './Home'
 function App() {
 
 const [color, setColor] = useState('black')
+const [textShadow, setTextShadow] = useState('')
+
+function handleHover() {
+  setTextShadow(`indigo -2px -2px`)
+} //need to find a way to integrate both color effects into single function
 
   return (
     <BrowserRouter>
@@ -17,7 +22,8 @@ const [color, setColor] = useState('black')
         <Link to="/search"
           style={{
             color: `${color}`,
-            textDecoration: 'none'
+            textDecoration: 'none',
+            textShadow: `${textShadow}`
           }}
           onMouseEnter={()=>setColor('magenta')}
           onMouseLeave={()=>setColor('black')}
@@ -26,7 +32,8 @@ const [color, setColor] = useState('black')
         <Link to="/"
           style={{
             color: `${color}`,
-            textDecoration: 'none'
+            textDecoration: 'none',
+            textShadow: `${textShadow}`
           }}
           onMouseEnter={()=>setColor('magenta')}
           onMouseLeave={()=>setColor('black')}
@@ -34,7 +41,8 @@ const [color, setColor] = useState('black')
         <Link to="/showcase"
           style={{
             color: `${color}`,
-            textDecoration: 'none'
+            textDecoration: 'none',
+            textShadow: `${textShadow}`
           }}
           onMouseEnter={()=>setColor('magenta')}
           onMouseLeave={()=>setColor('black')}
