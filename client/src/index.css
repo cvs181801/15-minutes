@@ -147,7 +147,8 @@ body {
   }
 
   .contentContainer {
-    font-size: 1rem;
+    font-size: 1.3rem;
+    text-shadow: white -3px -3px;
   }
 
 

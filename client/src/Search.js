@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import './index.css'
 import TV from './pics/TV.png'
-import test from './test'
+//import test from './test'
 import DOMpurify from 'dompurify'
+import { json } from 'express'
 
 function cleanData(userInput) {
     return DOMpurify.sanitize(userInput)
@@ -12,28 +13,35 @@ export default function Search() {
 
     const [searchresult, setSearchresult] = useState('')
     const [inputValue, setInputValue] = useState('')
-    const [errorValue, setErrorValue] = useState(false)
+    const [errorValueUser, setErrorValueUser] = useState(false)
+    const [errorValueContent, setErrorValueContent] = useState(false)
 
     function handleClickUser() {
         setSearchresult('')
-        test.forEach(object => {
-            if(object.username === inputValue) {
-                setSearchresult({
-                    username: object.username,
-                    text: object.text,
-                    retweetCount: object.retweetCount,
-                    favoritedCount: object.favoritedCount
-                    })
-            } else {
-                setErrorValue(true)
-
-            }
-        })
+        fetch('/api/showcasedata')
+                    .then(response => response.json())
+                    .then(jsonData => {
+            jsonData.forEach(object => {
+                if(object.username === inputValue) {
+                    setSearchresult({
+                        username: object.username,
+                        text: object.text,
+                        retweetCount: object.retweetCount,
+                        favoritedCount: object.favoritedCount
+                        })
+                } else {
+                    setErrorValue(true)
+                }
+            })
+    })
     }
 
     function handleClickContent() {
         setSearchresult('')
-        test.forEach((object) => {
+        fetch('/api/showcasedata')
+                    .then(response => response.json())
+                    .then(jsonData => {
+        jsonData.forEach((object) => {
             if(Object.values(object).includes(inputValue)) {
                  setSearchresult({
                                 username: object.username,
@@ -41,9 +49,12 @@ export default function Search() {
                                 retweetCount: object.retweetCount,
                                 favoritedCount: object.favoritedCount
                                 })
+                            } else {
+                                setErrorValueContent(true)
                             }
                         })
-                    }
+                    })
+                }
 
     console.log(searchresult.username)
 
@@ -81,11 +92,14 @@ export default function Search() {
                 <div className="searchResult">
                     <p>{searchresult.username}</p>
                     <p>{searchresult.text}</p>
-                    <p>Favorited: {searchresult.favoritedCount}</p>
-                    <p>Retweeted: {searchresult.retweetCount}</p>
-                    <p>{errorValue ? "I couldn't find anyone Twitter by that username.  Please try again :) " : ''}</p>
+                    {/* <p>Favorited: {searchresult.favoritedCount}</p>
+                    <p>Retweeted: {searchresult.retweetCount}</p> */}
+                    <p>Favorited: {searchresult.id}</p> 
+                    <p>Retweeted: {searchresult.title}</p>
+                    <p>{errorValueUser ? `I couldn't find anyone Twitter by that username.  Please try again :) ` : ``}</p>
+                    <p>{errorValueContent ? `We couldn't find anything under ${inputValue}, but you can shop for tomato soup here.` : ``}</p>
                 </div> 
-                    <p>Why did I build this?  Read the blog post here.</p> 
+                    <p>Why did I build this?  Read the blog post <a>here.</a></p> 
             </div>
         </div>
     )

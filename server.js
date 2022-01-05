@@ -1,4 +1,5 @@
 const express = require('express')
+const axios = require('axios')
 const app = express()
 const path = require('path')
 const port = 3001
@@ -10,7 +11,14 @@ app.get('/', (req, res) => {
 })
 
 app.get('/api/showcasedata', (req, res) => {
-    res.send(showcaseData)
+    axios.get('https://jsonplaceholder.typicode.com/todos/')
+        .then(function(response) {
+            console.log(response.data)
+            res.send(response.data)
+        })
+        .catch(function(error) {
+            console.log(error)
+        })
   })
 
 app.listen(port, () => {

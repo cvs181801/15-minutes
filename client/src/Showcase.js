@@ -59,28 +59,33 @@ export default function Showcase() {
                         
                         if(buttonpushed === 'gaga') {
                             setShow({
-                                username: jsonData[1].username,
-                                text: jsonData[1].text
+                                //username: jsonData[1].username,
+                                //text: jsonData[1].text
+                                text: jsonData[0].title //typicode
                             })
                         } else if (buttonpushed === 'oprah') {
                             setShow({
-                                username: jsonData[0].username,
-                                text: jsonData[0].text
+                                //username: jsonData[0].username,
+                                //text: jsonData[0].text
+                                text: jsonData[1].title //typicode
                             })
                         } else if (buttonpushed === 'reese') {
                             setShow({
-                                username: jsonData[2].username,
-                                text: jsonData[2].text
+                                //username: jsonData[2].username,
+                                //text: jsonData[2].text
+                                text: jsonData[2].title //typicode
                             }) 
                         } else if (buttonpushed === 'ashton') {
                             setShow({
-                                username: jsonData[3].username,
-                                text: jsonData[3].text
+                                //username: jsonData[3].username,
+                                //text: jsonData[3].text
+                                text: jsonData[3].title //typicode
                             })
                         } else if (buttonpushed === 'beyonce') {
                             setShow({
-                                username: jsonData[4].username,
-                                text: jsonData[4].text
+                                //username: jsonData[4].username,
+                                //text: jsonData[4].text
+                                text: jsonData[4].title //typicode
                             })
                         }
                         
