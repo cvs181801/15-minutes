@@ -3,7 +3,6 @@ import './index.css'
 import TV from './pics/TV.png'
 //import test from './test'
 import DOMpurify from 'dompurify'
-import { json } from 'express'
 
 function cleanData(userInput) {
     return DOMpurify.sanitize(userInput)
@@ -18,19 +17,22 @@ export default function Search() {
 
     function handleClickUser() {
         setSearchresult('')
+        setErrorValueContent(false)
         fetch('/api/showcasedata')
                     .then(response => response.json())
                     .then(jsonData => {
             jsonData.forEach(object => {
                 if(object.username === inputValue) {
                     setSearchresult({
-                        username: object.username,
-                        text: object.text,
-                        retweetCount: object.retweetCount,
-                        favoritedCount: object.favoritedCount
+                        // username: object.username,
+                        // text: object.text,
+                        // retweetCount: object.retweetCount,
+                        // favoritedCount: object.favoritedCount
+                        id: object.id,
+                        title: object.title
                         })
                 } else {
-                    setErrorValue(true)
+                    setErrorValueUser(true)
                 }
             })
     })
@@ -38,16 +40,19 @@ export default function Search() {
 
     function handleClickContent() {
         setSearchresult('')
+        setErrorValueUser(false)
         fetch('/api/showcasedata')
                     .then(response => response.json())
                     .then(jsonData => {
         jsonData.forEach((object) => {
             if(Object.values(object).includes(inputValue)) {
                  setSearchresult({
-                                username: object.username,
-                                text: object.text,
-                                retweetCount: object.retweetCount,
-                                favoritedCount: object.favoritedCount
+                                // username: object.username,
+                                // text: object.text,
+                                // retweetCount: object.retweetCount,
+                                // favoritedCount: object.favoritedCount
+                                id: object.id,
+                                title: object.title
                                 })
                             } else {
                                 setErrorValueContent(true)
@@ -96,7 +101,7 @@ export default function Search() {
                     <p>Retweeted: {searchresult.retweetCount}</p> */}
                     <p>Favorited: {searchresult.id}</p> 
                     <p>Retweeted: {searchresult.title}</p>
-                    <p>{errorValueUser ? `I couldn't find anyone Twitter by that username.  Please try again :) ` : ``}</p>
+                    <p>{errorValueUser ? `I couldn't find anyone Twitter by the username ${inputValue}.  May I recommend searching for Marilyn Monroe?` : ``}</p>
                     <p>{errorValueContent ? `We couldn't find anything under ${inputValue}, but you can shop for tomato soup here.` : ``}</p>
                 </div> 
                     <p>Why did I build this?  Read the blog post <a>here.</a></p> 
