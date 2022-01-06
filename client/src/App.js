@@ -10,50 +10,56 @@ function App() {
 const [color, setColor] = useState('black')
 const [textShadow, setTextShadow] = useState('')
 
-function handleHover() {
+function handleHoverOver() {
   setTextShadow(`indigo -2px -2px`)
-} //need to find a way to integrate both color effects into single function
+  setColor('magenta')
+} 
+
+function handleHoverOut() {
+  setTextShadow(``)
+  setColor('black')
+}
 
   return (
     <BrowserRouter>
     <div className="App">
      
       <div className="buttonsContainer">
-        <Link to="/search"
-          style={{
-            color: `${color}`,
-            textDecoration: 'none',
-            textShadow: `${textShadow}`
-          }}
-          onMouseEnter={()=>setColor('magenta')}
-          onMouseLeave={()=>setColor('black')}
-          
-        >Search Tweets</Link>  
-        <Link to="/"
-          style={{
-            color: `${color}`,
-            textDecoration: 'none',
-            textShadow: `${textShadow}`
-          }}
-          onMouseEnter={()=>setColor('magenta')}
-          onMouseLeave={()=>setColor('black')}
-        >Home</Link>  
-        <Link to="/showcase"
-          style={{
-            color: `${color}`,
-            textDecoration: 'none',
-            textShadow: `${textShadow}`
-          }}
-          onMouseEnter={()=>setColor('magenta')}
-          onMouseLeave={()=>setColor('black')}
-        >Go to Showcase</Link>  
-
+          <Link to="/search"
+            style={{
+              color: `${color}`,
+              textDecoration: 'none',
+              textShadow: `${textShadow}`
+            }}
+            onMouseEnter={handleHoverOver}
+            onMouseLeave={handleHoverOut}
+            
+          >Search Tweets</Link>  
+          <Link to="/"
+            style={{
+              color: `${color}`,
+              textDecoration: 'none',
+              textShadow: `${textShadow}`
+            }}
+            onMouseEnter={handleHoverOver}
+            onMouseLeave={handleHoverOut}
+          >Home</Link>  
+          <Link to="/showcase"
+            style={{
+              color: `${color}`,
+              textDecoration: 'none',
+              textShadow: `${textShadow}`
+            }}
+            onMouseEnter={handleHoverOver}
+            onMouseLeave={handleHoverOut}
+          >Go to Showcase</Link>  
+      </div>
         <Routes>
             <Route path="/search" element={<Search />} />
             <Route path="/showcase" element={<Showcase />} />
             <Route path="/" element={<Home />} />
         </Routes>
-      </div>
+      
     </div>
     </BrowserRouter>
   );
