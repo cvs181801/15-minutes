@@ -104,7 +104,7 @@ export default function Search() {
                     <p>{errorValueUser ? `I couldn't find anyone Twitter by the username ${inputValue}.  May I recommend searching for Marilyn Monroe?` : ``}</p>
                     <p>{errorValueContent ? `We couldn't find anything under ${inputValue}, but you can shop for tomato soup here.` : ``}</p>
                 </div> 
-                    <p>Why did I build this?  Read the blog post <a>here.</a></p> 
+                    <p>Why did I build this?  Read the blog post <a href="#">here.</a></p> 
             </div>
         </div>
     )

@@ -236,7 +236,7 @@ export default function Showcase() {
                 </div>
                 </div>
             </div>
-                <p>Why did I build this?  Read the blog post here.</p>
+                <p>Why did I build this?  Read the blog post <a href="#">here.</a></p>
         </div>
     )
 }
