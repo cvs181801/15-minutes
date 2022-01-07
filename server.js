@@ -20,22 +20,24 @@ app.get('/api/showcasedata', (req, res) => {
             console.log(error)
         })
   })
-  //
-app.get('/api/showcasedata', (req, res) => {
-    axios({
-        method: 'get',
-        url: 'https://api.twitter.com/1.1/search/tweets.json',
-        responseType: 'json',
-        apiKey: 'YSZPSjwpaIr6AkRCBiLWsmnpv',
-        bearerToken: 'AAAAAAAAAAAAAAAAAAAAAPly9QAAAAAA4lWlxqPUmC35m5sG1vTHRvo3Xa0%3DwOFnfodHB9uC67q5zL2IiEUdvHxbo81o09D46d5bZHQYcwqAWN'
-    })
-        .then(function (response) {
-            res.send(response.data)
-        })
-        .catch(function(error) {
-            console.log(error)
-        })
-})
+
+// draft!
+
+// app.get('/api/showcasedata', (req, res) => {
+//     axios({
+//         method: 'get',
+//         url: `https://api.twitter.com/1.1/search/tweets.jsonq=${req}&result_type=popular&count=10`,
+//         responseType: 'json',
+//         apiKey: 'YSZPSjwpaIr6AkRCBiLWsmnpv',
+//         bearerToken: 'AAAAAAAAAAAAAAAAAAAAAPly9QAAAAAA4lWlxqPUmC35m5sG1vTHRvo3Xa0%3DwOFnfodHB9uC67q5zL2IiEUdvHxbo81o09D46d5bZHQYcwqAWN'
+//     })
+//         .then(function (response) {
+//             res.send(response.data)
+//         })
+//         .catch(function(error) {
+//             console.log(error)
+//         })
+// })
   //
 
 app.listen(port, () => {
