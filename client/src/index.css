@@ -144,8 +144,6 @@ body {
   .searchResultContainer {
     width: 784px;
     height: 930px;
-    /* left: 21px;
-    top: 223px; */
   }
   .searchResult,
   .showcaseResult {
@@ -157,6 +155,7 @@ body {
     margin: 0 auto;
     width: 60%;
     height: 100%; 
+    font-weight: 700;
   }
   
   .showcaseResultContainer {

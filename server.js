@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/api/showcasedata', (req, res) => {
-    axios.get('https://jsonplaceholder.typicode.com/todos/')
+    axios.get('https://jsonplaceholder.typicode.com/todos/') 
         .then(function(response) {
             console.log(response.data)
             res.send(response.data)
@@ -20,6 +20,23 @@ app.get('/api/showcasedata', (req, res) => {
             console.log(error)
         })
   })
+  //
+app.get('/api/showcasedata', (req, res) => {
+    axios({
+        method: 'get',
+        url: 'https://api.twitter.com/1.1/search/tweets.json',
+        responseType: 'json',
+        apiKey: 'YSZPSjwpaIr6AkRCBiLWsmnpv',
+        bearerToken: 'AAAAAAAAAAAAAAAAAAAAAPly9QAAAAAA4lWlxqPUmC35m5sG1vTHRvo3Xa0%3DwOFnfodHB9uC67q5zL2IiEUdvHxbo81o09D46d5bZHQYcwqAWN'
+    })
+        .then(function (response) {
+            res.send(response.data)
+        })
+        .catch(function(error) {
+            console.log(error)
+        })
+})
+  //
 
 app.listen(port, () => {
   console.log(`Example app listening at hhttps://runkit.com/embed/savettp://localhost:${port}`)
