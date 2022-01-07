@@ -1,6 +1,6 @@
 import './index.css';
 import React, {useState} from 'react'
-import {BrowserRouter, Link, Router, Route, Routes} from "react-router-dom"
+import {BrowserRouter, NavLink, Router, Route, Routes} from "react-router-dom"
 import Showcase from './Showcase'
 import Search from './Search'
 import Home from './Home'
@@ -27,7 +27,7 @@ function handleHoverOver(event) {
 //  // setTextShadow(`indigo -2px -2px`)
 //  // setColor('magenta')
  setHovered('hoveredLink')
-  console.log(event.target)
+ 
  } 
 
  function handleHoverOut() {
@@ -41,7 +41,7 @@ function handleHoverOver(event) {
     <div className="App">
      
       <div className="buttonsContainer">
-          <Link to="/search"
+          <NavLink exact activeClassName="active" to="/search"
             //activeStyle={{color: 'green'}}
             //style={...css(style.MenuLink)}
             style={{
@@ -54,8 +54,8 @@ function handleHoverOver(event) {
             onMouseLeave={handleHoverOut}
             className= {hovered}
             
-          >Search Tweets</Link>  
-          <Link to="/"
+          >Search Tweets</NavLink>  
+          <NavLink exact activeClassName="active" to="/"
             style={{
               //color: `${color}`,
               textDecoration: 'none'
@@ -65,8 +65,8 @@ function handleHoverOver(event) {
             onMouseEnter={handleHoverOver}
             onMouseLeave={handleHoverOut}
             className= {hovered}
-          >Home</Link>  
-          <Link to="/showcase"
+          >Home</NavLink>  
+          <NavLink exact activeClassName="active" to="/showcase"
             style={{
               //color: `${color}`,
               textDecoration: 'none'
@@ -75,7 +75,7 @@ function handleHoverOver(event) {
             onMouseEnter={handleHoverOver}
             onMouseLeave={handleHoverOut}
             className= {hovered}
-          >Go to Showcase</Link>  
+          >Go to Showcase</NavLink>  
       </div>
         <Routes>
             <Route path="/search" element={<Search />} />

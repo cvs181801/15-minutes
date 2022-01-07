@@ -134,6 +134,12 @@ body {
   transition: all .5s ease-in-out;
 }
 
+.active {
+  color: magenta;
+  text-shadow: indigo -2px -2px;
+  transition: all .5s ease-in-out;
+}
+
 @media (min-width: 600px) {
   .container {
     width: 677px;
