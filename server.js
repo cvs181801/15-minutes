@@ -11,8 +11,7 @@ app.get('/', (req, res) => {
 })
 
 const headers = {
-    'api_key': 'YSZPSjwpaIr6AkRCBiLWsmnpv',
-    'token': 'Bearer AAAAAAAAAAAAAAAAAAAAAPly9QAAAAAA4lWlxqPUmC35m5sG1vTHRvo3Xa0%3DwOFnfodHB9uC67q5zL2IiEUdvHxbo81o09D46d5bZHQYcwqAWN'
+    Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAAPly9QAAAAAA4lWlxqPUmC35m5sG1vTHRvo3Xa0%3DwOFnfodHB9uC67q5zL2IiEUdvHxbo81o09D46d5bZHQYcwqAWN'
 }
 
 app.get('/api/searchdata', (req, res) => {
@@ -30,50 +29,4 @@ app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
 
-// const showcaseData = [
-//     {
-//         username: "Oprahserver",
-//         text: "lorem ipsum ;olijalekdijacns isu,danfl;djlnfiv udjlsacisjd!!!",
-//         image: '#',
-//         video: '#',
-//         gif: '#',
-//         retweetCount: 4996832,
-//         favoritedCount: 1759373
-//     },
-//     {
-//         username: "Gagaserver",
-//         text: "lorem ipsumk fhdajkhlskd akljfdhakdkal hfdhjdahl afw df l",
-//         image: '#',
-//         video: '#',
-//         gif: '#',
-//         retweetCount: 6994732,
-//         favoritedCount: 32407 
-//     },
-//     {
-//         username: "Reeseserver",
-//         text: "lorem ipsum ,dsakuhsdfnsiwulacwkervhfnl gfds!",
-//         image: '#',
-//         video: '#',
-//         gif: '#',
-//         retweetCount: 2585532,
-//         favoritedCount: 65303
-//     },
-//     {
-//         username: "Ashtonserver",
-//         text: "lorem ipsu fkdailjsdaijlfn di,a nhlfaki,dsnuanlfkiudjkaslvfds",
-//         image: '#',
-//         video: '#',
-//         gif: '#',
-//         retweetCount: 229484,
-//         favoritedCount: 33345
-//     },
-//     {
-//         username: "Beyonceserver",
-//         text: "lorem ipsggoerisuliknavjfscdfvfavdvfdvdd s",
-//         image: '#',
-//         video: '#',
-//         gif: '#',
-//         retweetCount: 598092,
-//         favoritedCount: 948274
-//     }
-// ]
+

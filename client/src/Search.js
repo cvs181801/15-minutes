@@ -20,21 +20,21 @@ export default function Search() {
         fetch('/api/searchdata')
                     .then(response => response.json())
                     .then(jsonData => {
-            jsonData.forEach(object => {
-                if(object.username === inputValue) {
-                    setSearchresult({
+                        console.log(jsonData)
+            //jsonData.forEach(object => {
+                //if(object.username === inputValue) {
+
+                    //setSearchresult({
                         // username: object.username,
                         // text: object.text,
                         // retweetCount: object.retweetCount,
                         // favoritedCount: object.favoritedCount
-                        id: object.id,
-                        title: object.title
-                        })
-                } else {
-                    setErrorValueUser(true)
-                }
-            })
-    })
+                        //})
+                //} else {
+                    //setErrorValueUser(true)
+                //}
+            //})
+        })
     }
 
     function handleClickContent() {
@@ -43,21 +43,20 @@ export default function Search() {
         fetch('/api/searchdata')
                     .then(response => response.json())
                     .then(jsonData => {
-        jsonData.forEach((object) => {
-            if(Object.values(object).includes(inputValue)) {
-                 setSearchresult({
+                        console.log(jsonData)
+        //jsonData.forEach((object) => {
+            //if(Object.values(object).includes(inputValue)) {
+                 //setSearchresult({
                                 // username: object.username,
                                 // text: object.text,
                                 // retweetCount: object.retweetCount,
                                 // favoritedCount: object.favoritedCount
-                                id: object.id,
-                                title: object.title
-                                })
-                            } else {
-                                setErrorValueContent(true)
-                            }
-                        })
-                    })
+                    //             })
+                    //         } else {
+                    //             setErrorValueContent(true)
+                    //         }
+                    //     })
+                     })
                 }
 
     console.log(searchresult.username)
