@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import './index.css'
 import TV from './pics/TV.png'
 import DOMpurify from 'dompurify'
+import axios from 'axios'
 
 function cleanData(userInput) {
     return DOMpurify.sanitize(userInput)
@@ -14,10 +15,12 @@ export default function Search() {
     const [errorValueUser, setErrorValueUser] = useState(false)
     const [errorValueContent, setErrorValueContent] = useState(false)
 
+    //need to make inputValue more secure - user can only input string etc
+
     function handleClickUser() {
         setSearchresult('')
         setErrorValueContent(false)
-        fetch('/api/searchdata')
+        const search = await axios.get(`/api/searchdata?search=${inputValue}`)
                     .then(response => response.json())
                     .then(jsonData => {
                         console.log(jsonData)
@@ -59,7 +62,6 @@ export default function Search() {
                      })
                 }
 
-    console.log(searchresult.username)
 
     return (
         <div className="searchContainer"

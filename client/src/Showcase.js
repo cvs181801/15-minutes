@@ -4,7 +4,7 @@ import TV from './pics/TV.png'
 import SelectBtn from './SelectBtn'
 import selectBtnData from './selectBtnData'
 import ShowcaseResult from './ShowcaseResult'
-//import test from './test'
+import axios from 'axios'
 
 export default function Showcase() {
 
