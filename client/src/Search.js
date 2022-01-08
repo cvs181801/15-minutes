@@ -20,7 +20,6 @@ export default function Search() {
 async function searchUser() {  
     try {
         var search = await axios.get(`/api/searchdata?search=${inputValue}`)
-        console.log(search)
         return search
     }
     catch(err){
@@ -47,7 +46,12 @@ function handleClickUser() {
         setErrorValueContent(false)
             searchUser() 
                 .then(res=>{
-                    console.log(res)
+                    console.log(res.data.statuses)
+                    let tweetsArray = res.data.statuses;
+                    tweetsArray.forEach(tweet=>{
+                        setSearchresult({...prevTweet,
+                            text: tweet.text})
+                    })
                 })
     
 }
@@ -55,10 +59,10 @@ function handleClickUser() {
     function handleClickContent() {
         setSearchresult('')
         setErrorValueUser(false)
-        fetch('/api/searchdata')
-                    .then(response => response.json())
-                    .then(jsonData => {
-                        console.log(jsonData)
+            searchUser() 
+                .then(res=>{
+                    console.log(res.data)
+                })
         //jsonData.forEach((object) => {
             //if(Object.values(object).includes(inputValue)) {
                  //setSearchresult({
@@ -71,7 +75,7 @@ function handleClickUser() {
                     //             setErrorValueContent(true)
                     //         }
                     //     })
-                     })
+                     
                 }
 
 
@@ -107,12 +111,10 @@ function handleClickUser() {
             </div>
             <div className="searchResultContainer">
                 <div className="searchResult">
-                    <p>{searchresult.username}</p>
                     <p>{searchresult.text}</p>
-                    {/* <p>Favorited: {searchresult.favoritedCount}</p>
-                    <p>Retweeted: {searchresult.retweetCount}</p> */}
-                    <p>Favorited: {searchresult.id}</p> 
-                    <p>Retweeted: {searchresult.title}</p>
+                    <p>Favorited: {searchresult.favoritedCount}</p>
+                    <p>Retweeted: {searchresult.retweetCount}</p>
+                    
                     <p>{errorValueUser ? `I couldn't find anyone Twitter by the username ${inputValue}.  May I recommend searching for Marilyn Monroe?` : ``}</p>
                     <p>{errorValueContent ? `We couldn't find anything under ${inputValue}, but you can shop for tomato soup here.` : ``}</p>
                 </div> 
