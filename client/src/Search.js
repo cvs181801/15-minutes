@@ -17,28 +17,40 @@ export default function Search() {
 
     //need to make inputValue more secure - user can only input string etc
 
-    function handleClickUser() {
+async function searchUser() {  
+    try {
+        var search = await axios.get(`/api/searchdata?search=${inputValue}`)
+        console.log(search)
+        return search
+    }
+    catch(err){
+        console.log(err)
+    }
+    
+//jsonData.forEach(object => {
+//if(object.username === inputValue) {
+
+//setSearchresult({
+    // username: object.username,
+    // text: object.text,
+    // retweetCount: object.retweetCount,
+    // favoritedCount: object.favoritedCount
+    //})
+//} else {
+//setErrorValueUser(true)
+//}
+//})
+}
+
+function handleClickUser() {
         setSearchresult('')
         setErrorValueContent(false)
-        const search = await axios.get(`/api/searchdata?search=${inputValue}`)
-                    .then(response => response.json())
-                    .then(jsonData => {
-                        console.log(jsonData)
-            //jsonData.forEach(object => {
-                //if(object.username === inputValue) {
-
-                    //setSearchresult({
-                        // username: object.username,
-                        // text: object.text,
-                        // retweetCount: object.retweetCount,
-                        // favoritedCount: object.favoritedCount
-                        //})
-                //} else {
-                    //setErrorValueUser(true)
-                //}
-            //})
-        })
-    }
+            searchUser() 
+                .then(res=>{
+                    console.log(res)
+                })
+    
+}
 
     function handleClickContent() {
         setSearchresult('')

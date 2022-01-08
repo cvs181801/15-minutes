@@ -16,6 +16,7 @@ const headers = {
 
 app.get('/api/searchdata', async (req, res) => {
     const {search} = req.query;
+    console.log(search)
     const response = await axios.get(`https://api.twitter.com/1.1/search/tweets.json?q=${search}&result_type=popular&count=10`, {headers})
         .then(function (response) {
             console.log(response.data)
@@ -24,6 +25,7 @@ app.get('/api/searchdata', async (req, res) => {
         .catch(function(error) {
             console.log(error)
          })
+       
     })    
 
 app.listen(port, () => {
