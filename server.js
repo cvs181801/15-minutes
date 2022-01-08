@@ -14,8 +14,9 @@ const headers = {
     Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAAPly9QAAAAAA4lWlxqPUmC35m5sG1vTHRvo3Xa0%3DwOFnfodHB9uC67q5zL2IiEUdvHxbo81o09D46d5bZHQYcwqAWN'
 }
 
-app.get('/api/searchdata', (req, res) => {
-    axios.get(`https://api.twitter.com/1.1/search/tweets.json?q=oprah&result_type=popular&count=10`, {headers})
+app.get('/api/searchdata', async (req, res) => {
+    const {search} = req.query;
+    const response = await axios.get(`https://api.twitter.com/1.1/search/tweets.json?q=${search}&result_type=popular&count=10`, {headers})
         .then(function (response) {
             console.log(response.data)
             res.send(response.data)
