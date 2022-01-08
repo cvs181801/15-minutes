@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import './index.css'
 import TV from './pics/TV.png'
-//import test from './test'
 import DOMpurify from 'dompurify'
 
 function cleanData(userInput) {
@@ -18,7 +17,7 @@ export default function Search() {
     function handleClickUser() {
         setSearchresult('')
         setErrorValueContent(false)
-        fetch('/api/showcasedata')
+        fetch('/api/searchdata')
                     .then(response => response.json())
                     .then(jsonData => {
             jsonData.forEach(object => {
@@ -41,7 +40,7 @@ export default function Search() {
     function handleClickContent() {
         setSearchresult('')
         setErrorValueUser(false)
-        fetch('/api/showcasedata')
+        fetch('/api/searchdata')
                     .then(response => response.json())
                     .then(jsonData => {
         jsonData.forEach((object) => {

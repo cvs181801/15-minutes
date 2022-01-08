@@ -53,16 +53,18 @@ export default function Showcase() {
     useEffect(()=> {
         if (buttonpushed) {
             setShow('')
-                fetch('/api/showcasedata')
+                fetch('/api/searchdata')
                     .then(response => response.json())
                     .then(jsonData => {
                         
                         if(buttonpushed === 'gaga') {
-                            setShow({
+                            console.log('gaga pushed')
+                            console.log(jsonData)
+                            //setShow({
                                 //username: jsonData[1].username,
                                 //text: jsonData[1].text
-                                text: jsonData[0].title //typicode
-                            })
+                                //text: jsonData[0].title //typicode
+                            //})
                         } else if (buttonpushed === 'oprah') {
                             setShow({
                                 //username: jsonData[0].username,
