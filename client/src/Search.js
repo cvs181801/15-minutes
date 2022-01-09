@@ -68,7 +68,8 @@ function handleClickUser() {
             .then(res=>{
                 console.log(res.data.statuses)
                 var tweetsArray = res.data.statuses;
-                console.log(tweetsArray[3].entities.media[0].media_url_https)
+
+               // console.log(tweetsArray[3].entities.media[0].media_url_https)
                 var newTweetsArray = tweetsArray.map(tweet => {
                     return <div key={tweet.id}
                         style={{border: `1px solid black`,
@@ -83,9 +84,11 @@ function handleClickUser() {
                             style={{textDecoration: `underline`}}
                         >{tweet.user.screen_name}</p>
                         <p>{tweet.text}</p>
-                        {/* <img src={tweet.entities.media.forEach(element => {
-                            .media_url_https}></img>
-                        }) */}
+
+                        {tweet.entities.media ? tweet.entities.media.map(element => {
+                            return <img key={element.id} src={element.media_url_https} alt='gif' width='100%'></img>
+                            }) : ''}
+
                         <p>💚: {tweet.favorite_count}</p>
                         <p>🔁: {tweet.retweet_count}</p>
                         </div>})
@@ -140,6 +143,9 @@ function handleClickUser() {
             <div className="searchResultContainer">
                 <div className="searchResult">
                     {searchresult}
+                    {/* <video src='https://t.co/DL3bjbmV9f'>
+                        <source src="https://t.co/DL3bjbmV9f" type='video/mp4'></source>
+                    </video> */}
                     <p>{errorValueUser ? `I couldn't find anyone Twitter by the username ${inputValue}.  May I recommend searching for Marilyn Monroe?` : ``}</p>
                     <p>{errorValueContent ? `We couldn't find anything under ${inputValue}, but you can shop for tomato soup here.` : ``}</p>
                 </div> 
