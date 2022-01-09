@@ -47,22 +47,30 @@ function handleClickUser() {
             searchUser() 
                 .then(res=>{
                     console.log(res.data.statuses)
-                    let tweetsArray = res.data.statuses;
-                    tweetsArray.forEach(tweet=>{
-                        setSearchresult({...prevTweet,
-                            text: tweet.text})
-                    })
-                })
-    
+                    var tweetsArray = res.data.statuses;
+                    var newTweetsArray = tweetsArray.map(tweet => {
+                        return <div key={tweet.id}>{tweet.text}</div>})
+                        setSearchresult(newTweetsArray)
+                    })          
 }
+
+// const newButtonArray = selectBtnData.map(button => {
+    //     return <SelectBtn key={button.id} id={button.id} className={button.className} name={button.name} 
+    //     left={button.left} top={button.top} onClick={handleClick}
+    //     />
+    // })
 
     function handleClickContent() {
         setSearchresult('')
         setErrorValueUser(false)
             searchUser() 
-                .then(res=>{
-                    console.log(res.data)
-                })
+            .then(res=>{
+                console.log(res.data.statuses)
+                var tweetsArray = res.data.statuses;
+                var newTweetsArray = tweetsArray.map(tweet => {
+                    return <div key={tweet.id}>{tweet.text}</div>})
+                    setSearchresult(newTweetsArray)
+                })  
         //jsonData.forEach((object) => {
             //if(Object.values(object).includes(inputValue)) {
                  //setSearchresult({
@@ -111,10 +119,7 @@ function handleClickUser() {
             </div>
             <div className="searchResultContainer">
                 <div className="searchResult">
-                    <p>{searchresult.text}</p>
-                    <p>Favorited: {searchresult.favoritedCount}</p>
-                    <p>Retweeted: {searchresult.retweetCount}</p>
-                    
+                    {searchresult}
                     <p>{errorValueUser ? `I couldn't find anyone Twitter by the username ${inputValue}.  May I recommend searching for Marilyn Monroe?` : ``}</p>
                     <p>{errorValueContent ? `We couldn't find anything under ${inputValue}, but you can shop for tomato soup here.` : ``}</p>
                 </div> 
