@@ -48,8 +48,9 @@ function handleClickUser() {
                 .then(res=>{
                     console.log(res.data.statuses)
                     var tweetsArray = res.data.statuses;
+                    //console.log(tweetsArray[0].user.name)
                     var newTweetsArray = tweetsArray.map(tweet => {
-                        return <div key={tweet.id}>{tweet.text}</div>})
+                        return <div key={tweet.id}>{tweet.text} </div>})
                         setSearchresult(newTweetsArray)
                     })          
 }
@@ -67,8 +68,27 @@ function handleClickUser() {
             .then(res=>{
                 console.log(res.data.statuses)
                 var tweetsArray = res.data.statuses;
+                console.log(tweetsArray[3].entities.media[0].media_url_https)
                 var newTweetsArray = tweetsArray.map(tweet => {
-                    return <div key={tweet.id}>{tweet.text}</div>})
+                    return <div key={tweet.id}
+                        style={{border: `1px solid black`,
+                                borderRadius: `13px`,
+                                fontWeight: `400`,
+                                fontStyle: `normal`,
+                                padding: `.5em`,
+                                margin: `.4em auto .4em auto`
+                        }}
+                    >
+                        <p
+                            style={{textDecoration: `underline`}}
+                        >{tweet.user.screen_name}</p>
+                        <p>{tweet.text}</p>
+                        {/* <img src={tweet.entities.media.forEach(element => {
+                            .media_url_https}></img>
+                        }) */}
+                        <p>💚: {tweet.favorite_count}</p>
+                        <p>🔁: {tweet.retweet_count}</p>
+                        </div>})
                     setSearchresult(newTweetsArray)
                 })  
         //jsonData.forEach((object) => {
