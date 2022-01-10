@@ -53,6 +53,7 @@ export default function Showcase() {
     // })
 
 //need to build in a random number generator so we're only rendering one of the 10 tweets ** 
+//also - this is a search by content.  We need search by user here!
 
     useEffect(()=> {
         if (buttonpushed) {
