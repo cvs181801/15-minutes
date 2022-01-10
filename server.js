@@ -19,11 +19,11 @@ app.get('/api/searchdata', async (req, res) => {
     console.log(search)
     const response = await axios.get(`https://api.twitter.com/1.1/search/tweets.json?q=${search}&result_type=popular&count=10`, {headers})
         .then(function (response) {
-            console.log(response.data)
+            //console.log(response.data)
             res.send(response.data)
         })
         .catch(function(error) {
-            console.log(error)
+            res.send(error)
          })
        
     })    

@@ -55,59 +55,48 @@ function handleClickUser() {
                     })          
 }
 
-// const newButtonArray = selectBtnData.map(button => {
-    //     return <SelectBtn key={button.id} id={button.id} className={button.className} name={button.name} 
-    //     left={button.left} top={button.top} onClick={handleClick}
-    //     />
-    // })
 
-    function handleClickContent() {
+function handleClickContent() {
         setSearchresult('')
         setErrorValueUser(false)
             searchUser() 
-            .then(res=>{
-                console.log(res.data.statuses)
-                var tweetsArray = res.data.statuses;
+                .then(res=>{
+                    if(res.data.statuses) {
+                        console.log(res.data.statuses)
 
-               // console.log(tweetsArray[3].entities.media[0].media_url_https)
-                var newTweetsArray = tweetsArray.map(tweet => {
-                    return <div key={tweet.id}
-                        style={{border: `1px solid black`,
-                                borderRadius: `13px`,
-                                fontWeight: `400`,
-                                fontStyle: `normal`,
-                                padding: `.5em`,
-                                margin: `.4em auto .4em auto`
-                        }}
-                    >
-                        <p
-                            style={{textDecoration: `underline`}}
-                        >{tweet.user.screen_name}</p>
-                        <p>{tweet.text}</p>
+                    var tweetsArray = res.data.statuses;
+                    //console.log(tweetsArray[0].user.name, tweetsArray[0].user.screen_name)
 
-                        {tweet.entities.media ? tweet.entities.media.map(element => {
-                            return <img key={element.id} src={element.media_url_https} alt='gif' width='100%'></img>
-                            }) : ''}
+                    var newTweetsArray = tweetsArray.map(tweet => {
+                        return <div key={tweet.id}
+                            style={{border: `1px solid black`,
+                                    borderRadius: `13px`,
+                                    fontWeight: `400`,
+                                    fontStyle: `normal`,
+                                    padding: `.5em`,
+                                    margin: `.4em auto .4em auto`
+                                    }}
+                                >
+                            <p
+                                style={{textDecoration: `underline`}}
+                            >{tweet.user.screen_name}</p>
+                            <p>{tweet.text}</p>
 
-                        <p>💚: {tweet.favorite_count}</p>
-                        <p>🔁: {tweet.retweet_count}</p>
-                        </div>})
-                    setSearchresult(newTweetsArray)
-                })  
-        //jsonData.forEach((object) => {
-            //if(Object.values(object).includes(inputValue)) {
-                 //setSearchresult({
-                                // username: object.username,
-                                // text: object.text,
-                                // retweetCount: object.retweetCount,
-                                // favoritedCount: object.favoritedCount
-                    //             })
-                    //         } else {
-                    //             setErrorValueContent(true)
-                    //         }
-                    //     })
-                     
+                            {tweet.entities.media ? tweet.entities.media.map(element => {
+                                return <img key={element.id} src={element.media_url_https} alt='gif' width='100%' style={{borderRadius: `13px`}}></img>
+                                }) : ''}
+
+                            <p>💚: {tweet.favorite_count}</p>
+                            <p>🔁: {tweet.retweet_count}</p>
+                            </div>})
+                        setSearchresult(newTweetsArray)
+                    
+                } else {
+                    console.log('nothing')
+                    setErrorValueContent(true)
                 }
+            })                   
+}
 
 
     return (
