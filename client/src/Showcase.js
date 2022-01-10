@@ -2,11 +2,20 @@ import React, {useState, useEffect} from 'react'
 import './index.css'
 import TV from './pics/TV.png'
 import SelectBtn from './SelectBtn'
-import selectBtnData from './selectBtnData'
 import ShowcaseResult from './ShowcaseResult'
 import axios from 'axios'
 
 export default function Showcase() {
+
+    async function searchUser() {  
+        try {
+            var search = await axios.get(`/api/searchdata?search=${buttonpushed}`)
+            return search
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
 
     const [show, setShow] = useState('')
     const [buttonpushed, setButtonpushed] = useState('')
@@ -19,27 +28,21 @@ export default function Showcase() {
     function handleClickOprah(event) {
         event.preventDefault();
         setButtonpushed('oprah') 
-        
-        //setShow({username: test[0].username, text: test[0].text})
     }
 
     function handleClickReese(event) {
         event.preventDefault();
         setButtonpushed('reese') 
-        //setShow({username: test[2].username, text: test[2].text})
     }
 
     function handleClickAshton(event) {
         event.preventDefault();
         setButtonpushed('ashton') 
-
-        //setShow({username: test[3].username, text: test[3].text})
     }
 
     function handleClickBeyonce(event) {
         event.preventDefault();
         setButtonpushed('beyonce') 
-        //setShow({username: test[4].username, text: test[4].text})
     }
     
     
@@ -49,61 +52,45 @@ export default function Showcase() {
     //     />
     // })
 
+//need to build in a random number generator so we're only rendering one of the 10 tweets ** 
 
     useEffect(()=> {
         if (buttonpushed) {
             setShow('')
-                fetch('/api/searchdata')
-                    .then(response => response.json())
-                    .then(jsonData => {
-                        
-                        if(buttonpushed === 'gaga') {
-                            console.log('gaga pushed')
-                            console.log(jsonData)
-                            //setShow({
-                                //username: jsonData[1].username,
-                                //text: jsonData[1].text
-                                //text: jsonData[0].title //typicode
-                            //})
-                        } else if (buttonpushed === 'oprah') {
-                            console.log('oprah pushed')
-                            console.log(jsonData)
-                            //setShow({
-                                //username: jsonData[0].username,
-                                //text: jsonData[0].text
-                                //text: jsonData[1].title //typicode
-                            //})
-                        } else if (buttonpushed === 'reese') {
-                            console.log('reese pushed')
-                            console.log(jsonData)
-                            //setShow({
-                                //username: jsonData[2].username,
-                                //text: jsonData[2].text
-                                //text: jsonData[2].title //typicode
-                            //}) 
-                        } else if (buttonpushed === 'ashton') {
-                            console.log('ashton pushed')
-                            console.log(jsonData)
-                            //setShow({
-                                //username: jsonData[3].username,
-                                //text: jsonData[3].text
-                                //text: jsonData[3].title //typicode
-                            //})
-                        } else if (buttonpushed === 'beyonce') {
-                            console.log('beyonce pushed')
-                            console.log(jsonData)
-                            //setShow({
-                                //username: jsonData[4].username,
-                                //text: jsonData[4].text
-                                //text: jsonData[4].title //typicode
-                            //})
-                        }
-                        
-                        setButtonpushed(false)  
-                        
+            searchUser()
+                .then(res=>{
+                    console.log(res.data.statuses)
+                    var tweetsArray = res.data.statuses;
+                    //console.log(tweetsArray[0].user.name, tweetsArray[0].user.screen_name)
+
+                    var newTweetsArray = tweetsArray.map(tweet => {
+                        return <div key={tweet.id}
+                            style={{border: `1px solid black`,
+                                    borderRadius: `13px`,
+                                    fontWeight: `400`,
+                                    fontStyle: `normal`,
+                                    padding: `.5em`,
+                                    margin: `.4em auto .4em auto`
+                                    }}
+                                >
+                            <p
+                                style={{textDecoration: `underline`}}
+                            >{tweet.user.screen_name}</p>
+                            <p>{tweet.text}</p>
+
+                            {tweet.entities.media ? tweet.entities.media.map(element => {
+                                return <img key={element.id} src={element.media_url_https} alt='gif' width='100%' style={{borderRadius: `13px`}}></img>
+                                }) : ''}
+
+                            <p>💚: {tweet.favorite_count}</p>
+                            <p>🔁: {tweet.retweet_count}</p>
+                            </div>
                     })
-                setButtonpushed('')
-            }
+                    setShow(newTweetsArray)
+                })
+            } else {                
+            setButtonpushed('')
+            } 
         }, [buttonpushed])   
 
     return (
@@ -240,9 +227,10 @@ export default function Showcase() {
             <div>
                 <div className="showcaseResultContainer">
                 <div className="showcaseResult">
-                    <ShowcaseResult
+                    {/* <ShowcaseResult
                         result={show}
-                    />
+                    /> */}
+                    {show}
                 </div>
                 </div>
             </div>

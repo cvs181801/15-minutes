@@ -53,12 +53,12 @@ function handleClickUser() {
                         return <div key={tweet.id}>{tweet.text} </div>})
                         setSearchresult(newTweetsArray)
                     })          
-}
+        }
 
 
 function handleClickContent() {
-        setSearchresult('')
-        setErrorValueUser(false)
+            setSearchresult('')
+            setErrorValueUser(false)
             searchUser() 
                 .then(res=>{
                     if(res.data.statuses) {
@@ -88,7 +88,8 @@ function handleClickContent() {
 
                             <p>💚: {tweet.favorite_count}</p>
                             <p>🔁: {tweet.retweet_count}</p>
-                            </div>})
+                            </div>
+                            })
                         setSearchresult(newTweetsArray)
                     
                 } else {
@@ -96,7 +97,7 @@ function handleClickContent() {
                     setErrorValueContent(true)
                 }
             })                   
-}
+        }
 
 
     return (
