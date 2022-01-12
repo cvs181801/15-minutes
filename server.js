@@ -17,15 +17,26 @@ const headers = {
 app.get('/api/searchdata', async (req, res) => {
     const {search} = req.query;
     console.log(search)
-    const response = await axios.get(`https://api.twitter.com/2/tweets/search/recent?query=${search}&expansions=attachments.media_keys&media.fields=media_key,type,preview_image_url,url,alt_text&user.fields=name,username,description,verified,protected`, {headers}) //`https://api.twitter.com/1.1/search/tweets.json?q=${search}&result_type=popular&count=10`
+    const response = await axios.get(`https://api.twitter.com/2/tweets/search/recent?query=${search}&tweet.fields=created_at&expansions=attachments.media_keys&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers}) //`https://api.twitter.com/1.1/search/tweets.json?q=${search}&result_type=popular&count=10`
         .then(function (response) {
             res.send(response.data)
         })
         .catch(function(error) {
             res.send(error)
          })
-       
-    })    
+    }) 
+    
+app.get('/api/searchByUser', async (req, res) => {
+    const {search} = req.query;
+    console.log(search)
+    const response = await axios.get(`https://api.twitter.com/2/tweets/search/recent?query=from:${search}&tweet.fields=created_at&expansions=attachments.media_keys&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers})
+        .then(function (response) {
+            res.send(response.data)
+        })
+        .catch(function(error) {
+            res.send(error)
+        })
+    })
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
