@@ -17,9 +17,8 @@ const headers = {
 app.get('/api/searchdata', async (req, res) => {
     const {search} = req.query;
     console.log(search)
-    const response = await axios.get(`https://api.twitter.com/1.1/search/tweets.json?q=${search}&result_type=popular&count=10`, {headers})
+    const response = await axios.get(`https://api.twitter.com/2/tweets/search/recent?query=${search}&expansions=attachments.media_keys&media.fields=media_key,type,preview_image_url,url,alt_text&user.fields=name,username,description,verified,protected`, {headers}) //`https://api.twitter.com/1.1/search/tweets.json?q=${search}&result_type=popular&count=10`
         .then(function (response) {
-            //console.log(response.data)
             res.send(response.data)
         })
         .catch(function(error) {

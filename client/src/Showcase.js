@@ -105,34 +105,34 @@ export default function Showcase() {
             setShow('')
             searchUser()
                 .then(res=>{
-                    console.log(res.data.statuses)
-                    var tweetsArray = res.data.statuses;
+                    console.log(res.data)
+                    //var tweetsArray = res.data.statuses;
                     //console.log(tweetsArray[0].user.name, tweetsArray[0].user.screen_name)
 
-                    var newTweetsArray = tweetsArray.map(tweet => {
-                        return <div key={tweet.id}
-                            style={{border: `1px solid black`,
-                                    borderRadius: `13px`,
-                                    fontWeight: `400`,
-                                    fontStyle: `normal`,
-                                    padding: `.5em`,
-                                    margin: `.4em auto .4em auto`
-                                    }}
-                                >
-                            <p
-                                style={{textDecoration: `underline`}}
-                            >{tweet.user.screen_name}</p>
-                            <p>{tweet.text}</p>
+                    // var newTweetsArray = tweetsArray.map(tweet => {
+                    //     return <div key={tweet.id}
+                    //         style={{border: `1px solid black`,
+                    //                 borderRadius: `13px`,
+                    //                 fontWeight: `400`,
+                    //                 fontStyle: `normal`,
+                    //                 padding: `.5em`,
+                    //                 margin: `.4em auto .4em auto`
+                    //                 }}
+                    //             >
+                    //         <p
+                    //             style={{textDecoration: `underline`}}
+                    //         >{tweet.user.screen_name}</p>
+                    //         <p>{tweet.text}</p>
 
-                            {tweet.entities.media ? tweet.entities.media.map(element => {
-                                return <img key={element.id} src={element.media_url_https} alt='gif' width='100%' style={{borderRadius: `13px`}}></img>
-                                }) : ''}
+                    //         {tweet.entities.media ? tweet.entities.media.map(element => {
+                    //             return <img key={element.id} src={element.media_url_https} alt='gif' width='100%' style={{borderRadius: `13px`}}></img>
+                    //             }) : ''}
 
-                            <p>💚: {tweet.favorite_count}</p>
-                            <p>🔁: {tweet.retweet_count}</p>
-                            </div>
-                    })
-                    setShow(newTweetsArray)
+                    //         <p>💚: {tweet.favorite_count}</p>
+                    //         <p>🔁: {tweet.retweet_count}</p>
+                    //        </div>
+                    //})
+                    //setShow(newTweetsArray)
                 })
             } else {                
             setButtonpushed('')
