@@ -85,6 +85,13 @@ function handleClickContent() {
                             {tweet.entities.media ? tweet.entities.media.map(element => {
                                 return <img key={element.id} src={element.media_url_https} alt='gif' width='100%' style={{borderRadius: `13px`}}></img>
                                 }) : ''}
+                                
+                            {tweet.extended_entities ? tweet.extended_entities.media.map(element=> {
+                                console.log(element.video_info.variants[0].content_type)
+                                return  <video key={element.id} controls width='680'>
+                                        <source src={element.video_info.variants[0].url} type={element.video_info.variants[0].content_type}></source>
+                                        </video> 
+                            }) : ''}                        
 
                             <p>💚: {tweet.favorite_count}</p>
                             <p>🔁: {tweet.retweet_count}</p>
@@ -133,9 +140,6 @@ function handleClickContent() {
             <div className="searchResultContainer">
                 <div className="searchResult">
                     {searchresult}
-                    {/* <video src='https://t.co/DL3bjbmV9f'>
-                        <source src="https://t.co/DL3bjbmV9f" type='video/mp4'></source>
-                    </video> */}
                     <p>{errorValueUser ? `I couldn't find anyone Twitter by the username ${inputValue}.  May I recommend searching for Marilyn Monroe?` : ``}</p>
                     <p>{errorValueContent ? `We couldn't find anything under ${inputValue}, but you can shop for tomato soup here.` : ``}</p>
                 </div> 
