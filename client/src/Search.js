@@ -14,6 +14,8 @@ export default function Search() {
     const [inputValue, setInputValue] = useState('')
     const [errorValueUser, setErrorValueUser] = useState(false)
     const [errorValueContent, setErrorValueContent] = useState(false)
+    const [hover1, setHover1] = useState('')
+    const [hover2, setHover2] = useState('')
 
     //need to make inputValue more secure - user can only input string etc
 
@@ -40,6 +42,22 @@ async function searchUser() {
 //}
 //})
 }
+
+function handleHoverOver1() {
+   setHover1(`3px solid aqua`)
+}
+
+function handleHoverOut1() {
+    setHover1(``)
+}
+
+function handleHoverOver2() {
+    setHover2(`3px solid aqua`)
+ }
+ 
+ function handleHoverOut2() {
+     setHover2(``)
+ }
 
 function handleClickUser() {
         setSearchresult('')
@@ -125,10 +143,18 @@ function handleClickContent() {
                 <button 
                     className="searchBtnUser"
                     onClick={handleClickUser}
+                    onMouseEnter={handleHoverOver1}
+                    onMouseLeave={handleHoverOut1}
+                    style={{
+                        border:`${hover1}`}}
                 >Search by User</button>
                 <button 
                     className="searchBtnContent"
                     onClick={handleClickContent}
+                    onMouseEnter={handleHoverOver2}
+                    onMouseLeave={handleHoverOut2}
+                    style={{
+                        border:`${hover2}`}}
                 >Search by Content</button>
                 <input 
                     type="text"     
@@ -143,7 +169,12 @@ function handleClickContent() {
                     <p>{errorValueUser ? `I couldn't find anyone Twitter by the username ${inputValue}.  May I recommend searching for Marilyn Monroe?` : ``}</p>
                     <p>{errorValueContent ? `We couldn't find anything under ${inputValue}, but you can shop for tomato soup here.` : ``}</p>
                 </div> 
-                    <p>Why did I build this?  Read the blog post <a href="#">here.</a></p> 
+                    <p
+                        style={{
+                            fontWeight: `600`,
+                            paddingBottom: `1em`
+                        }}
+                    >Why did I build this?  Read the blog post <a href="#">here.</a></p> 
             </div>
         </div>
     )

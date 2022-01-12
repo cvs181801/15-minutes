@@ -19,6 +19,11 @@ export default function Showcase() {
 
     const [show, setShow] = useState('')
     const [buttonpushed, setButtonpushed] = useState('')
+    const [hoverGaga, setHoverGaga] = useState('1px solid #000000')
+    const [hoverOprah, setHoverOprah] = useState('1px solid #000000')
+    const [hoverReese, setHoverReese] = useState('1px solid #000000')
+    const [hoverAshton, setHoverAshton] = useState('1px solid #000000')
+    const [hoverBey, setHoverBey] = useState('1px solid #000000')
 
     function handleClickGaga(event) {
         event.preventDefault(); 
@@ -43,6 +48,46 @@ export default function Showcase() {
     function handleClickBeyonce(event) {
         event.preventDefault();
         setButtonpushed('beyonce') 
+    }
+
+    function handleHoverOverGaga() {
+        setHoverGaga(`4px solid aqua`)
+     }
+     
+    function handleHoverOutGaga() {
+         setHoverGaga(``)
+    }
+     
+    function handleHoverOverOprah() {
+         setHoverOprah(`4px solid aqua`)
+    }
+      
+    function handleHoverOutOprah() {
+          setHoverOprah(``)
+    }
+
+    function handleHoverOverReese() {
+        setHoverReese(`4px solid aqua`)
+    }
+     
+    function handleHoverOutReese() {
+         setHoverReese(``)
+    }
+     
+    function handleHoverOverAshton() {
+         setHoverAshton(`4px solid aqua`)
+    }
+      
+    function handleHoverOutAshton() {
+          setHoverAshton(``)
+    }
+
+    function handleHoverOverBey() {
+        setHoverBey(`4px solid aqua`)
+    }
+     
+    function handleHoverOutBey() {
+         setHoverBey(``)
     }
     
     
@@ -117,9 +162,9 @@ export default function Showcase() {
             <button
                 className="selectBtn"
                 onClick={handleClickGaga}
+                onMouseEnter={handleHoverOverGaga}
+                onMouseLeave={handleHoverOutGaga}
                 style={{
-                    // left: "85px",
-                    // top: "82px",
                     cursor: 'pointer',
                     margin: `0 .2em 1em .2em`,
                     position: 'inline-block', 
@@ -130,7 +175,7 @@ export default function Showcase() {
                     letterSpacing: '.1rem',
                     textTransform: 'uppercase',
                     lineHeight: '.8rem',
-                    border: '1px solid #000000',
+                    border: `${hoverGaga}`,
                     boxSizing: 'border-box',
                     borderRadius:'13px',
                 }}     
@@ -139,9 +184,9 @@ export default function Showcase() {
             <button
                 className="selectBtn"
                 onClick={handleClickOprah}
+                onMouseEnter={handleHoverOverOprah}
+                onMouseLeave={handleHoverOutOprah}
                 style={{
-                    // left: "85px",
-                    // top: "82px",
                     cursor: 'pointer',
                     margin: `0 .2em 1em .2em`,
                     position: 'inline-block', 
@@ -152,7 +197,7 @@ export default function Showcase() {
                     letterSpacing: '.1rem',
                     textTransform: 'uppercase',
                     lineHeight: '.8rem',
-                    border: '1px solid #000000',
+                    border: `${hoverOprah}`,
                     boxSizing: 'border-box',
                     borderRadius:'13px',
                 }}     
@@ -161,9 +206,9 @@ export default function Showcase() {
             <button
                 className="selectBtn"
                 onClick={handleClickReese}
+                onMouseEnter={handleHoverOverReese}
+                onMouseLeave={handleHoverOutReese}
                 style={{
-                    // left: "85px",
-                    // top: "82px",
                     cursor: 'pointer',
                     margin: `0 .2em 1em .2em`,
                     position: 'inline-block', 
@@ -174,7 +219,7 @@ export default function Showcase() {
                     letterSpacing: '.1rem',
                     textTransform: 'uppercase',
                     lineHeight: '.8rem',
-                    border: '1px solid #000000',
+                    border: `${hoverReese}`,
                     boxSizing: 'border-box',
                     borderRadius:'13px',
                 }}     
@@ -183,6 +228,8 @@ export default function Showcase() {
             <button
                 className="selectBtn"
                 onClick={handleClickAshton}
+                onMouseEnter={handleHoverOverAshton}
+                onMouseLeave={handleHoverOutAshton}
                 style={{
                     // left: "85px",
                     // top: "82px",
@@ -196,7 +243,7 @@ export default function Showcase() {
                     letterSpacing: '.1rem',
                     textTransform: 'uppercase',
                     lineHeight: '.8rem',
-                    border: '1px solid #000000',
+                    border: `${hoverAshton}`,
                     boxSizing: 'border-box',
                     borderRadius:'13px',
                 }}     
@@ -205,9 +252,9 @@ export default function Showcase() {
             <button
                 className="selectBtn"
                 onClick={handleClickBeyonce}
+                onMouseEnter={handleHoverOverBey}
+                onMouseLeave={handleHoverOutBey}
                 style={{
-                    // left: "85px",
-                    // top: "82px",
                     cursor: 'pointer',
                     margin: `0 .2em 1em .2em`,
                     position: 'inline-block', 
@@ -218,7 +265,7 @@ export default function Showcase() {
                     letterSpacing: '.1rem',
                     textTransform: 'uppercase',
                     lineHeight: '.8rem',
-                    border: '1px solid #000000',
+                    border: `${hoverBey}`,
                     boxSizing: 'border-box',
                     borderRadius:'13px',
                 }}     
@@ -235,7 +282,12 @@ export default function Showcase() {
                 </div>
                 </div>
             </div>
-                <p>Why did I build this?  Read the blog post <a href="#">here.</a></p>
+                <p
+                style={{
+                    fontWeight: `600`,
+                    paddingBottom: `1em`
+                }}
+                >Why did I build this?  Read the blog post <a href="#">here.</a></p>
         </div>
     )
 }

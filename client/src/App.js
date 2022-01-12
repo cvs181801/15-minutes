@@ -4,36 +4,35 @@ import {BrowserRouter, NavLink, Route, Routes} from "react-router-dom"
 import Showcase from './Showcase'
 import Search from './Search'
 import Home from './Home'
-//import {css} from 'glamor'
-
-// const style = { 
-//   MenuLink: {
-//     textDecoration: 'none',
-//     color: 'black',
-//     ':hover': {
-//       color: 'indigo',
-//       textShadow: '`indigo -2px -2px`'
-//     }
-//   }
-// }
 
 function App() {
 
-//const [color, setColor] = useState('black')
-//const [textShadow, setTextShadow] = useState('')
-const [hovered, setHovered] = useState('')
+const [hoveredSearch, setHoveredSearch] = useState('')
+const [hoveredHome, setHoveredHome] = useState('')
+const [hoveredShow, setHoveredShow] = useState('')
 
-function handleHoverOver(event) {
-//  // setTextShadow(`indigo -2px -2px`)
-//  // setColor('magenta')
- setHovered('hoveredLink')
- 
+function handleHoverOverSearch() {
+  setHoveredSearch('hoveredLink')
  } 
 
- function handleHoverOut() {
-//  // setTextShadow(``)
-//  // setColor('black')
-  setHovered('')
+ function handleHoverOutSearch() {
+    setHoveredSearch('')
+ }
+
+ function handleHoverOverHome() {
+  setHoveredHome('hoveredLink')
+ } 
+
+ function handleHoverOutHome() {
+    setHoveredHome('')
+ }
+
+ function handleHoverOverShow() {
+  setHoveredShow('hoveredLink')
+ } 
+
+ function handleHoverOutShow() {
+    setHoveredShow('')
  }
 
   return (
@@ -42,39 +41,31 @@ function handleHoverOver(event) {
      
       <div className="buttonsContainer">
           <NavLink exact="true" activeclassname="active" to="/search"
-            //activeStyle={{color: 'green'}}
-            //style={...css(style.MenuLink)}
             style={{
-              //color: `${color}`,
               textDecoration: 'none'
-              //textShadow: `${textShadow}`
             
             }}
-            onMouseEnter={handleHoverOver}
-            onMouseLeave={handleHoverOut}
-            className= {hovered}
+            onMouseEnter={handleHoverOverSearch}
+            onMouseLeave={handleHoverOutSearch}
+            className= {hoveredSearch}
             
           >Search Tweets</NavLink>  
           <NavLink exact="true" activeclassname="active" to="/"
             style={{
-              //color: `${color}`,
               textDecoration: 'none'
-              //textShadow: `${textShadow}`
               
             }}
-            onMouseEnter={handleHoverOver}
-            onMouseLeave={handleHoverOut}
-            className= {hovered}
+            onMouseEnter={handleHoverOverHome}
+            onMouseLeave={handleHoverOutHome}
+            className= {hoveredHome}
           >Home</NavLink>  
           <NavLink exact="true" activeclassname="active" to="/showcase"
             style={{
-              //color: `${color}`,
               textDecoration: 'none'
-              //textShadow: `${textShadow}`
             }}
-            onMouseEnter={handleHoverOver}
-            onMouseLeave={handleHoverOut}
-            className= {hovered}
+            onMouseEnter={handleHoverOverShow}
+            onMouseLeave={handleHoverOutShow}
+            className= {hoveredShow}
           >Go to Showcase</NavLink>  
       </div>
         <Routes>

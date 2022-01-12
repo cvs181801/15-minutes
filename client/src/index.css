@@ -52,6 +52,7 @@ body {
   text-align: center;
   margin: 0 auto;
   z-index: 2;
+  margin-top: .7em;
 }
 
 .searchResultContainer {
@@ -80,7 +81,7 @@ body {
   text-align: center;
   width: 50px;
   height: 50px;
-  margin: 0 auto;
+  margin: 0 .3em 0 .3em;
   background: #FFFFFF;
   border: 1px solid #000000;
   box-sizing: border-box;
@@ -131,6 +132,11 @@ body {
 .hoveredLink {
   color: magenta;
   text-shadow: indigo -2px -2px;
+  transition: all .5s ease-in-out;
+}
+
+.hoveredButton {
+  border: 3px solid aqua;
   transition: all .5s ease-in-out;
 }
 
