@@ -29,7 +29,7 @@ app.get('/api/searchdata', async (req, res) => {
 app.get('/api/searchByUser', async (req, res) => {
     const {search} = req.query;
     console.log(search)
-    const response = await axios.get(`https://api.twitter.com/2/users/${search}/tweets`, {headers})
+    const response = await axios.get(`https://api.twitter.com/2/users/${search}/tweets&tweet.fields=created_at&expansions=attachments.media_keys&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers})
         .then(function (response) {
             res.send(response.data)
         })
@@ -43,7 +43,14 @@ app.get('/api/searchByUsername', async (req, res) => {
         console.log(search)
         const response = await axios.get(`https://api.twitter.com/2/users/by?usernames=${search}`, {headers})
         .then(function (response) {
-            res.send(response.data)
+            console.log(response.data.errors)  
+            if(response.data.errors){
+                console.log('error!')
+                res.send(error)
+            } else {
+                console.log('no err')
+                res.send(response.data)
+            }
         })
         .catch(function(error) {
             res.send(error)

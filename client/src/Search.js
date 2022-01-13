@@ -11,6 +11,7 @@ function cleanData(userInput) {
 export default function Search() {
 
     const [searchresult, setSearchresult] = useState('')
+    const [getTweetsButton, setGetTweetsButton] = useState(false)
     const [inputValue, setInputValue] = useState('')
     const [errorValueUser, setErrorValueUser] = useState(false)
     const [errorValueContent, setErrorValueContent] = useState(false)
@@ -39,6 +40,16 @@ async function searchByUsername() {
     }    
 }
 
+async function searchUser(id) {  
+    try {
+        var search = await axios.get(`/api/searchByUser?search=${id}`)
+        return search
+    }
+    catch(err){
+        console.log(err)
+    }
+}
+
 function handleHoverOver1() {
    setHover1(`3px solid aqua`)
 }
@@ -60,12 +71,18 @@ function handleClickUser() {
         setErrorValueContent(false)
             searchByUsername() 
                 .then(res=>{
-                    console.log(Boolean(res.data.data === undefined))
+                    //console.log(Boolean(res.data.data === undefined))
                     if (res.data.data[0]) {
                         let usernameArray = res.data.data;
+                        console.log(usernameArray)
                         usernameArray.forEach(element=> {
                             if(element.username) {
-                                setSearchresult(element.username)
+                                console.log('username :', element.username)
+                                searchUser(element.id)
+                                .then(res=>{
+                                    console.log(res.data)
+                                })
+                            
                             } else {
                                 setErrorValueUser(true)
                             }
@@ -78,6 +95,7 @@ function handleClickUser() {
                     //     setSearchresult(newTweetsArray)
                      })          
         }
+
 
 
 function handleClickContent() {
