@@ -29,7 +29,7 @@ app.get('/api/searchdata', async (req, res) => {
 app.get('/api/searchByUser', async (req, res) => {
     const {search} = req.query;
     console.log(search)
-    const response = await axios.get(`https://api.twitter.com/2/tweets/search/recent?query=from:${search}&tweet.fields=created_at&expansions=attachments.media_keys&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers})
+    const response = await axios.get(`https://api.twitter.com/2/users/${search}/tweets`, {headers})
         .then(function (response) {
             res.send(response.data)
         })
@@ -37,6 +37,18 @@ app.get('/api/searchByUser', async (req, res) => {
             res.send(error)
         })
     })
+
+app.get('/api/searchByUsername', async (req, res) => {
+    const {search} = req.query;
+        console.log(search)
+        const response = await axios.get(`https://api.twitter.com/2/users/by?usernames=${search}`, {headers})
+        .then(function (response) {
+            res.send(response.data)
+        })
+        .catch(function(error) {
+            res.send(error)
+        })
+    })    
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

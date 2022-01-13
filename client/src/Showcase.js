@@ -7,18 +7,9 @@ import axios from 'axios'
 
 export default function Showcase() {
 
-    async function searchUser() {  
-        try {
-            var search = await axios.get(`/api/searchdata?search=${buttonpushed}`)
-            return search
-        }
-        catch(err){
-            console.log(err)
-        }
-    }
-
     const [show, setShow] = useState('')
     const [buttonpushed, setButtonpushed] = useState('')
+    const [id, setId] = useState('')
     const [hoverGaga, setHoverGaga] = useState('1px solid #000000')
     const [hoverOprah, setHoverOprah] = useState('1px solid #000000')
     const [hoverReese, setHoverReese] = useState('1px solid #000000')
@@ -28,26 +19,41 @@ export default function Showcase() {
     function handleClickGaga(event) {
         event.preventDefault(); 
         setButtonpushed('gaga') 
+        setId(14230524)
     }
 
     function handleClickOprah(event) {
         event.preventDefault();
-        setButtonpushed('oprah') 
+        setButtonpushed('oprah')
+        setId(19397785) 
     }
 
     function handleClickReese(event) {
         event.preventDefault();
         setButtonpushed('reese') 
+        setId(1198406491)
     }
 
     function handleClickAshton(event) {
         event.preventDefault();
         setButtonpushed('ashton') 
+        setId(19058681)
     }
 
     function handleClickBeyonce(event) {
         event.preventDefault();
         setButtonpushed('beyonce') 
+        setId(31239408)
+    }
+
+    async function searchUser() {  
+        try {
+            var search = await axios.get(`/api/searchByUser?search=${id}`)
+            return search
+        }
+        catch(err){
+            console.log(err)
+        }
     }
 
     function handleHoverOverGaga() {

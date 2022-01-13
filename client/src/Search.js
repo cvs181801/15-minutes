@@ -19,7 +19,7 @@ export default function Search() {
 
     //need to make inputValue more secure - user can only input string etc
 
-async function searchUser() {  
+async function searchTweets() {  
     try {
         var search = await axios.get(`/api/searchdata?search=${inputValue}`)
         return search
@@ -27,20 +27,16 @@ async function searchUser() {
     catch(err){
         console.log(err)
     }
-    
-//jsonData.forEach(object => {
-//if(object.username === inputValue) {
+}
 
-//setSearchresult({
-    // username: object.username,
-    // text: object.text,
-    // retweetCount: object.retweetCount,
-    // favoritedCount: object.favoritedCount
-    //})
-//} else {
-//setErrorValueUser(true)
-//}
-//})
+async function searchByUsername() {
+    try {
+        var search = await axios.get(`/api/searchByUsername?search=${inputValue}`)
+        return search
+    }
+    catch(err){
+        console.log(err)
+    }    
 }
 
 function handleHoverOver1() {
@@ -53,74 +49,84 @@ function handleHoverOut1() {
 
 function handleHoverOver2() {
     setHover2(`3px solid aqua`)
- }
+}
  
- function handleHoverOut2() {
-     setHover2(``)
- }
+function handleHoverOut2() {
+    setHover2(``)
+}
 
 function handleClickUser() {
         setSearchresult('')
         setErrorValueContent(false)
-            searchUser() 
+            searchByUsername() 
                 .then(res=>{
-                    console.log(res.data.statuses)
-                    var tweetsArray = res.data.statuses;
+                    console.log(Boolean(res.data.data === undefined))
+                    if (res.data.data[0]) {
+                        let usernameArray = res.data.data;
+                        usernameArray.forEach(element=> {
+                            if(element.username) {
+                                setSearchresult(element.username)
+                            } else {
+                                setErrorValueUser(true)
+                            }
+                        })  
+                    }
+                    //var tweetsArray = res.data.statuses;
                     //console.log(tweetsArray[0].user.name)
-                    var newTweetsArray = tweetsArray.map(tweet => {
-                        return <div key={tweet.id}>{tweet.text} </div>})
-                        setSearchresult(newTweetsArray)
-                    })          
+                    // var newTweetsArray = tweetsArray.map(tweet => {
+                    //     return <div key={tweet.id}>{tweet.text} </div>})
+                    //     setSearchresult(newTweetsArray)
+                     })          
         }
 
 
 function handleClickContent() {
             setSearchresult('')
             setErrorValueUser(false)
-            searchUser() 
+            searchTweets() 
                 .then(res=>{
-                    if(res.data.statuses) {
-                        console.log(res.data.statuses)
+                    console.log(res.data)
+                    //if(res.data.statuses) {
+                        //console.log(res.data.statuses)
 
-                    var tweetsArray = res.data.statuses;
-                    //console.log(tweetsArray[0].user.name, tweetsArray[0].user.screen_name)
+                    // var tweetsArray = res.data.statuses;
 
-                    var newTweetsArray = tweetsArray.map(tweet => {
-                        return <div key={tweet.id}
-                            style={{border: `1px solid black`,
-                                    borderRadius: `13px`,
-                                    fontWeight: `400`,
-                                    fontStyle: `normal`,
-                                    padding: `.5em`,
-                                    margin: `.4em auto .4em auto`
-                                    }}
-                                >
-                            <p
-                                style={{textDecoration: `underline`}}
-                            >{tweet.user.screen_name}</p>
-                            <p>{tweet.text}</p>
+                    // var newTweetsArray = tweetsArray.map(tweet => {
+                    //     return <div key={tweet.id}
+                    //         style={{border: `1px solid black`,
+                    //                 borderRadius: `13px`,
+                    //                 fontWeight: `400`,
+                    //                 fontStyle: `normal`,
+                    //                 padding: `.5em`,
+                    //                 margin: `.4em auto .4em auto`
+                    //                 }}
+                    //             >
+                    //         <p
+                    //             style={{textDecoration: `underline`}}
+                    //         >{tweet.user.screen_name}</p>
+                    //         <p>{tweet.text}</p>
 
-                            {tweet.entities.media ? tweet.entities.media.map(element => {
-                                return <img key={element.id} src={element.media_url_https} alt='gif' width='100%' style={{borderRadius: `13px`}}></img>
-                                }) : ''}
+                    //         {tweet.entities.media ? tweet.entities.media.map(element => {
+                    //             return <img key={element.id} src={element.media_url_https} alt='gif' width='100%' style={{borderRadius: `13px`}}></img>
+                    //             }) : ''}
                                 
-                            {tweet.extended_entities ? tweet.extended_entities.media.map(element=> {
-                                console.log(element.video_info.variants[0].content_type)
-                                return  <video key={element.id} controls width='680'>
-                                        <source src={element.video_info.variants[0].url} type={element.video_info.variants[0].content_type}></source>
-                                        </video> 
-                            }) : ''}                        
+                    //         {tweet.extended_entities ? tweet.extended_entities.media.map(element=> {
+                    //             console.log(element.video_info.variants[0].content_type)
+                    //             return  <video key={element.id} controls width='680'>
+                    //                     <source src={element.video_info.variants[0].url} type={element.video_info.variants[0].content_type}></source>
+                    //                     </video> 
+                    //         }) : ''}                        
 
-                            <p>💚: {tweet.favorite_count}</p>
-                            <p>🔁: {tweet.retweet_count}</p>
-                            </div>
-                            })
-                        setSearchresult(newTweetsArray)
+                    //         <p>💚: {tweet.favorite_count}</p>
+                    //         <p>🔁: {tweet.retweet_count}</p>
+                    //         </div>
+                    //         })
+                    //     setSearchresult(newTweetsArray)
                     
-                } else {
-                    console.log('nothing')
-                    setErrorValueContent(true)
-                }
+                //} else {
+                    //console.log('nothing')
+                    //setErrorValueContent(true)
+                //}
             })                   
         }
 
