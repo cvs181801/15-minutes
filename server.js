@@ -131,7 +131,7 @@ const testMedia = [
     }
 ]
 
-let mediaArray = testMedia[0].attachments
+const mediaArray = testMedia[0].attachments
 console.log('mediaArray :', mediaArray)
 const newArray = []
 
@@ -158,3 +158,22 @@ app.get('/testData', (req, res) => {
     // console.log(test[0].attachments.media_keys[0])
     res.send(newArray)
 })
+
+
+//
+
+function loop(array1, array2) {
+    array1.forEach(object=> {
+       if (Object.keys(object).includes('attachments')) {
+            for (let i=0; i < array2.length; i++) {
+                var mergedObj = Object.assign(object, array2[i])
+            } 
+            newArray.push(mergedObj)
+        } else {
+            newArray.push(object)
+            }
+        })
+        console.log('newarray :', newArray)
+        
+    }
+
