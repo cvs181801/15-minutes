@@ -164,16 +164,20 @@ app.get('/testData', (req, res) => {
 
 function loop(array1, array2) {
     array1.forEach(object=> {
+        
        if (Object.keys(object).includes('attachments')) {
             for (let i=0; i < array2.length; i++) {
-                var mergedObj = Object.assign(object, array2[i])
+                console.log( 'compare :', object.attachments.media_keys[0]=== array2[i].media_key)
+                    if (object.attachments.media_keys[0]=== array2[i].media_key) {
+                    var mergedObj = Object.assign(object, array2[i])
+                    newArray.push(mergedObj)
+                }
             } 
-            newArray.push(mergedObj)
         } else {
             newArray.push(object)
             }
         })
-        console.log('newarray :', newArray)
-        
+        console.log('newarray :', newArray) 
     }
 
+loop(test, mediaArray)
