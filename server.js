@@ -134,36 +134,10 @@ const testMedia = [
 
 const mediaArray = testMedia[0].attachments
 console.log('mediaArray :', mediaArray)
-const newArray = []
-
-app.get('/testData', (req, res) => {
-    
-    // test.forEach(object => {
-    //     if( Object.keys(object).includes('attachments') ) {
-    //         for (let i=0; i< mediaArray.length; i++) {
-    //             console.log('testarray media key : ', object.attachments.media_keys[i])
-    //             console.log('media array media key :', mediaArray[i].media_key)
-    //             if (object.attachments.media_keys === mediaArray[i].media_key) {
-    //                 newArray.push(Object.assign(object, mediaArray[i]))
-    //             } else {
-    //                 newArray.push(object)
-    //             }
-    //             console.log('newarray :', newArray)
-    //         }
-    //     }
-
-    // })
-    
-    // let mediaArray = testMedia[0].attachments
-    // console.log('mediaArray :', mediaArray)
-    // console.log(test[0].attachments.media_keys[0])
-    res.send(loop(test, mediaArray))
-})
-
-
-//
+let newArray = [];
 
 function loop(array1, array2) {
+    newArray = [];
     array1.forEach(object=> {
         
        if (Object.keys(object).includes('attachments')) {
