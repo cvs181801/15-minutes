@@ -20,7 +20,6 @@ app.get('/api/searchdata', async (req, res) => {
     const response = await axios.get(`https://api.twitter.com/2/tweets/search/recent?query=${search}&tweet.fields=created_at&expansions=attachments.media_keys&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers}) //`https://api.twitter.com/1.1/search/tweets.json?q=${search}&result_type=popular&count=10`
         .then(function (response) {
             res.send(response.data)
-
         })
         .catch(function(error) {
             res.send(error)
@@ -29,10 +28,12 @@ app.get('/api/searchdata', async (req, res) => {
     
 app.get('/api/searchByUser', async (req, res) => {
     const {search} = req.query;
+    //let search = 31239408
     console.log(search)
     const response = await axios.get(`https://api.twitter.com/2/users/${search}/tweets?tweet.fields=created_at&expansions=attachments.media_keys&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers})
         .then(function (response) {
-            res.send(response.data)
+            console.log(loop(response.data.data, response.data.includes.media))
+            res.send(loop(response.data.data, response.data.includes.media))
         })
         .catch(function(error) {
             res.send(error)
@@ -136,27 +137,27 @@ console.log('mediaArray :', mediaArray)
 const newArray = []
 
 app.get('/testData', (req, res) => {
+    
+    // test.forEach(object => {
+    //     if( Object.keys(object).includes('attachments') ) {
+    //         for (let i=0; i< mediaArray.length; i++) {
+    //             console.log('testarray media key : ', object.attachments.media_keys[i])
+    //             console.log('media array media key :', mediaArray[i].media_key)
+    //             if (object.attachments.media_keys === mediaArray[i].media_key) {
+    //                 newArray.push(Object.assign(object, mediaArray[i]))
+    //             } else {
+    //                 newArray.push(object)
+    //             }
+    //             console.log('newarray :', newArray)
+    //         }
+    //     }
 
-    test.forEach(object => {
-        if( Object.keys(object).includes('attachments') ) {
-            for (let i=0; i< mediaArray.length; i++) {
-                console.log('testarray media key : ', object.attachments.media_keys[i])
-                console.log('media array media key :', mediaArray[i].media_key)
-                if (object.attachments.media_keys === mediaArray[i].media_key) {
-                    newArray.push(Object.assign(object, mediaArray[i]))
-                } else {
-                    newArray.push(object)
-                }
-                console.log('newarray :', newArray)
-            }
-        }
-
-    })
+    // })
     
     // let mediaArray = testMedia[0].attachments
     // console.log('mediaArray :', mediaArray)
     // console.log(test[0].attachments.media_keys[0])
-    res.send(newArray)
+    res.send(loop(test, mediaArray))
 })
 
 
@@ -167,7 +168,7 @@ function loop(array1, array2) {
         
        if (Object.keys(object).includes('attachments')) {
             for (let i=0; i < array2.length; i++) {
-                console.log( 'compare :', object.attachments.media_keys[0]=== array2[i].media_key)
+                //console.log( 'compare :', object.attachments.media_keys[0]=== array2[i].media_key)
                     if (object.attachments.media_keys[0]=== array2[i].media_key) {
                     var mergedObj = Object.assign(object, array2[i])
                     newArray.push(mergedObj)
@@ -177,7 +178,8 @@ function loop(array1, array2) {
             newArray.push(object)
             }
         })
-        console.log('newarray :', newArray) 
+        //console.log('newarray :', newArray) 
+        return newArray
     }
 
-loop(test, mediaArray)
+
