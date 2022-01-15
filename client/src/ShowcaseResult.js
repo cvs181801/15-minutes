@@ -2,6 +2,16 @@ import React from 'react'
 import Video from './Video.js'
 import Image from './Image.js'
 
+const media = function() {
+    if(props.result.type && props.result.type === 'photo' || 'gif') {
+        return <Image result={props.result}/> 
+    } else if (props.result.type && props.result.type === 'video'){
+        return <Video result={result} />  
+    } else {
+        return ''
+    }
+}
+
 export default function ShowcaseResult(props) {
     console.log(props)   
 
@@ -18,7 +28,7 @@ export default function ShowcaseResult(props) {
             
              <p>{props.result.text}</p>
 
-            {props.result.type === 'photo' ? <Image result={result}/> : <Video result={result} /> }
+            {media}
 
         </div>
     )
