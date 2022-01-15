@@ -71,32 +71,29 @@ function handleClickUser() {
         setErrorValueContent(false)
             searchByUsername() 
                 .then(res=>{
-                    //console.log(Boolean(res.data.data === undefined))
-                    if (res.data.data[0]) {
-                        let usernameArray = res.data.data;
-                        console.log(usernameArray)
-                        usernameArray.forEach(element=> {
-                            if(element.username) {
+                    if (Object.keys(res.data).length === 0) {
+                        setErrorValueUser(true)
+                    } else {
+                        setErrorValueUser(false)
+                    let usernameArray = res.data.data;
+                    console.log(usernameArray[0])
+                            usernameArray.forEach(element=> {
                                 console.log('username :', element.username)
                                 searchUser(element.id)
-                                .then(res=>{
+                                    .then(res=>{
                                     console.log(res.data)
+                                    })
                                 })
-                            
-                            } else {
-                                setErrorValueUser(true)
                             }
-                        })  
-                    }
+                    //}
                     //var tweetsArray = res.data.statuses;
                     //console.log(tweetsArray[0].user.name)
                     // var newTweetsArray = tweetsArray.map(tweet => {
                     //     return <div key={tweet.id}>{tweet.text} </div>})
                     //     setSearchresult(newTweetsArray)
-                     })          
+                    })          
         }
-
-
+        
 
 function handleClickContent() {
             setSearchresult('')
@@ -104,6 +101,10 @@ function handleClickContent() {
             searchTweets() 
                 .then(res=>{
                     console.log(res.data)
+                    if (Object.keys(res.data).length === 0) {
+                        setErrorValueUser(true)
+                    } else {
+                        console.log(res.data)
                     //if(res.data.statuses) {
                         //console.log(res.data.statuses)
 
@@ -145,7 +146,9 @@ function handleClickContent() {
                     //console.log('nothing')
                     //setErrorValueContent(true)
                 //}
-            })                   
+                    }
+            })  
+                      
         }
 
 

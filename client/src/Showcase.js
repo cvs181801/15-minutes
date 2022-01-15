@@ -104,7 +104,6 @@ export default function Showcase() {
     // })
 
 //need to build in a random number generator so we're only rendering one of the 10 tweets ** 
-//also - this is a search by content.  We need search by user here!
 
     useEffect(()=> {
         if (buttonpushed) {
@@ -112,6 +111,7 @@ export default function Showcase() {
             searchUser()
                 .then(res=>{
                     console.log(res.data)
+                      
                     //var tweetsArray = res.data.statuses;
                     //console.log(tweetsArray[0].user.name, tweetsArray[0].user.screen_name)
 
@@ -138,7 +138,7 @@ export default function Showcase() {
                     //         <p>🔁: {tweet.retweet_count}</p>
                     //        </div>
                     //})
-                    //setShow(newTweetsArray)
+                    setShow(res.data)
                 })
             } else {                
             setButtonpushed('')
@@ -281,10 +281,10 @@ export default function Showcase() {
             <div>
                 <div className="showcaseResultContainer">
                 <div className="showcaseResult">
-                    {/* <ShowcaseResult
+                    <ShowcaseResult
                         result={show}
-                    /> */}
-                    {show}
+                    /> 
+                    {/* {show} */}
                 </div>
                 </div>
             </div>
