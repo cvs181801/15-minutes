@@ -4,10 +4,12 @@ import TV from './pics/TV.png'
 import SelectBtn from './SelectBtn'
 import ShowcaseResult from './ShowcaseResult'
 import axios from 'axios'
+import Video from './Video.js'
+import Image from './Image.js'
 
 export default function Showcase() {
 
-    const [show, setShow] = useState('')
+    const [show, setShow] = useState({})
     const [buttonpushed, setButtonpushed] = useState('')
     const [id, setId] = useState('')
     const [hoverGaga, setHoverGaga] = useState('1px solid #000000')
@@ -100,20 +102,14 @@ function getRandomNum() {
     let num = Math.round(Math.random() *10)
     return num;
 }        
-    // const newButtonArray = selectBtnData.map(button => {
-    //     return <SelectBtn key={button.id} id={button.id} className={button.className} name={button.name} 
-    //     left={button.left} top={button.top} onClick={handleClick}
-    //     />
-    // })
-
-//need to build in a random number generator so we're only rendering one of the 10 tweets ** 
-
+    
     useEffect(()=> {
         if (buttonpushed) {
             setShow('')
             searchUser()
                 .then(res=>{
-                    console.log(res.data[getRandomNum()])
+                    const randomTweet = res.data[getRandomNum()]
+                    console.log(randomTweet)
                       
                     //var tweetsArray = res.data.statuses;
                     //console.log(tweetsArray[0].user.name, tweetsArray[0].user.screen_name)
@@ -141,13 +137,26 @@ function getRandomNum() {
                     //         <p>🔁: {tweet.retweet_count}</p>
                     //        </div>
                     //})
-                    setShow({...res.data[getRandomNum()]})
-                    console.log(show)
+                    //setShow(prevShow=>{...prevShow, res.data[getRandomNum()]})
+                    setShow({...randomTweet})
+                    //console.log(show.text) //asyncrounous***
                 })
             } else {                
             setButtonpushed('')
             } 
-        }, [buttonpushed])   
+        }, [buttonpushed])  
+        
+        useEffect(()=>{
+            console.log('this is now in state :', show.text)
+        }, [show])
+
+        // const newButtonArray = selectBtnData.map(button => {
+    //     return <SelectBtn key={button.id} id={button.id} className={button.className} name={button.name} 
+    //     left={button.left} top={button.top} onClick={handleClick}
+    //     />
+    // })
+
+   
 
     return (
         <div className="showcaseContainer"
@@ -283,10 +292,9 @@ function getRandomNum() {
             <div>
                 <div className="showcaseResultContainer">
                 <div className="showcaseResult">
-                    {/* <ShowcaseResult
+                    <ShowcaseResult
                         result={show}
-                    />  */}
-                    {/* {show} */}
+                    />  
                 </div>
                 </div>
             </div>
