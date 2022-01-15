@@ -13,7 +13,8 @@ const media = function() {
 }
 
 export default function ShowcaseResult(props) {
-    console.log(props)   
+    console.log(props.result.public_metrics)  
+    
 
     return (
         <div
@@ -27,6 +28,7 @@ export default function ShowcaseResult(props) {
         >
             
              <p>{props.result.text}</p>
+           
 
             {media}
 

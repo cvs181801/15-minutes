@@ -82,6 +82,7 @@ function handleClickUser() {
                                 searchUser(element.id)
                                     .then(res=>{
                                     console.log(res.data)
+                                    setSearchresult(res.data[0].public_metrics.retweet_count)
                                     })
                                 })
                             }
@@ -105,8 +106,8 @@ function handleClickContent() {
                         setErrorValueUser(true)
                     } else {
                         console.log(res.data)
-                    //if(res.data.statuses) {
-                        //console.log(res.data.statuses)
+                        setSearchresult(res.data[0].public_metrics.retweet_count)
+                    
 
                     // var tweetsArray = res.data.statuses;
 

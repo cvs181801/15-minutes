@@ -4,8 +4,8 @@ import TV from './pics/TV.png'
 import SelectBtn from './SelectBtn'
 import ShowcaseResult from './ShowcaseResult'
 import axios from 'axios'
-import Video from './Video.js'
-import Image from './Image.js'
+import Video from './Video'
+import Image from './Image'
 
 export default function Showcase() {
 
@@ -147,7 +147,7 @@ function getRandomNum() {
         }, [buttonpushed])  
         
         useEffect(()=>{
-            console.log('this is now in state :', show.text)
+            console.log('this is now in state :', show)
         }, [show])
 
         // const newButtonArray = selectBtnData.map(button => {
@@ -295,6 +295,7 @@ function getRandomNum() {
                     <ShowcaseResult
                         result={show}
                     />  
+                    {/* <p>{show.public_metrics.retweet_count}</p> */}
                 </div>
                 </div>
             </div>
