@@ -95,8 +95,11 @@ export default function Showcase() {
     function handleHoverOutBey() {
          setHoverBey(``)
     }
-    
-    
+
+function getRandomNum() {
+    let num = Math.round(Math.random() *10)
+    return num;
+}        
     // const newButtonArray = selectBtnData.map(button => {
     //     return <SelectBtn key={button.id} id={button.id} className={button.className} name={button.name} 
     //     left={button.left} top={button.top} onClick={handleClick}
@@ -110,7 +113,7 @@ export default function Showcase() {
             setShow('')
             searchUser()
                 .then(res=>{
-                    console.log(res.data)
+                    console.log(res.data[getRandomNum()])
                       
                     //var tweetsArray = res.data.statuses;
                     //console.log(tweetsArray[0].user.name, tweetsArray[0].user.screen_name)
@@ -138,7 +141,8 @@ export default function Showcase() {
                     //         <p>🔁: {tweet.retweet_count}</p>
                     //        </div>
                     //})
-                    setShow(res.data)
+                    setShow({...res.data[getRandomNum()]})
+                    console.log(show)
                 })
             } else {                
             setButtonpushed('')
@@ -237,8 +241,6 @@ export default function Showcase() {
                 onMouseEnter={handleHoverOverAshton}
                 onMouseLeave={handleHoverOutAshton}
                 style={{
-                    // left: "85px",
-                    // top: "82px",
                     cursor: 'pointer',
                     margin: `0 .2em 1em .2em`,
                     position: 'inline-block', 
@@ -281,9 +283,9 @@ export default function Showcase() {
             <div>
                 <div className="showcaseResultContainer">
                 <div className="showcaseResult">
-                    <ShowcaseResult
+                    {/* <ShowcaseResult
                         result={show}
-                    /> 
+                    />  */}
                     {/* {show} */}
                 </div>
                 </div>
