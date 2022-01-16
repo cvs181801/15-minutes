@@ -9,42 +9,42 @@ import Image from './Image'
 
 export default function Showcase() {
 
-    const [show, setShow] = useState({})
-    const [buttonpushed, setButtonpushed] = useState('')
-    const [id, setId] = useState('')
-    const [hoverGaga, setHoverGaga] = useState('1px solid #000000')
-    const [hoverOprah, setHoverOprah] = useState('1px solid #000000')
-    const [hoverReese, setHoverReese] = useState('1px solid #000000')
-    const [hoverAshton, setHoverAshton] = useState('1px solid #000000')
-    const [hoverBey, setHoverBey] = useState('1px solid #000000')
+const [show, setShow] = useState({})
+const [buttonpushed, setButtonpushed] = useState('')
+const [id, setId] = useState('')
+const [hoverGaga, setHoverGaga] = useState('1px solid #000000')
+const [hoverOprah, setHoverOprah] = useState('1px solid #000000')
+const [hoverReese, setHoverReese] = useState('1px solid #000000')
+const [hoverAshton, setHoverAshton] = useState('1px solid #000000')
+const [hoverBey, setHoverBey] = useState('1px solid #000000')
 
     function handleClickGaga(event) {
         event.preventDefault(); 
-        setButtonpushed('gaga') 
+        setButtonpushed('Lady Gaga') 
         setId(14230524)
     }
 
     function handleClickOprah(event) {
         event.preventDefault();
-        setButtonpushed('oprah')
+        setButtonpushed('Oprah Winfrey')
         setId(19397785) 
     }
 
     function handleClickReese(event) {
         event.preventDefault();
-        setButtonpushed('reese') 
+        setButtonpushed('Reese Witherspoon') 
         setId(1198406491)
     }
 
     function handleClickAshton(event) {
         event.preventDefault();
-        setButtonpushed('ashton') 
+        setButtonpushed('Ashton Kutcher') 
         setId(19058681)
     }
 
     function handleClickBeyonce(event) {
         event.preventDefault();
-        setButtonpushed('beyonce') 
+        setButtonpushed('Beyonce Knowles') 
         setId(31239408)
     }
 
@@ -110,36 +110,13 @@ function getRandomNum() {
                 .then(res=>{
                     const randomTweet = res.data[getRandomNum()]
                     console.log(randomTweet)
-                      
-                    //var tweetsArray = res.data.statuses;
-                    //console.log(tweetsArray[0].user.name, tweetsArray[0].user.screen_name)
-
-                    // var newTweetsArray = tweetsArray.map(tweet => {
-                    //     return <div key={tweet.id}
-                    //         style={{border: `1px solid black`,
-                    //                 borderRadius: `13px`,
-                    //                 fontWeight: `400`,
-                    //                 fontStyle: `normal`,
-                    //                 padding: `.5em`,
-                    //                 margin: `.4em auto .4em auto`
-                    //                 }}
-                    //             >
-                    //         <p
-                    //             style={{textDecoration: `underline`}}
-                    //         >{tweet.user.screen_name}</p>
-                    //         <p>{tweet.text}</p>
-
-                    //         {tweet.entities.media ? tweet.entities.media.map(element => {
-                    //             return <img key={element.id} src={element.media_url_https} alt='gif' width='100%' style={{borderRadius: `13px`}}></img>
-                    //             }) : ''}
-
-                    //         <p>💚: {tweet.favorite_count}</p>
-                    //         <p>🔁: {tweet.retweet_count}</p>
-                    //        </div>
-                    //})
-                    //setShow(prevShow=>{...prevShow, res.data[getRandomNum()]})
-                    setShow({...randomTweet})
-                    //console.log(show.text) //asyncrounous***
+                    // setShow({...randomTweet})
+                    setShow({
+                        created_at: randomTweet.created_at,
+                        text: randomTweet.text,
+                        retweet_count: randomTweet.public_metrics.retweet_count,
+                        like_count: randomTweet.public_metrics.like_count
+                    })
                 })
             } else {                
             setButtonpushed('')
@@ -150,13 +127,6 @@ function getRandomNum() {
             console.log('this is now in state :', show)
         }, [show])
 
-        // const newButtonArray = selectBtnData.map(button => {
-    //     return <SelectBtn key={button.id} id={button.id} className={button.className} name={button.name} 
-    //     left={button.left} top={button.top} onClick={handleClick}
-    //     />
-    // })
-
-   
 
     return (
         <div className="showcaseContainer"
@@ -172,11 +142,10 @@ function getRandomNum() {
             zIndex: '1'
         }}
         >
-            <div
-                className="showcaseBtnsContainer"
-            >
-                {/* {newButtonArray} */}
-            </div>
+        <div
+            className="showcaseBtnsContainer"
+        >
+        </div>
 
             <button
                 className="selectBtn"
@@ -292,10 +261,10 @@ function getRandomNum() {
             <div>
                 <div className="showcaseResultContainer">
                 <div className="showcaseResult">
+                    {buttonpushed}
                     <ShowcaseResult
                         result={show}
                     />  
-                    {/* <p>{show.public_metrics.retweet_count}</p> */}
                 </div>
                 </div>
             </div>

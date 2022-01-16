@@ -2,20 +2,9 @@ import React from 'react'
 import Video from './Video.js'
 import Image from './Image.js'
 
-const media = function() {
-    if(props.result.type && props.result.type === 'photo' || 'gif') {
-        return <Image result={props.result}/> 
-    } else if (props.result.type && props.result.type === 'video'){
-        return <Video result={result} />  
-    } else {
-        return ''
-    }
-}
-
 export default function ShowcaseResult(props) {
     console.log(props.result.public_metrics)  
     
-
     return (
         <div
         style={{border: `1px solid black`,
@@ -28,9 +17,11 @@ export default function ShowcaseResult(props) {
         >
             
              <p>{props.result.text}</p>
-           
+             <p>💚: {props.result.like_count}</p>
+             <p>🔁: {props.result.retweet_count}</p>
 
-            {media}
+             {props.result.type === 'photo' ? <Image result={props.result}/> : '' }
+             {props.result.type === 'video' ? <Video result={props.result} /> : '' }
 
         </div>
     )
