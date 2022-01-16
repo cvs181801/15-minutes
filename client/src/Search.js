@@ -3,6 +3,9 @@ import './index.css'
 import TV from './pics/TV.png'
 import DOMpurify from 'dompurify'
 import axios from 'axios'
+import TweetCard from './TweetCard'
+import Image from './Image.js'
+import Video from './Video.js'
 
 function cleanData(userInput) {
     return DOMpurify.sanitize(userInput)
@@ -68,56 +71,17 @@ function handleHoverOut2() {
 
 function handleClickUser() {
         setSearchresult('')
+        setGetByContentButton(false)
         setGetByUserButton(true)
         setErrorValueContent(false)
-            
         }
         
 
 function handleClickContent() {
             setSearchresult('')
+            setGetByUserButton(false)
             setGetByContentButton(true)
             setErrorValueUser(false)
-            
-                    // var tweetsArray = res.data.statuses;
-
-                    // var newTweetsArray = tweetsArray.map(tweet => {
-                    //     return <div key={tweet.id}
-                    //         style={{border: `1px solid black`,
-                    //                 borderRadius: `13px`,
-                    //                 fontWeight: `400`,
-                    //                 fontStyle: `normal`,
-                    //                 padding: `.5em`,
-                    //                 margin: `.4em auto .4em auto`
-                    //                 }}
-                    //             >
-                    //         <p
-                    //             style={{textDecoration: `underline`}}
-                    //         >{tweet.user.screen_name}</p>
-                    //         <p>{tweet.text}</p>
-
-                    //         {tweet.entities.media ? tweet.entities.media.map(element => {
-                    //             return <img key={element.id} src={element.media_url_https} alt='gif' width='100%' style={{borderRadius: `13px`}}></img>
-                    //             }) : ''}
-                                
-                    //         {tweet.extended_entities ? tweet.extended_entities.media.map(element=> {
-                    //             console.log(element.video_info.variants[0].content_type)
-                    //             return  <video key={element.id} controls width='680'>
-                    //                     <source src={element.video_info.variants[0].url} type={element.video_info.variants[0].content_type}></source>
-                    //                     </video> 
-                    //         }) : ''}                        
-
-                    //         <p>💚: {tweet.favorite_count}</p>
-                    //         <p>🔁: {tweet.retweet_count}</p>
-                    //         </div>
-                    //         })
-                    //     setSearchresult(newTweetsArray)
-                    
-                //} else {
-                    //console.log('nothing')
-                    //setErrorValueContent(true)
-                //}
-            
         }
 
 useEffect(()=>{
@@ -335,7 +299,11 @@ useEffect(()=>{
                 })  
 
     }
-}, [searchresult])
+}, [getByUserButton, getByContentButton])
+
+const tweetCards = searchresult.map(tweet => { 
+    return <TweetCard key={tweet.id} text={tweet.text} type={tweet.type} favorite_count={tweet.favorite_count} retweet_count={tweet.retweet_count}
+/>})
    
     return (
         <div className="searchContainer"
@@ -377,28 +345,11 @@ useEffect(()=>{
             </div>
             <div className="searchResultContainer">
                 <div className="searchResult">
-                    {/* {searchresult.map(tweet => { 
-                return <div 
-                key={tweet.id}
-                style={{
-                    border: `1px solid black`,
-                    borderRadius: `13px`,
-                    fontWeight: `400`,
-                    fontStyle: `normal`,
-                    padding: `.5em`,
-                    margin: `.4em auto .4em auto`
-                    }}
-                    >
-                <p>{tweet.text}</p>
 
-                {tweet.type === 'photo' ? <Image result={props.result}/> : '' }
-                {tweet.type === 'video' ? <Video result={props.result} /> : '' }
-                                
-                <p>💚: {tweet.favorite_count}</p>
-                <p>🔁: {tweet.retweet_count}</p>
-                </div>
-      })} */}
+                    {tweetCards}
+
                     {console.log(searchresult)}
+
                     <p>{errorValueUser ? `I couldn't find anyone Twitter by the username ${inputValue}.  May I recommend searching for Marilyn Monroe?` : ``}</p>
                     <p>{errorValueContent ? `We couldn't find anything under ${inputValue}, but you can shop for tomato soup here.` : ``}</p>
                 </div> 
