@@ -15,14 +15,13 @@ export default function TweetCard(props) {
             margin: `.4em auto .4em auto`
             }}
         >
-        <p>{tweet.text}</p>
+        <p>{props.text}</p>   
 
-        {/* {tweet.type === 'photo' ? <Image result={props.result}/> : '' }
-        {tweet.type === 'video' ? <Video result={props.result} /> : '' } */}
+        {props.type === 'photo' ? <Image result={props.result}/> : '' }
+        {props.type === 'video' ? <Video result={props.result} /> : '' } 
                                 
         <p>💚: {props.favorite_count}</p>
-        <p>🔁: {props.retweet_count}</p>
-
+        <p>🔁: {props.retweet_count}</p>   
         </div>
     )
 }

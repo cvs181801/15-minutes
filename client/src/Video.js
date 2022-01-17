@@ -4,13 +4,14 @@ export default function Video(props) {
     console.log(props)
     return (
         <div>
-            <video controls width='680'>
+            {/* <video controls width='680'>
                 <source 
-                    src=''  
+                    src={props.url}
                     type=''
                 >
                 </source>
-            </video>  
+            </video>   */}
+            hi
         </div>
     )
 }

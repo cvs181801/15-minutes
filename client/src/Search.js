@@ -4,8 +4,6 @@ import TV from './pics/TV.png'
 import DOMpurify from 'dompurify'
 import axios from 'axios'
 import TweetCard from './TweetCard'
-import Image from './Image.js'
-import Video from './Video.js'
 
 function cleanData(userInput) {
     return DOMpurify.sanitize(userInput)
@@ -70,7 +68,6 @@ function handleHoverOut2() {
 }
 
 function handleClickUser() {
-        setSearchresult('')
         setGetByContentButton(false)
         setGetByUserButton(true)
         setErrorValueContent(false)
@@ -78,7 +75,6 @@ function handleClickUser() {
         
 
 function handleClickContent() {
-            setSearchresult('')
             setGetByUserButton(false)
             setGetByContentButton(true)
             setErrorValueUser(false)
@@ -86,6 +82,7 @@ function handleClickContent() {
 
 useEffect(()=>{
     if(getByUserButton) {
+        setSearchresult([])
         searchByUsername() 
         .then(res=>{
             if (Object.keys(res.data).length === 0) {
@@ -196,6 +193,7 @@ useEffect(()=>{
                     }
             })        
     } else if (getByContentButton) {
+        setSearchresult([])
         searchTweets() 
                 .then(res=>{
                     console.log(res.data)
@@ -297,13 +295,12 @@ useEffect(()=>{
                         ])
                     }
                 })  
-
     }
 }, [getByUserButton, getByContentButton])
 
-const tweetCards = searchresult.map(tweet => { 
+const tweetCards = searchresult.map((tweet) => { 
     return <TweetCard key={tweet.id} text={tweet.text} type={tweet.type} favorite_count={tweet.favorite_count} retweet_count={tweet.retweet_count}
-/>})
+    />})
    
     return (
         <div className="searchContainer"
@@ -344,12 +341,10 @@ const tweetCards = searchresult.map(tweet => {
                 </input>
             </div>
             <div className="searchResultContainer">
-                <div className="searchResult">
+                <div className="searchResult">  
 
-                    {tweetCards}
-
-                    {console.log(searchresult)}
-
+                {tweetCards}
+ 
                     <p>{errorValueUser ? `I couldn't find anyone Twitter by the username ${inputValue}.  May I recommend searching for Marilyn Monroe?` : ``}</p>
                     <p>{errorValueContent ? `We couldn't find anything under ${inputValue}, but you can shop for tomato soup here.` : ``}</p>
                 </div> 

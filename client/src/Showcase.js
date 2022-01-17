@@ -110,10 +110,11 @@ function getRandomNum() {
                 .then(res=>{
                     const randomTweet = res.data[getRandomNum()]
                     console.log(randomTweet)
-                    // setShow({...randomTweet})
                     setShow({
                         created_at: randomTweet.created_at,
                         text: randomTweet.text,
+                        type: randomTweet.type,
+                        url: randomTweet.url,
                         retweet_count: randomTweet.public_metrics.retweet_count,
                         like_count: randomTweet.public_metrics.like_count
                     })
