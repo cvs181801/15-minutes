@@ -68,26 +68,29 @@ function handleHoverOut2() {
 }
 
 function handleClickUser() {
-        setGetByContentButton(false)
-        setGetByUserButton(true)
-        setErrorValueContent(false)
-        }
+    setSearchresult([])
+    setGetByContentButton(false)
+    setGetByUserButton(true)
+    setErrorValueContent(false)
+    }
         
 
 function handleClickContent() {
-            setGetByUserButton(false)
-            setGetByContentButton(true)
-            setErrorValueUser(false)
-        }
+    setSearchresult([])
+    setGetByUserButton(false)
+    setGetByContentButton(true)
+    setErrorValueUser(false)
+    }
 
 useEffect(()=>{
     if(getByUserButton) {
-        setSearchresult([])
-        searchByUsername() 
-        .then(res=>{
-             if (Object.keys(res.data).length === 0) {
-                 setErrorValueUser(true)
-            } if (Object.keys(res.data).includes('username')) {
+        
+        searchByUsername()
+        .then(res=>{ 
+            console.log(res.data)
+         if (Object.keys(res.data).includes('stack')) {   
+            setErrorValueUser(true)
+        } else {
                 setErrorValueUser(false)
             let usernameArray = res.data.data;
                     usernameArray.forEach(element=> {
@@ -193,7 +196,7 @@ useEffect(()=>{
                 
             })        
     } else if (getByContentButton) {
-        setSearchresult([])
+    
         searchTweets() 
                 .then(res=>{
                     console.log(res.data)
