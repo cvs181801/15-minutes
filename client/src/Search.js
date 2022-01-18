@@ -84,17 +84,14 @@ function handleClickContent() {
 
 useEffect(()=>{
     if(getByUserButton) {
-        
         searchByUsername()
         .then(res=>{ 
-            console.log(res.data)
          if (Object.keys(res.data).includes('stack')) {   
             setErrorValueUser(true)
         } else {
                 setErrorValueUser(false)
             let usernameArray = res.data.data;
                     usernameArray.forEach(element=> {
-                        console.log('username :', element.username)
                         searchUser(element.id)
                             .then(res=>{
                             console.log(res.data)
@@ -190,13 +187,12 @@ useEffect(()=>{
                                     retweet_count: res.data[9].public_metrics.retweet_count
                                 }
                             ])
+                            setGetByUserButton(false)
                             })
                         })
-                    }
-                
-            })        
+                    } 
+            })      
     } else if (getByContentButton) {
-    
         searchTweets() 
                 .then(res=>{
                     console.log(res.data)
@@ -296,9 +292,10 @@ useEffect(()=>{
                                 retweet_count: res.data[9].public_metrics.retweet_count
                             }
                         ])
-                    }
+                        setGetByContentButton(false)
+                    } 
                 })  
-    }
+    } 
 }, [getByUserButton, getByContentButton])
 
 const tweetCards = searchresult.map((tweet) => { 
