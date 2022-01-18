@@ -17,10 +17,10 @@ export default function TweetCard(props) {
         >
         <p>{props.text}</p>   
 
-        {props.type === 'photo' ? <Image result={props.result}/> : '' }
-        {props.type === 'video' ? <Video result={props.result} /> : '' } 
+        {props.type === 'photo' ? <Image result={props}/> : '' }
+        {props.type === 'video' ? <Video result={props} /> : '' } 
                                 
-        <p>💚: {props.favorite_count}</p>
+        <p>💚: {props.like_count}</p>
         <p>🔁: {props.retweet_count}</p>   
         </div>
     )

@@ -1,17 +1,17 @@
 import React from 'react'
 
 export default function Video(props) {
-    console.log(props)
+    console.log(props.result)
     return (
         <div>
-            {/* <video controls width='680'>
+            <video controls width='680'>
                 <source 
                     src={props.url}
-                    type=''
+                    type='video/mp4'
                 >
                 </source>
-            </video>   */}
-            hi
+            </video>   
+            
         </div>
     )
 }

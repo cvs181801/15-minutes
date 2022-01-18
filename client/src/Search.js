@@ -85,12 +85,11 @@ useEffect(()=>{
         setSearchresult([])
         searchByUsername() 
         .then(res=>{
-            if (Object.keys(res.data).length === 0) {
-                setErrorValueUser(true)
-            } else {
+             if (Object.keys(res.data).length === 0) {
+                 setErrorValueUser(true)
+            } if (Object.keys(res.data).includes('username')) {
                 setErrorValueUser(false)
             let usernameArray = res.data.data;
-            console.log(usernameArray[0])
                     usernameArray.forEach(element=> {
                         console.log('username :', element.username)
                         searchUser(element.id)
@@ -191,6 +190,7 @@ useEffect(()=>{
                             })
                         })
                     }
+                
             })        
     } else if (getByContentButton) {
         setSearchresult([])
@@ -299,7 +299,7 @@ useEffect(()=>{
 }, [getByUserButton, getByContentButton])
 
 const tweetCards = searchresult.map((tweet) => { 
-    return <TweetCard key={tweet.id} text={tweet.text} type={tweet.type} favorite_count={tweet.favorite_count} retweet_count={tweet.retweet_count}
+    return <TweetCard key={tweet.id} created_at={tweet.created_at} text={tweet.text} type={tweet.type} url={tweet.url} like_count={tweet.like_count} retweet_count={tweet.retweet_count}
     />})
    
     return (
