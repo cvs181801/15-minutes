@@ -86,8 +86,10 @@ useEffect(()=>{
     if(getByUserButton) {
         searchByUsername()
         .then(res=>{ 
-         if (Object.keys(res.data).includes('stack')) {   
+            console.log(res.data)
+         if (Object.keys(res.data).length === 0 || Object.keys(res.data).includes('stack')) {   
             setErrorValueUser(true)
+            setGetByUserButton(false)
         } else {
                 setErrorValueUser(false)
             let usernameArray = res.data.data;
@@ -197,7 +199,8 @@ useEffect(()=>{
                 .then(res=>{
                     console.log(res.data)
                     if (Object.keys(res.data).length === 0) {
-                        setErrorValueUser(true)
+                        setErrorValueContent(true)
+                        setGetByContentButton(false)
                     } else {
                         console.log(res.data)
                         setSearchresult([
