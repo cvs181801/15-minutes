@@ -68,9 +68,12 @@ app.listen(port, () => {
 })
 
 function loop(array1, array2) {
+    
     newArray = [];
     array1.forEach(object=> {
-        
+        console.log('array1 timestamp:', object.created_at)
+        var dateString = String(new Date(object.created_at))
+        console.log('date :', dateString)
        if (Object.keys(object).includes('attachments')) {
             for (let i=0; i < array2.length; i++) {
                     if (object.attachments.media_keys[0]=== array2[i].media_key) {
@@ -85,4 +88,6 @@ function loop(array1, array2) {
         return newArray
     }
 
-
+//let string = 'Sun Dec 26 2021 10:36:12 GMT-0800 (Pacific Standard Time)'
+//let arr = string.split(' ')
+//console.log(arr)

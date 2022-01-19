@@ -103,10 +103,6 @@ function getRandomNum() {
     return num;
 }    
 
-let yearMatch = /2021|2022/g;
-console.log('Sun Dec 26 2021 10:36:12 GMT-0800 (Pacific Standard Time)'.match(yearMatch))
-
-
     
     useEffect(()=> {
         if (buttonpushed) {
@@ -119,7 +115,7 @@ console.log('Sun Dec 26 2021 10:36:12 GMT-0800 (Pacific Standard Time)'.match(ye
                     console.log(String(new Date('2021-12-14T00:09:29.000Z')))
                     
                     setShow({
-                        created_at: new Date(randomTweet.created_at),
+                        created_at: randomTweet.created_at,
                         text: randomTweet.text,
                         type: randomTweet.type,
                         url: randomTweet.url,
