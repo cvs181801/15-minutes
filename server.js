@@ -17,8 +17,10 @@ const headers = {
 app.get('/api/searchdata', async (req, res) => {
     const {search} = req.query;
     console.log(search)
-    const response = await axios.get(`https://api.twitter.com/2/tweets/search/recent?query=${search}&tweet.fields=created_at,public_metrics&expansions=attachments.media_keys&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers}) //`https://api.twitter.com/1.1/search/tweets.json?q=${search}&result_type=popular&count=10`
+    //const search = 'oprah'
+    const response = await axios.get(`https://api.twitter.com/2/tweets/search/recent?query=${search}&tweet.fields=created_at,public_metrics,author_id&expansions=attachments.media_keys&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers}) 
         .then(function (response) {
+            console.log("raw array by content:" , response.data)
             console.log(loop(response.data.data, response.data.includes.media))
             res.send(loop(response.data.data, response.data.includes.media))
         })
@@ -29,10 +31,11 @@ app.get('/api/searchdata', async (req, res) => {
     
 app.get('/api/searchByUser', async (req, res) => {
     const {search} = req.query;
-    //let search = 31239408
     console.log(search)
-    const response = await axios.get(`https://api.twitter.com/2/users/${search}/tweets?tweet.fields=created_at,public_metrics&expansions=attachments.media_keys&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers})
+    //const search = 1198406491
+    const response = await axios.get(`https://api.twitter.com/2/users/${search}/tweets?user.fields&tweet.fields=created_at,public_metrics,author_id&expansions=attachments.media_keys&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers})
         .then(function (response) {
+            console.log("raw array by user:" , response)
             console.log(loop(response.data.data, response.data.includes.media))
             res.send(loop(response.data.data, response.data.includes.media))
         })

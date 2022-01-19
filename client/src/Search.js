@@ -5,10 +5,6 @@ import DOMpurify from 'dompurify'
 import axios from 'axios'
 import TweetCard from './TweetCard'
 
-function cleanData(userInput) {
-    return DOMpurify.sanitize(userInput)
-}   
-
 export default function Search() {
 
     const [searchresult, setSearchresult] = useState([])
@@ -82,6 +78,7 @@ function handleClickContent() {
     setErrorValueUser(false)
     }
 
+
 useEffect(()=>{
     if(getByUserButton) {
         searchByUsername()
@@ -97,8 +94,8 @@ useEffect(()=>{
                         searchUser(element.id)
                             .then(res=>{
                             console.log(res.data)
-                            setSearchresult([
-                                {
+                             setSearchresult([
+                                     {
                                     id: res.data[0].id,
                                     created_at: res.data[0].created_at,
                                     text: res.data[0].text,
@@ -198,13 +195,13 @@ useEffect(()=>{
         searchTweets() 
                 .then(res=>{
                     console.log(res.data)
-                    if (Object.keys(res.data).length === 0) {
+                    if (Object.keys(res.data).length === 0 || Object.keys(res.data).includes('stack')) {
                         setErrorValueContent(true)
                         setGetByContentButton(false)
                     } else {
                         console.log(res.data)
-                        setSearchresult([
-                            {
+                        setSearchresult(
+                            [{
                                 id: res.data[0].id,
                                 created_at: res.data[0].created_at,
                                 text: res.data[0].text,
