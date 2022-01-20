@@ -33,17 +33,13 @@ const headers = {
 //*** */
 function getAllByContent() {
     app.get('/api/searchdata', async (req, res) => {
-        //const {search} = req.query;
-//       console.log(search)
-        const search = 'oprah'
+        const {search} = req.query;
+        console.log(search)
+        //const search = 'oprah'
         const response1 = await axios.get(`https://api.twitter.com/2/tweets/search/recent?query=${search}&tweet.fields=created_at,public_metrics&expansions=attachments.media_keys,author_id&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers}) 
-        console.log('response1 :', response1.data.data, 'response1media :', response1.data.includes.media,)
         const response2 = await axios.get(`https://api.twitter.com/2/users?ids=${response1.data.data[0].author_id},${response1.data.data[1].author_id},${response1.data.data[2].author_id},${response1.data.data[3].author_id},${response1.data.data[4].author_id},${response1.data.data[5].author_id},${response1.data.data[6].author_id},${response1.data.data[7].author_id},${response1.data.data[8].author_id},${response1.data.data[9].author_id}&expansions=pinned_tweet_id&user.fields=profile_image_url,verified`, {headers}) 
-        console.log('response2 :', response2.data.data)
-        //res.send({
-        //    'response1': response1.data,
-        //    'response2': response2.data
-        //})
+        console.log('looped By Content :', loopByContent(response1.data.data, response1.data.includes.media, response2.data.data))
+        res.send(loopByContent(response1.data.data, response1.data.includes.media, response2.data.data))
         return response1, response2
     })
 }
@@ -157,6 +153,34 @@ function loopByUser(array1, array2, object1) {
         //console.log(newArray)
         return newArray
     }
+
+function loopByContent(array1, array2, array3) {
+    newArray = [];
+    array1.forEach((object,index)=> {
+    var dateObj = DateTime.fromISO(object.created_at)
+    parseTimestamp(dateObj.c.month, dateObj.c.day, dateObj.c.year, dateObj.c.hour, dateObj.c.minute)
+    object.dateString = parseTimestamp(dateObj.c.month, dateObj.c.day, dateObj.c.year, dateObj.c.hour, dateObj.c.minute)
+    var userObj = Object.assign(object, array3[index])
+    console.log('loopByContentUserObj :', userObj)
+        if (Object.keys(object).includes('attachments')) {
+            for (let i=0; i < array2.length; i++) {
+                if (object.attachments.media_keys[0]=== array2[i].media_key) {
+                //var mergedObj = Object.assign(object, array2[i])
+                //var mergedObjWithMedia = Object.assign(mergedObj, array3[i])
+                //newArray.push(mergedObjWithMedia)
+                var mergedObj = Object.assign(object, array2[i])
+                newArray.push(mergedObj)
+            }
+        } 
+            } else {
+                //var mergedObjNoMedia = Object.assign(object, array3[i])
+                //newArray.push(mergedObjNoMedia)
+                newArray.push(object)
+            }
+        })
+        console.log(newArray)
+        return newArray
+    }    
 
 function parseTimestamp(month, day, year, hour, minute) {
     if(hour >=13){

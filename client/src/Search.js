@@ -203,7 +203,11 @@ useEffect(()=>{
                         setSearchresult(
                             [{
                                 id: res.data[0].id,
-                                created_at: res.data[0].created_at,
+                                dateString: res.data[0].dateString,
+                                name: res.data[0].name,
+                                username: res.data[0].username,
+                                verified: res.data[0].verified,
+                                profile_image_url: res.data[0].profile_image_url,
                                 text: res.data[0].text,
                                 url: res.data[0].url,
                                 type: res.data[0].type,
@@ -212,7 +216,11 @@ useEffect(()=>{
                             },
                             {
                                 id: res.data[1].id,
-                                created_at: res.data[1].created_at,
+                                dateString: res.data[1].dateString,
+                                name: res.data[1].name,
+                                username: res.data[1].username,
+                                verified: res.data[1].verified,
+                                profile_image_url: res.data[1].profile_image_url,
                                 text: res.data[1].text,
                                 url: res.data[1].url,
                                 type: res.data[1].type,
@@ -221,7 +229,11 @@ useEffect(()=>{
                             },
                             {
                                 id: res.data[2].id,
-                                created_at: res.data[2].created_at,
+                                dateString: res.data[2].dateString,
+                                name: res.data[2].name,
+                                username: res.data[2].username,
+                                verified: res.data[2].verified,
+                                profile_image_url: res.data[2].profile_image_url,
                                 text: res.data[2].text,
                                 url: res.data[2].url,
                                 type: res.data[2].type,
@@ -230,7 +242,11 @@ useEffect(()=>{
                             },
                             {
                                 id: res.data[3].id,
-                                created_at: res.data[3].created_at,
+                                dateString: res.data[3].dateString,
+                                name: res.data[3].name,
+                                username: res.data[3].username,
+                                verified: res.data[3].verified,
+                                profile_image_url: res.data[3].profile_image_url,
                                 text: res.data[3].text,
                                 url: res.data[3].url,
                                 type: res.data[3].type,
@@ -239,16 +255,24 @@ useEffect(()=>{
                             },
                             {
                                 id: res.data[4].id,
-                                created_at: res.data[4].created_at,
+                                dateString: res.data[4].dateString,
+                                name: res.data[4].name,
+                                username: res.data[4].username,
+                                verified: res.data[4].verified,
+                                profile_image_url: res.data[4].profile_image_url,
                                 text: res.data[4].text,
                                 url: res.data[4].url,
-                                type: res.data[0].type,
+                                type: res.data[4].type,
                                 like_count: res.data[4].public_metrics.like_count,
                                 retweet_count: res.data[4].public_metrics.retweet_count
                             },
                             {
                                 id: res.data[5].id,
-                                created_at: res.data[5].created_at,
+                                dateString: res.data[5].dateString,
+                                name: res.data[5].name,
+                                username: res.data[5].username,
+                                verified: res.data[5].verified,
+                                profile_image_url: res.data[5].profile_image_url,
                                 text: res.data[5].text,
                                 url: res.data[5].url,
                                 type: res.data[5].type,
@@ -257,7 +281,11 @@ useEffect(()=>{
                             },
                             {
                                 id: res.data[6].id,
-                                created_at: res.data[6].created_at,
+                                dateString: res.data[6].dateString,
+                                name: res.data[6].name,
+                                username: res.data[6].username,
+                                verified: res.data[6].verified,
+                                profile_image_url: res.data[6].profile_image_url,
                                 text: res.data[6].text,
                                 url: res.data[6].url,
                                 type: res.data[6].type,
@@ -266,7 +294,11 @@ useEffect(()=>{
                             },
                             {
                                 id: res.data[7].id,
-                                created_at: res.data[7].created_at,
+                                dateString: res.data[7].dateString,
+                                name: res.data[7].name,
+                                username: res.data[7].username,
+                                verified: res.data[7].verified,
+                                profile_image_url: res.data[7].profile_image_url,
                                 text: res.data[7].text,
                                 url: res.data[7].url,
                                 type: res.data[7].type,
@@ -275,7 +307,11 @@ useEffect(()=>{
                             },
                             {
                                 id: res.data[8].id,
-                                created_at: res.data[8].created_at,
+                                dateString: res.data[8].dateString,
+                                name: res.data[8].name,
+                                username: res.data[8].username,
+                                verified: res.data[8].verified,
+                                profile_image_url: res.data[8].profile_image_url,
                                 text: res.data[8].text,
                                 url: res.data[8].url,
                                 type: res.data[8].type,
@@ -284,7 +320,11 @@ useEffect(()=>{
                             },
                             {
                                 id: res.data[9].id,
-                                created_at: res.data[9].created_at,
+                                dateString: res.data[9].dateString,
+                                name: res.data[9].name,
+                                username: res.data[9].username,
+                                verified: res.data[9].verified,
+                                profile_image_url: res.data[9].profile_image_url,
                                 text: res.data[9].text,
                                 url: res.data[9].url,
                                 type: res.data[9].type,
@@ -299,7 +339,8 @@ useEffect(()=>{
 }, [getByUserButton, getByContentButton])
 
 const tweetCards = searchresult.map((tweet) => { 
-    return <TweetCard key={tweet.id} created_at={tweet.created_at} text={tweet.text} type={tweet.type} url={tweet.url} like_count={tweet.like_count} retweet_count={tweet.retweet_count}
+    return <TweetCard key={tweet.id} dateString={tweet.dateString} created_at={tweet.created_at} name={tweet.name} username={tweet.username} 
+    verified={tweet.verified} profile_image_url={tweet.profile_image_url} text={tweet.text} type={tweet.type} url={tweet.url} like_count={tweet.like_count} retweet_count={tweet.retweet_count}
     />})
    
     return (
