@@ -30,20 +30,43 @@ app.get('/api/searchdata', async (req, res) => {
          })
     }) 
     
-app.get('/api/searchByUser', async (req, res) => {
+// app.get('/api/searchByUser', async (req, res) => {
+//     //const {search} = req.query;
+//     //console.log(search)
+//     const search = 1198406491
+//     const response = await axios.get(`https://api.twitter.com/2/users/${search}/tweets?tweet.fields=created_at,public_metrics&expansions=attachments.media_keys,author_id&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers})
+//         .then(function (response) {
+//             //console.log("raw array by user:" , response)
+//             console.log(loop(response.data.data, response.data.includes.media))
+//             res.send(loop(response.data.data, response.data.includes.media))
+//         })
+//         .catch(function(error) {
+//             res.send(error)
+//         })
+//     })
+
+//*** */
+function getAllByUser() {
+    app.get('/api/searchByUser', async (req, res) => {
     //const {search} = req.query;
     //console.log(search)
     const search = 1198406491
-    const response = await axios.get(`https://api.twitter.com/2/users/${search}/tweets?tweet.fields=created_at,public_metrics&expansions=attachments.media_keys,author_id&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers})
-        .then(function (response) {
-            //console.log("raw array by user:" , response)
-            console.log(loop(response.data.data, response.data.includes.media))
-            res.send(loop(response.data.data, response.data.includes.media))
+    const response1 = await axios.get(`https://api.twitter.com/2/users/${search}/tweets?tweet.fields=created_at,public_metrics&expansions=attachments.media_keys,author_id&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers})
+    const response2 = await axios.get(`https://api.twitter.com/2/users/${search}?expansions=pinned_tweet_id&user.fields=profile_image_url,verified`) ///this is from endpoint '/api/searchById'
+        .then(function (response1, response2) {
+            console.log("raw array by userId:" , response1, response2)
+            //console.log(loop(response.data.data, response.data.includes.media))
+            //res.send(loop(response.data.data, response.data.includes.media))
+            res.send(response1, response2)
         })
         .catch(function(error) {
             res.send(error)
         })
     })
+}  
+
+getAllByUser()
+//**** */
 
 app.get('/api/searchByUsername', async (req, res) => {
     const {search} = req.query;
@@ -116,5 +139,7 @@ function parseTimestamp(month, day, year, hour, minute) {
 //users profile image
 //username - need to request the 2nd resource from server side using async await!
 //wrap link in anchor tag
-//date - luxon
+
+//wishlist:
+//some nicer icons from twitter
 //a better user search interface. first , search for users , then add an option to press a button to view their tweets. GET users/search
