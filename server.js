@@ -83,18 +83,12 @@ app.listen(port, () => {
 })
 
 function loop(array1, array2) {
-    
     newArray = [];
     array1.forEach(object=> {
         var dateObj = DateTime.fromISO(object.created_at)
-        function nonmilitaryTime(number) {
-            if(dateObj.c.hour >=13){
-                return dateObj.c.hour - 12
-            }
-        }
-        
-        var dateString = `${dateObj.c.month}.${dateObj.c.day}.${dateObj.c.year} at ${8}:${dateObj.c.minute}`
-        console.log('dateString :', dateString)
+        parseTimestamp(dateObj.c.month, dateObj.c.day, dateObj.c.year, dateObj.c.hour, dateObj.c.minute)
+        //console.log(parseTimestamp(dateObj.c.month, dateObj.c.day, dateObj.c.year, dateObj.c.hour, dateObj.c.minute))
+        object.dateString = parseTimestamp(dateObj.c.month, dateObj.c.day, dateObj.c.year, dateObj.c.hour, dateObj.c.minute)
        if (Object.keys(object).includes('attachments')) {
             for (let i=0; i < array2.length; i++) {
                     if (object.attachments.media_keys[0]=== array2[i].media_key) {
@@ -110,47 +104,17 @@ function loop(array1, array2) {
         return newArray
     }
 
-console.log(DateTime.fromISO('2022-01-11T17:24:34.000Z'))    
-
-// const weekDay = {
-//     Mon: 'Monday',
-//     Tue: 'Tuesday',
-//     Wed: 'Wednesday',
-//     Thur: 'Thursday',
-//     Fri: 'Friday',
-//     Sat: 'Saturday',
-//     Sun: 'Sunday'
-// }   
-
-// const month = {
-//     Jan: 'January',
-//     Feb: 'February',
-//     Mar: 'March',
-//     Apr: 'April',
-//     May: 'May',
-//     Jun: 'June',
-//     Jul: 'July',
-//     Aug: 'August',
-//     Sep: 'September',
-//     Oct: 'October',
-//     Nov: 'November',
-//     Dec: 'December'
-// }
-
-//console.log(weekDay.dateArr[0])  this did not work
-
-//function filterDate(array) {
-    
-
-//}
-
-//let string = 'Sun Dec 26 2021 10:36:12 GMT-0800 (Pacific Standard Time)'
-//let arr = string.split(' ')
-//console.log(arr)
+function parseTimestamp(month, day, year, hour, minute) {
+    if(hour >=13){
+        return `${month}.${day}.${year} at ${hour-12}:${minute}pm`
+    } else {
+        return `${month}.${day}.${year} at ${hour}:${minute}am`
+    }
+}  
 
 
 //users profile image
 //username - need to request the 2nd resource from server side using async await!
 //wrap link in anchor tag
 //date - luxon
-//a better user search interface
+//a better user search interface. first , search for users , then add an option to press a button to view their tweets. GET users/search
