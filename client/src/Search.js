@@ -337,7 +337,7 @@ const tweetCards = searchresult.map((tweet) => {
                     type="text"     
                     placeholder="Type search item here..."
                     value={inputValue}
-                    onChange={event=>setInputValue(cleanData(event.target.value))}>
+                    onChange={event=>setInputValue(event.target.value)}>
                 </input>
             </div>
             <div className="searchResultContainer">

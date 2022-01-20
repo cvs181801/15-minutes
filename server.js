@@ -1,5 +1,6 @@
 const express = require('express')
 const axios = require('axios')
+const { DateTime } = require("luxon")
 const app = express()
 const path = require('path')
 const port = 3001
@@ -85,11 +86,15 @@ function loop(array1, array2) {
     
     newArray = [];
     array1.forEach(object=> {
-        var dateString = String(new Date(object.created_at))
-        console.log('date :', dateString)
-        var dateArr = dateString.split(' ')
-        console.log(dateArr)
-        //filterDate(dateArr)
+        var dateObj = DateTime.fromISO(object.created_at)
+        function nonmilitaryTime(number) {
+            if(dateObj.c.hour >=13){
+                return dateObj.c.hour - 12
+            }
+        }
+        
+        var dateString = `${dateObj.c.month}.${dateObj.c.day}.${dateObj.c.year} at ${8}:${dateObj.c.minute}`
+        console.log('dateString :', dateString)
        if (Object.keys(object).includes('attachments')) {
             for (let i=0; i < array2.length; i++) {
                     if (object.attachments.media_keys[0]=== array2[i].media_key) {
@@ -105,39 +110,39 @@ function loop(array1, array2) {
         return newArray
     }
 
-const weekDay = {
-    Mon: 'Monday',
-    Tue: 'Tuesday',
-    Wed: 'Wednesday',
-    Thur: 'Thursday',
-    Fri: 'Friday',
-    Sat: 'Saturday',
-    Sun: 'Sunday'
-}   
+console.log(DateTime.fromISO('2022-01-11T17:24:34.000Z'))    
 
-const month = {
-    Jan: 'January',
-    Feb: 'February',
-    Mar: 'March',
-    Apr: 'April',
-    May: 'May',
-    Jun: 'June',
-    Jul: 'July',
-    Aug: 'August',
-    Sep: 'September',
-    Oct: 'October',
-    Nov: 'November',
-    Dec: 'December'
-}
+// const weekDay = {
+//     Mon: 'Monday',
+//     Tue: 'Tuesday',
+//     Wed: 'Wednesday',
+//     Thur: 'Thursday',
+//     Fri: 'Friday',
+//     Sat: 'Saturday',
+//     Sun: 'Sunday'
+// }   
 
+// const month = {
+//     Jan: 'January',
+//     Feb: 'February',
+//     Mar: 'March',
+//     Apr: 'April',
+//     May: 'May',
+//     Jun: 'June',
+//     Jul: 'July',
+//     Aug: 'August',
+//     Sep: 'September',
+//     Oct: 'October',
+//     Nov: 'November',
+//     Dec: 'December'
+// }
 
+//console.log(weekDay.dateArr[0])  this did not work
 
-function filterDate(array) {
-    if(array[0]===Object.keys(weekDay)) {
-        
-    }
+//function filterDate(array) {
+    
 
-}
+//}
 
 //let string = 'Sun Dec 26 2021 10:36:12 GMT-0800 (Pacific Standard Time)'
 //let arr = string.split(' ')
@@ -145,7 +150,7 @@ function filterDate(array) {
 
 
 //users profile image
-//username
+//username - need to request the 2nd resource from server side using async await!
 //wrap link in anchor tag
-//date
+//date - luxon
 //a better user search interface
