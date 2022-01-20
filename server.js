@@ -129,6 +129,7 @@ app.get('/api/searchByUsername', async (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
+var urlRegex = /(https?:\/\/[^\s]+)/g;
 
 function loopByUser(array1, array2, object1) {
     newArray = [];
@@ -139,6 +140,7 @@ function loopByUser(array1, array2, object1) {
         var dateObj = DateTime.fromISO(object.created_at)
         parseTimestamp(dateObj.c.month, dateObj.c.day, dateObj.c.year, dateObj.c.hour, dateObj.c.minute)
         object.dateString = parseTimestamp(dateObj.c.month, dateObj.c.day, dateObj.c.year, dateObj.c.hour, dateObj.c.minute)
+        wrapUrls(object.text)
        if (Object.keys(object).includes('attachments')) {
             for (let i=0; i < array2.length; i++) {
                     if (object.attachments.media_keys[0]=== array2[i].media_key) {
@@ -161,7 +163,11 @@ function loopByContent(array1, array2, array3) {
     parseTimestamp(dateObj.c.month, dateObj.c.day, dateObj.c.year, dateObj.c.hour, dateObj.c.minute)
     object.dateString = parseTimestamp(dateObj.c.month, dateObj.c.day, dateObj.c.year, dateObj.c.hour, dateObj.c.minute)
     var userObj = Object.assign(object, array3[index])
-    console.log('loopByContentUserObj :', userObj)
+    //console.log('loopByContentUserObj :', userObj)
+
+    object.tweetString= wrapUrls(object.text)
+    console.log('tweetstring :', object.tweetString)
+    
         if (Object.keys(object).includes('attachments')) {
             for (let i=0; i < array2.length; i++) {
                 if (object.attachments.media_keys[0]=== array2[i].media_key) {
@@ -190,9 +196,17 @@ function parseTimestamp(month, day, year, hour, minute) {
     }
 }  
 
+function wrapUrls(string) {
+    const URL = string.match(urlRegex)
+    return string.replace(urlRegex, `<a>${URL}</a>`)
+}
+
+
+const coolString = 'Cherry crushes grapes: Oscar-winner directs vintage drama as he serves up Oprah’s latest smash hit on @OWNTV. #KingsofNapa @KingsOfNapa https://t.co/LKLMf9m1sH'
+
+
 
 //users profile image
-//username - need to request the 2nd resource from server side using async await!
 //wrap link in anchor tag
 
 //wishlist:
