@@ -135,6 +135,12 @@ function cutOutUrl(string) {
 
 
 //full text of tweet
+//fix style issues
+//litte bit of testing
+//write up in github!
+//deploy
+//add to website!
+//submit for review
 
 //wishlist:
 //some nicer icons from twitter
