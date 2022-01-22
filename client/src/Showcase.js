@@ -114,7 +114,6 @@ function getRandomNum() {
                     console.log(randomTweet)
                     
                     setShow({
-                        text: randomTweet.text,
                         type: randomTweet.type,
                         url: randomTweet.url,
                         retweet_count: randomTweet.public_metrics.retweet_count,

@@ -15,8 +15,14 @@ export default function TweetCard(props) {
             margin: `.4em auto .4em auto`
             }}
         >
-        <p>{props.dateString ? props.dateString  : ''}</p> 
-        <p>{props.username ? `@${props.username}` : ''}</p><img
+    <div
+    style={{
+        height: `30em`,
+        width:`30em`,
+        display: 'flex'
+        }}
+    >
+        <img
             src={props.profile_image_url ? props.profile_image_url : ''}
             alt='image' 
             width='100%' 
@@ -26,13 +32,24 @@ export default function TweetCard(props) {
                 width:`2em`
                 }}
         ></img>
+        <div
+        style={{display: 'flex'}}
+        >
+            <div>
+                <p>{props.name ? props.name : ''} {props.verified ? `☑️` : ''}</p> 
+                <p>{props.username ? `@${props.username}` : ''}</p>  
+            </div>
+            
+            <div>
+                <p>{props.dateString ? props.dateString  : ''}</p> 
+            </div> 
+        </div>
+    </div> 
 
-        <p>{props.name ? props.name : ''}</p>    
         <p>{props.tweetString ? props.tweetString : ''}</p>   
         <a href={props.url_string ? props.url_string : ''}>{props.url_string ? props.url_string : ''}</a>
 
         {props.type === 'photo' ? <Image result={props}/> : '' }
-        {/* {props.type === 'video' ? <Video result={props} /> : '' }  */}
                                 
         <p> {props.like_count ? `💚: ${props.like_count}` : ''}</p>
         <p> {props.retweet_count ? `🔁: ${props.retweet_count}` : ''}</p>   

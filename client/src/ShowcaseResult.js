@@ -16,7 +16,8 @@ export default function ShowcaseResult(props) {
         >
 
             <p>{props.result.dateString ? props.dateString  : ''}</p> 
-            <p>{props.result.username ? `@${props.result.username}` : ''}</p><img
+            
+            <img
             src={props.result.profile_image_url ? props.result.profile_image_url : ''}
             alt='image' 
             width='100%' 
@@ -27,7 +28,9 @@ export default function ShowcaseResult(props) {
                 }}
         ></img>
 
-        <p>{props.result.name ? props.result.name : ''}</p>    
+        <p>{props.result.name ? props.result.name : ''} {props.result.verified ? `☑️` : ''}</p> 
+        <p>{props.result.username ? `@${props.result.username}` : ''}</p>
+   
         <p>{props.result.tweetString ? props.result.tweetString : 'Select a celebrity above to view one of their recent tweets.'}</p>  
         <a href={props.result.url_string ? props.result.url_string : ''}>{props.result.url_string ? props.result.url_string : ''}</a>
 

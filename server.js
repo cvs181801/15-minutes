@@ -15,27 +15,10 @@ const headers = {
     Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAADR8XgEAAAAATyPleVonva9OPPeVm9Yl4x4gP6U%3DOC2OrGQ7rPMf8QD6qwjhFw1XpYZrpQwt27ohaiMVwLJ8VfVBeg'
 }
 
-// app.get('/api/searchdata', async (req, res) => {
-//     const {search} = req.query;
-//     console.log(search)
-//     //const search = 'oprah'
-//     const response = await axios.get(`https://api.twitter.com/2/tweets/search/recent?query=${search}&tweet.fields=created_at,public_metrics&expansions=attachments.media_keys,author_id&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers}) 
-//         .then(function (response) {
-//             //console.log("raw array by content:" , response.data)
-//             console.log(loop(response.data.data, response.data.includes.media))
-//             res.send(loop(response.data.data, response.data.includes.media))
-//         })
-//         .catch(function(error) {
-//             res.send(error)
-//          })
-//     }) 
-
-//*** */
 function getAllByContent() {
     app.get('/api/searchdata', async (req, res) => {
         const {search} = req.query;
         console.log(search)
-        //const search = 'oprah'
         const response1 = await axios.get(`https://api.twitter.com/2/tweets/search/recent?query=${search}&tweet.fields=created_at,public_metrics&expansions=attachments.media_keys,author_id&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers}) 
         const response2 = await axios.get(`https://api.twitter.com/2/users?ids=${response1.data.data[0].author_id},${response1.data.data[1].author_id},${response1.data.data[2].author_id},${response1.data.data[3].author_id},${response1.data.data[4].author_id},${response1.data.data[5].author_id},${response1.data.data[6].author_id},${response1.data.data[7].author_id},${response1.data.data[8].author_id},${response1.data.data[9].author_id}&expansions=pinned_tweet_id&user.fields=profile_image_url,verified`, {headers}) 
         console.log('looped By Content :', loopByContent(response1.data.data, response1.data.includes.media, response2.data.data))
@@ -46,52 +29,19 @@ function getAllByContent() {
 
 getAllByContent()
 
-//*** */
-    
-// app.get('/api/searchByUser', async (req, res) => {
-//     //const {search} = req.query;
-//     //console.log(search)
-//     const search = 1198406491
-//     const response = await axios.get(`https://api.twitter.com/2/users/${search}/tweets?tweet.fields=created_at,public_metrics&expansions=attachments.media_keys,author_id&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers})
-//         .then(function (response) {
-//             //console.log("raw array by user:" , response)
-//             console.log(loop(response.data.data, response.data.includes.media))
-//             res.send(loop(response.data.data, response.data.includes.media))
-//         })
-//         .catch(function(error) {
-//             res.send(error)
-//         })
-//     })
-
-//*** */
 function getAllByUser() {
     app.get('/api/searchByUser', async (req, res) => {
     const {search} = req.query;
     console.log(search)
-    //const search = 1198406491
     const response1 = await axios.get(`https://api.twitter.com/2/users/${search}/tweets?tweet.fields=created_at,public_metrics&expansions=attachments.media_keys,author_id&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers})
-    const response2 = await axios.get(`https://api.twitter.com/2/users/${search}?expansions=pinned_tweet_id&user.fields=profile_image_url,verified`, {headers}) ///this is from endpoint '/api/searchById'
-        //.then(function (response1, response2) {
-            //console.log("raw array by userId:" , response1, response2)
-            //console.log(loop(response.data.data, response.data.includes.media))
-            //res.send(loop(response.data.data, response.data.includes.media))
-            //res.send(response1, response2)
-        //})
-        //.catch(function(error) {
-        //    res.send(error)
-        //})
-        //console.log('response1 :', response1.data.data, 'response1media :', response1.data.includes.media, 'response2 :', response2.data.data)
+    const response2 = await axios.get(`https://api.twitter.com/2/users/${search}?expansions=pinned_tweet_id&user.fields=profile_image_url,verified`, {headers}) 
+    
         res.send(loopByUser(response1.data.data, response1.data.includes.media, response2.data.data))
-        // res.send({
-        //     'response1': response1.data,
-        //     'response2': response2.data
-        // })
         return response1, response2
     })
 }  
 
 getAllByUser()
-//**** */
 
 app.get('/api/searchByUsername', async (req, res) => {
     const {search} = req.query;
@@ -112,20 +62,6 @@ app.get('/api/searchByUsername', async (req, res) => {
         })
     })    
 
-// app.get('/api/searchById', async (req, res) => {
-//     const {search} = req.query;
-//     console.log(search)
-//     //const search = 1198406491
-//     const response = await axios.get(`https://api.twitter.com/2/users/${search}?expansions=pinned_tweet_id&user.fields=profile_image_url,verified`, {headers})
-//         .then(function (response) {
-//             console.log("raw array by userID:" , response.data)
-//             res.send(response.data)
-//         })
-//             .catch(function(error) {
-//             res.send(error)
-//         })
-//     })    
-
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
@@ -135,9 +71,7 @@ var urlRegex = /(https?:\/\/[^\s]+)/g;
 function loopByUser(array1, array2, object1) {
     newArray = [];
     array1.forEach(object=> {
-        //console.log(object1)
         var userObj = Object.assign(object, object1)
-        //console.log('obj with user data merged :', userObj)
         var dateObj = DateTime.fromISO(object.created_at)
         parseTimestamp(dateObj.c.month, dateObj.c.day, dateObj.c.year, dateObj.c.hour, dateObj.c.minute)
         object.dateString = parseTimestamp(dateObj.c.month, dateObj.c.day, dateObj.c.year, dateObj.c.hour, dateObj.c.minute)
@@ -156,7 +90,6 @@ function loopByUser(array1, array2, object1) {
             newArray.push(object)
             }
         })
-        //console.log(newArray)
         return newArray
     }
 
@@ -174,16 +107,11 @@ function loopByContent(array1, array2, array3) {
         if (Object.keys(object).includes('attachments')) {
             for (let i=0; i < array2.length; i++) {
                 if (object.attachments.media_keys[0]=== array2[i].media_key) {
-                //var mergedObj = Object.assign(object, array2[i])
-                //var mergedObjWithMedia = Object.assign(mergedObj, array3[i])
-                //newArray.push(mergedObjWithMedia)
                 var mergedObj = Object.assign(object, array2[i])
                 newArray.push(mergedObj)
             }
         } 
             } else {
-                //var mergedObjNoMedia = Object.assign(object, array3[i])
-                //newArray.push(mergedObjNoMedia)
                 newArray.push(object)
             }
         })
@@ -199,23 +127,11 @@ function parseTimestamp(month, day, year, hour, minute) {
     }
 }  
 
-
-// function wrapUrls(string) {
-//     function stringToHtml(match, string) {
-//         return `${string}<a href=${match}>${match}</a>`
-//     }
-//     const URL = string.match(urlRegex)
-//     return string.replace(urlRegex, stringToHtml)
-// }
-
 function cutOutUrl(string) {
     var URL = string.match(urlRegex)
     return string.replace(urlRegex, '')
 }
 
-const coolString = `Adam Driver and Lady Gaga on the set of House of Gucci https://t.co/xqndh27Jwi`
-
-console.log(cutOutUrl(coolString))
 
 
 //full text of tweet
