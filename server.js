@@ -129,6 +129,7 @@ app.get('/api/searchByUsername', async (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
+
 var urlRegex = /(https?:\/\/[^\s]+)/g;
 
 function loopByUser(array1, array2, object1) {
@@ -140,7 +141,10 @@ function loopByUser(array1, array2, object1) {
         var dateObj = DateTime.fromISO(object.created_at)
         parseTimestamp(dateObj.c.month, dateObj.c.day, dateObj.c.year, dateObj.c.hour, dateObj.c.minute)
         object.dateString = parseTimestamp(dateObj.c.month, dateObj.c.day, dateObj.c.year, dateObj.c.hour, dateObj.c.minute)
-        wrapUrls(object.text)
+        object.tweetString= cutOutUrl(object.text)
+        object.url_string = object.text.match(urlRegex)
+        console.log('tweetstring :', object.tweetString, 'url_string :', object.url_string)
+
        if (Object.keys(object).includes('attachments')) {
             for (let i=0; i < array2.length; i++) {
                     if (object.attachments.media_keys[0]=== array2[i].media_key) {
@@ -163,10 +167,9 @@ function loopByContent(array1, array2, array3) {
     parseTimestamp(dateObj.c.month, dateObj.c.day, dateObj.c.year, dateObj.c.hour, dateObj.c.minute)
     object.dateString = parseTimestamp(dateObj.c.month, dateObj.c.day, dateObj.c.year, dateObj.c.hour, dateObj.c.minute)
     var userObj = Object.assign(object, array3[index])
-    //console.log('loopByContentUserObj :', userObj)
-
-    object.tweetString= wrapUrls(object.text)
-    console.log('tweetstring :', object.tweetString)
+    object.tweetString= cutOutUrl(object.text)
+    object.url_string = object.text.match(urlRegex)
+    console.log('tweetstring :', object.tweetString, 'url_string :', object.url_string)
     
         if (Object.keys(object).includes('attachments')) {
             for (let i=0; i < array2.length; i++) {
@@ -196,18 +199,26 @@ function parseTimestamp(month, day, year, hour, minute) {
     }
 }  
 
-function wrapUrls(string) {
-    const URL = string.match(urlRegex)
-    return string.replace(urlRegex, `<a>${URL}</a>`)
+
+// function wrapUrls(string) {
+//     function stringToHtml(match, string) {
+//         return `${string}<a href=${match}>${match}</a>`
+//     }
+//     const URL = string.match(urlRegex)
+//     return string.replace(urlRegex, stringToHtml)
+// }
+
+function cutOutUrl(string) {
+    var URL = string.match(urlRegex)
+    return string.replace(urlRegex, '')
 }
 
+const coolString = `Adam Driver and Lady Gaga on the set of House of Gucci https://t.co/xqndh27Jwi`
 
-const coolString = 'Cherry crushes grapes: Oscar-winner directs vintage drama as he serves up Oprah’s latest smash hit on @OWNTV. #KingsofNapa @KingsOfNapa https://t.co/LKLMf9m1sH'
+console.log(cutOutUrl(coolString))
 
 
-
-//users profile image
-//wrap link in anchor tag
+//full text of tweet
 
 //wishlist:
 //some nicer icons from twitter

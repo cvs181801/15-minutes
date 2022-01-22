@@ -8,7 +8,6 @@
     "runtime-main.js.map": "/js/bundle.js.map",
     "vendors~main.js": "/js/vendors~main.chunk.js",
     "vendors~main.js.map": "/js/vendors~main.chunk.js.map",
-    "index.html": "/index.html",
     "media/TV.png": "/media/TV.28380c92.png"
   },
   "entrypoints": [

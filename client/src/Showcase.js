@@ -112,15 +112,21 @@ function getRandomNum() {
                     
                     const randomTweet = res.data[getRandomNum()]
                     console.log(randomTweet)
-                    console.log(String(new Date('2021-12-14T00:09:29.000Z')))
                     
                     setShow({
-                        created_at: randomTweet.created_at,
                         text: randomTweet.text,
                         type: randomTweet.type,
                         url: randomTweet.url,
                         retweet_count: randomTweet.public_metrics.retweet_count,
-                        like_count: randomTweet.public_metrics.like_count
+                        like_count: randomTweet.public_metrics.like_count,
+                        dateString: randomTweet.dateString,
+                        id: randomTweet.id,
+                        name: randomTweet.name,
+                        username: randomTweet.username,
+                        verified: randomTweet.verified,
+                        profile_image_url: randomTweet.profile_image_url,
+                        tweetString: randomTweet.tweetString,
+                        url_string: randomTweet.url_string
                     })
                 })
             } else {                

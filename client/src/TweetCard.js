@@ -28,7 +28,8 @@ export default function TweetCard(props) {
         ></img>
 
         <p>{props.name ? props.name : ''}</p>    
-        <p>{props.text ? props.text : ''}</p>   
+        <p>{props.tweetString ? props.tweetString : ''}</p>   
+        <a href={props.url_string ? props.url_string : ''}>{props.url_string ? props.url_string : ''}</a>
 
         {props.type === 'photo' ? <Image result={props}/> : '' }
         {/* {props.type === 'video' ? <Video result={props} /> : '' }  */}

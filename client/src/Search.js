@@ -95,97 +95,147 @@ useEffect(()=>{
                             .then(res=>{
                             console.log(res.data)
                              setSearchresult([
-                                     {
-                                    id: res.data[0].id,
-                                    created_at: res.data[0].created_at,
-                                    text: res.data[0].text,
-                                    url: res.data[0].url,
-                                    type: res.data[0].type,
-                                    like_count: res.data[0].public_metrics.like_count,
-                                    retweet_count: res.data[0].public_metrics.retweet_count
-                                },
-                                {
-                                    id: res.data[1].id,
-                                    created_at: res.data[1].created_at,
-                                    text: res.data[1].text,
-                                    url: res.data[1].url,
-                                    type: res.data[1].type,
-                                    like_count: res.data[1].public_metrics.like_count,
-                                    retweet_count: res.data[1].public_metrics.retweet_count
-                                },
-                                {
-                                    id: res.data[2].id,
-                                    created_at: res.data[2].created_at,
-                                    text: res.data[2].text,
-                                    url: res.data[2].url,
-                                    type: res.data[2].type,
-                                    like_count: res.data[2].public_metrics.like_count,
-                                    retweet_count: res.data[2].public_metrics.retweet_count
-                                },
-                                {
-                                    id: res.data[3].id,
-                                    created_at: res.data[3].created_at,
-                                    text: res.data[3].text,
-                                    url: res.data[3].url,
-                                    type: res.data[3].type,
-                                    like_count: res.data[3].public_metrics.like_count,
-                                    retweet_count: res.data[3].public_metrics.retweet_count
-                                },
-                                {
-                                    id: res.data[4].id,
-                                    created_at: res.data[4].created_at,
-                                    text: res.data[4].text,
-                                    url: res.data[4].url,
-                                    type: res.data[0].type,
-                                    like_count: res.data[4].public_metrics.like_count,
-                                    retweet_count: res.data[4].public_metrics.retweet_count
-                                },
-                                {
-                                    id: res.data[5].id,
-                                    created_at: res.data[5].created_at,
-                                    text: res.data[5].text,
-                                    url: res.data[5].url,
-                                    type: res.data[5].type,
-                                    like_count: res.data[5].public_metrics.like_count,
-                                    retweet_count: res.data[5].public_metrics.retweet_count
-                                },
-                                {
-                                    id: res.data[6].id,
-                                    created_at: res.data[6].created_at,
-                                    text: res.data[6].text,
-                                    url: res.data[6].url,
-                                    type: res.data[6].type,
-                                    like_count: res.data[6].public_metrics.like_count,
-                                    retweet_count: res.data[6].public_metrics.retweet_count
-                                },
-                                {
-                                    id: res.data[7].id,
-                                    created_at: res.data[7].created_at,
-                                    text: res.data[7].text,
-                                    url: res.data[7].url,
-                                    type: res.data[7].type,
-                                    like_count: res.data[7].public_metrics.like_count,
-                                    retweet_count: res.data[7].public_metrics.retweet_count
-                                },
-                                {
-                                    id: res.data[8].id,
-                                    created_at: res.data[8].created_at,
-                                    text: res.data[8].text,
-                                    url: res.data[8].url,
-                                    type: res.data[8].type,
-                                    like_count: res.data[8].public_metrics.like_count,
-                                    retweet_count: res.data[8].public_metrics.retweet_count
-                                },
-                                {
-                                    id: res.data[9].id,
-                                    created_at: res.data[9].created_at,
-                                    text: res.data[9].text,
-                                    url: res.data[9].url,
-                                    type: res.data[9].type,
-                                    like_count: res.data[9].public_metrics.like_count,
-                                    retweet_count: res.data[9].public_metrics.retweet_count
-                                }
-                            ])
+                            {
+                                id: res.data[0].id,
+                                dateString: res.data[0].dateString,
+                                name: res.data[0].name,
+                                username: res.data[0].username,
+                                verified: res.data[0].verified,
+                                profile_image_url: res.data[0].profile_image_url,
+                                tweetString: res.data[0].tweetString,
+                                url: res.data[0].url,
+                                type: res.data[0].type,
+                                like_count: res.data[0].public_metrics.like_count,
+                                retweet_count: res.data[0].public_metrics.retweet_count,
+                                url_string: res.data[0].url_string
+                            },
+                            {
+                                id: res.data[1].id,
+                                dateString: res.data[1].dateString,
+                                name: res.data[1].name,
+                                username: res.data[1].username,
+                                verified: res.data[1].verified,
+                                profile_image_url: res.data[1].profile_image_url,
+                                tweetString: res.data[1].tweetString,
+                                url: res.data[1].url,
+                                type: res.data[1].type,
+                                like_count: res.data[1].public_metrics.like_count,
+                                retweet_count: res.data[1].public_metrics.retweet_count,
+                                url_string: res.data[1].url_string
+                            },
+                            {
+                                id: res.data[2].id,
+                                dateString: res.data[2].dateString,
+                                name: res.data[2].name,
+                                username: res.data[2].username,
+                                verified: res.data[2].verified,
+                                profile_image_url: res.data[2].profile_image_url,
+                                tweetString: res.data[2].tweetString,
+                                url: res.data[2].url,
+                                type: res.data[2].type,
+                                like_count: res.data[2].public_metrics.like_count,
+                                retweet_count: res.data[2].public_metrics.retweet_count,
+                                url_string: res.data[2].url_string
+                            },
+                            {
+                                id: res.data[3].id,
+                                dateString: res.data[3].dateString,
+                                name: res.data[3].name,
+                                username: res.data[3].username,
+                                verified: res.data[3].verified,
+                                profile_image_url: res.data[3].profile_image_url,
+                                tweetString: res.data[3].tweetString,
+                                url: res.data[3].url,
+                                type: res.data[3].type,
+                                like_count: res.data[3].public_metrics.like_count,
+                                retweet_count: res.data[3].public_metrics.retweet_count,
+                                url_string: res.data[3].url_string
+                            },
+                            {
+                                id: res.data[4].id,
+                                dateString: res.data[4].dateString,
+                                name: res.data[4].name,
+                                username: res.data[4].username,
+                                verified: res.data[4].verified,
+                                profile_image_url: res.data[4].profile_image_url,
+                                tweetString: res.data[4].tweetString,
+                                url: res.data[4].url,
+                                type: res.data[4].type,
+                                like_count: res.data[4].public_metrics.like_count,
+                                retweet_count: res.data[4].public_metrics.retweet_count,
+                                url_string: res.data[4].url_string
+                            },
+                            {
+                                id: res.data[5].id,
+                                dateString: res.data[5].dateString,
+                                name: res.data[5].name,
+                                username: res.data[5].username,
+                                verified: res.data[5].verified,
+                                profile_image_url: res.data[5].profile_image_url,
+                                tweetString: res.data[5].tweetString,
+                                url: res.data[5].url,
+                                type: res.data[5].type,
+                                like_count: res.data[5].public_metrics.like_count,
+                                retweet_count: res.data[5].public_metrics.retweet_count,
+                                url_string: res.data[5].url_string
+                            },
+                            {
+                                id: res.data[6].id,
+                                dateString: res.data[6].dateString,
+                                name: res.data[6].name,
+                                username: res.data[6].username,
+                                verified: res.data[6].verified,
+                                profile_image_url: res.data[6].profile_image_url,
+                                tweetString: res.data[6].tweetString,
+                                url: res.data[6].url,
+                                type: res.data[6].type,
+                                like_count: res.data[6].public_metrics.like_count,
+                                retweet_count: res.data[6].public_metrics.retweet_count,
+                                url_string: res.data[6].url_string
+                            },
+                            {
+                                id: res.data[7].id,
+                                dateString: res.data[7].dateString,
+                                name: res.data[7].name,
+                                username: res.data[7].username,
+                                verified: res.data[7].verified,
+                                profile_image_url: res.data[7].profile_image_url,
+                                tweetString: res.data[7].tweetString,
+                                url: res.data[7].url,
+                                type: res.data[7].type,
+                                like_count: res.data[7].public_metrics.like_count,
+                                retweet_count: res.data[7].public_metrics.retweet_count,
+                                url_string: res.data[7].url_string
+                            },
+                            {
+                                id: res.data[8].id,
+                                dateString: res.data[8].dateString,
+                                name: res.data[8].name,
+                                username: res.data[8].username,
+                                verified: res.data[8].verified,
+                                profile_image_url: res.data[8].profile_image_url,
+                                tweetString: res.data[8].tweetString,
+                                url: res.data[8].url,
+                                type: res.data[8].type,
+                                like_count: res.data[8].public_metrics.like_count,
+                                retweet_count: res.data[8].public_metrics.retweet_count,
+                                url_string: res.data[8].url_string
+                            },
+                            {
+                                id: res.data[9].id,
+                                dateString: res.data[9].dateString,
+                                name: res.data[9].name,
+                                username: res.data[9].username,
+                                verified: res.data[9].verified,
+                                profile_image_url: res.data[9].profile_image_url,
+                                tweetString: res.data[9].tweetString,
+                                url: res.data[9].url,
+                                type: res.data[9].type,
+                                like_count: res.data[9].public_metrics.like_count,
+                                retweet_count: res.data[9].public_metrics.retweet_count,
+                                url_string: res.data[9].url_string
+                            }
+                        ])
                             setGetByUserButton(false)
                             })
                         })
@@ -208,11 +258,12 @@ useEffect(()=>{
                                 username: res.data[0].username,
                                 verified: res.data[0].verified,
                                 profile_image_url: res.data[0].profile_image_url,
-                                text: res.data[0].text,
+                                tweetString: res.data[0].tweetString,
                                 url: res.data[0].url,
                                 type: res.data[0].type,
                                 like_count: res.data[0].public_metrics.like_count,
-                                retweet_count: res.data[0].public_metrics.retweet_count
+                                retweet_count: res.data[0].public_metrics.retweet_count,
+                                url_string: res.data[0].url_string
                             },
                             {
                                 id: res.data[1].id,
@@ -221,11 +272,12 @@ useEffect(()=>{
                                 username: res.data[1].username,
                                 verified: res.data[1].verified,
                                 profile_image_url: res.data[1].profile_image_url,
-                                text: res.data[1].text,
+                                tweetString: res.data[1].tweetString,
                                 url: res.data[1].url,
                                 type: res.data[1].type,
                                 like_count: res.data[1].public_metrics.like_count,
-                                retweet_count: res.data[1].public_metrics.retweet_count
+                                retweet_count: res.data[1].public_metrics.retweet_count,
+                                url_string: res.data[1].url_string
                             },
                             {
                                 id: res.data[2].id,
@@ -234,11 +286,12 @@ useEffect(()=>{
                                 username: res.data[2].username,
                                 verified: res.data[2].verified,
                                 profile_image_url: res.data[2].profile_image_url,
-                                text: res.data[2].text,
+                                tweetString: res.data[2].tweetString,
                                 url: res.data[2].url,
                                 type: res.data[2].type,
                                 like_count: res.data[2].public_metrics.like_count,
-                                retweet_count: res.data[2].public_metrics.retweet_count
+                                retweet_count: res.data[2].public_metrics.retweet_count,
+                                url_string: res.data[2].url_string
                             },
                             {
                                 id: res.data[3].id,
@@ -247,11 +300,12 @@ useEffect(()=>{
                                 username: res.data[3].username,
                                 verified: res.data[3].verified,
                                 profile_image_url: res.data[3].profile_image_url,
-                                text: res.data[3].text,
+                                tweetString: res.data[3].tweetString,
                                 url: res.data[3].url,
                                 type: res.data[3].type,
                                 like_count: res.data[3].public_metrics.like_count,
-                                retweet_count: res.data[3].public_metrics.retweet_count
+                                retweet_count: res.data[3].public_metrics.retweet_count,
+                                url_string: res.data[3].url_string
                             },
                             {
                                 id: res.data[4].id,
@@ -260,11 +314,12 @@ useEffect(()=>{
                                 username: res.data[4].username,
                                 verified: res.data[4].verified,
                                 profile_image_url: res.data[4].profile_image_url,
-                                text: res.data[4].text,
+                                tweetString: res.data[4].tweetString,
                                 url: res.data[4].url,
                                 type: res.data[4].type,
                                 like_count: res.data[4].public_metrics.like_count,
-                                retweet_count: res.data[4].public_metrics.retweet_count
+                                retweet_count: res.data[4].public_metrics.retweet_count,
+                                url_string: res.data[4].url_string
                             },
                             {
                                 id: res.data[5].id,
@@ -273,11 +328,12 @@ useEffect(()=>{
                                 username: res.data[5].username,
                                 verified: res.data[5].verified,
                                 profile_image_url: res.data[5].profile_image_url,
-                                text: res.data[5].text,
+                                tweetString: res.data[5].tweetString,
                                 url: res.data[5].url,
                                 type: res.data[5].type,
                                 like_count: res.data[5].public_metrics.like_count,
-                                retweet_count: res.data[5].public_metrics.retweet_count
+                                retweet_count: res.data[5].public_metrics.retweet_count,
+                                url_string: res.data[5].url_string
                             },
                             {
                                 id: res.data[6].id,
@@ -286,11 +342,12 @@ useEffect(()=>{
                                 username: res.data[6].username,
                                 verified: res.data[6].verified,
                                 profile_image_url: res.data[6].profile_image_url,
-                                text: res.data[6].text,
+                                tweetString: res.data[6].tweetString,
                                 url: res.data[6].url,
                                 type: res.data[6].type,
                                 like_count: res.data[6].public_metrics.like_count,
-                                retweet_count: res.data[6].public_metrics.retweet_count
+                                retweet_count: res.data[6].public_metrics.retweet_count,
+                                url_string: res.data[6].url_string
                             },
                             {
                                 id: res.data[7].id,
@@ -299,11 +356,12 @@ useEffect(()=>{
                                 username: res.data[7].username,
                                 verified: res.data[7].verified,
                                 profile_image_url: res.data[7].profile_image_url,
-                                text: res.data[7].text,
+                                tweetString: res.data[7].tweetString,
                                 url: res.data[7].url,
                                 type: res.data[7].type,
                                 like_count: res.data[7].public_metrics.like_count,
-                                retweet_count: res.data[7].public_metrics.retweet_count
+                                retweet_count: res.data[7].public_metrics.retweet_count,
+                                url_string: res.data[7].url_string
                             },
                             {
                                 id: res.data[8].id,
@@ -312,11 +370,12 @@ useEffect(()=>{
                                 username: res.data[8].username,
                                 verified: res.data[8].verified,
                                 profile_image_url: res.data[8].profile_image_url,
-                                text: res.data[8].text,
+                                tweetString: res.data[8].tweetString,
                                 url: res.data[8].url,
                                 type: res.data[8].type,
                                 like_count: res.data[8].public_metrics.like_count,
-                                retweet_count: res.data[8].public_metrics.retweet_count
+                                retweet_count: res.data[8].public_metrics.retweet_count,
+                                url_string: res.data[8].url_string
                             },
                             {
                                 id: res.data[9].id,
@@ -325,11 +384,12 @@ useEffect(()=>{
                                 username: res.data[9].username,
                                 verified: res.data[9].verified,
                                 profile_image_url: res.data[9].profile_image_url,
-                                text: res.data[9].text,
+                                tweetString: res.data[9].tweetString,
                                 url: res.data[9].url,
                                 type: res.data[9].type,
                                 like_count: res.data[9].public_metrics.like_count,
-                                retweet_count: res.data[9].public_metrics.retweet_count
+                                retweet_count: res.data[9].public_metrics.retweet_count,
+                                url_string: res.data[9].url_string
                             }
                         ])
                         setGetByContentButton(false)
@@ -340,7 +400,8 @@ useEffect(()=>{
 
 const tweetCards = searchresult.map((tweet) => { 
     return <TweetCard key={tweet.id} dateString={tweet.dateString} created_at={tweet.created_at} name={tweet.name} username={tweet.username} 
-    verified={tweet.verified} profile_image_url={tweet.profile_image_url} text={tweet.text} type={tweet.type} url={tweet.url} like_count={tweet.like_count} retweet_count={tweet.retweet_count}
+    verified={tweet.verified} profile_image_url={tweet.profile_image_url} tweetString={tweet.tweetString} type={tweet.type} url={tweet.url}
+     like_count={tweet.like_count} retweet_count={tweet.retweet_count} url_string={tweet.url_string}
     />})
    
     return (
