@@ -147,8 +147,9 @@ function cutOutUrl(string) {
 // username: "Oprah"
 // verified: true
 
+///*** To Do */
 //full text of tweet?
-//fix style issues
+//fix style issues. Move styles into a class in index.css.
 //litte bit of testing,
 //refactor.review prev code review.
 //blog - fix and deploy.
