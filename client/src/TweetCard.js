@@ -19,7 +19,8 @@ export default function TweetCard(props) {
     style={{
         height: `30em`,
         width:`30em`,
-        display: 'flex'
+        display: 'flex',
+        border: '2px solid grey'
         }}
     >
         <img
@@ -28,26 +29,33 @@ export default function TweetCard(props) {
             width='100%' 
             style={{
                 borderRadius: `50%`,
-                height: `2em`,
-                width:`2em`
+                height: `3em`,
+                width:`3em`,
+                margin: `.4em`
                 }}
         ></img>
         <div
-        style={{display: 'flex'}}
+        style={{
+            display: 'flex',
+            border: '2px solid green',
+            textAlign: `left`
+        }}
         >
-            <div>
-                <p>{props.name ? props.name : ''} {props.verified ? `☑️` : ''}</p> 
+            <div
+            style={{
+                border: '2px solid hotpink',
+                padding: `.4em`
+            }}
+            >
+                <p>{props.name ? props.name : ''} {props.verified ? `☑️` : ''} {props.dateString ? props.dateString  : ''}</p> 
                 <p>{props.username ? `@${props.username}` : ''}</p>  
             </div>
             
-            <div>
-                <p>{props.dateString ? props.dateString  : ''}</p> 
-            </div> 
         </div>
     </div> 
 
         <p>{props.tweetString ? props.tweetString : ''}</p>   
-        <a href={props.url_string ? props.url_string : ''}>{props.url_string ? props.url_string : ''}</a>
+        <p><a href={props.url_string ? props.url_string : ''}>{props.url_string ? props.url_string : ''}</a></p>
 
         {props.type === 'photo' ? <Image result={props}/> : '' }
                                 

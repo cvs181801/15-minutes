@@ -133,10 +133,25 @@ function cutOutUrl(string) {
 }
 
 
+//bug when setting state :
+// dateString: "1.17.2022 at 10:26am"
+// id: "19397785"
+// like_count: 0
+// name: "Oprah Winfrey"
+// profile_image_url: "https://pbs.twimg.com/profile_images/1123359369570148353/Mh-Rf4Sk_normal.jpg"
+// retweet_count: 935
+// tweetString: "RT @ava: SELMA is streaming on Apple, Hulu, YouTube and Amazon, with Peacock offering free viewing in honor of Dr. King’s holiday.\n\nVoting…"
+// type: undefined  <<<< these undefined values causing issues wheen adding them in state
+// url: undefined
+// url_string: null
+// username: "Oprah"
+// verified: true
 
-//full text of tweet
+//full text of tweet?
 //fix style issues
-//litte bit of testing
+//litte bit of testing,
+//refactor.review prev code review.
+//blog - fix and deploy.
 //write up in github!
 //deploy
 //add to website!

@@ -23,8 +23,8 @@ export default function ShowcaseResult(props) {
             width='100%' 
             style={{
                 borderRadius: `50%`,
-                height: `2em`,
-                width:`2em`
+                height: `3em`,
+                width:`3em`
                 }}
         ></img>
 
@@ -32,7 +32,7 @@ export default function ShowcaseResult(props) {
         <p>{props.result.username ? `@${props.result.username}` : ''}</p>
    
         <p>{props.result.tweetString ? props.result.tweetString : 'Select a celebrity above to view one of their recent tweets.'}</p>  
-        <a href={props.result.url_string ? props.result.url_string : ''}>{props.result.url_string ? props.result.url_string : ''}</a>
+        <p><a href={props.result.url_string ? props.result.url_string : ''}>{props.result.url_string ? props.result.url_string : ''}</a></p>
 
         {props.result.type === 'photo' ? <Image result={props.result}/> : '' }
                             

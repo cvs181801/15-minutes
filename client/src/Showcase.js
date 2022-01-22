@@ -163,19 +163,7 @@ function getRandomNum() {
                 onMouseEnter={handleHoverOverGaga}
                 onMouseLeave={handleHoverOutGaga}
                 style={{
-                    cursor: 'pointer',
-                    margin: `0 .2em 1em .2em`,
-                    position: 'inline-block', 
-                    height: '32px', 
-                    width: '106px', 
-                    background: '#FFFFFF',
-                    fontSize: '.6rem',
-                    letterSpacing: '.1rem',
-                    textTransform: 'uppercase',
-                    lineHeight: '.8rem',
-                    border: `${hoverGaga}`,
-                    boxSizing: 'border-box',
-                    borderRadius:'13px',
+                    border: `${hoverGaga}`
                 }}     
             >Gaga</button> 
 
@@ -185,19 +173,7 @@ function getRandomNum() {
                 onMouseEnter={handleHoverOverOprah}
                 onMouseLeave={handleHoverOutOprah}
                 style={{
-                    cursor: 'pointer',
-                    margin: `0 .2em 1em .2em`,
-                    position: 'inline-block', 
-                    height: '32px', 
-                    width: '106px', 
-                    background: '#FFFFFF',
-                    fontSize: '.6rem',
-                    letterSpacing: '.1rem',
-                    textTransform: 'uppercase',
-                    lineHeight: '.8rem',
-                    border: `${hoverOprah}`,
-                    boxSizing: 'border-box',
-                    borderRadius:'13px',
+                    border: `${hoverOprah}` 
                 }}     
             >Oprah</button> 
 
@@ -207,19 +183,7 @@ function getRandomNum() {
                 onMouseEnter={handleHoverOverReese}
                 onMouseLeave={handleHoverOutReese}
                 style={{
-                    cursor: 'pointer',
-                    margin: `0 .2em 1em .2em`,
-                    position: 'inline-block', 
-                    height: '32px', 
-                    width: '106px', 
-                    background: '#FFFFFF',
-                    fontSize: '.6rem',
-                    letterSpacing: '.1rem',
-                    textTransform: 'uppercase',
-                    lineHeight: '.8rem',
-                    border: `${hoverReese}`,
-                    boxSizing: 'border-box',
-                    borderRadius:'13px',
+                    border: `${hoverReese}` 
                 }}     
             >Reese</button> 
 
@@ -229,19 +193,7 @@ function getRandomNum() {
                 onMouseEnter={handleHoverOverAshton}
                 onMouseLeave={handleHoverOutAshton}
                 style={{
-                    cursor: 'pointer',
-                    margin: `0 .2em 1em .2em`,
-                    position: 'inline-block', 
-                    height: '32px', 
-                    width: '106px', 
-                    background: '#FFFFFF',
-                    fontSize: '.6rem',
-                    letterSpacing: '.1rem',
-                    textTransform: 'uppercase',
-                    lineHeight: '.8rem',
-                    border: `${hoverAshton}`,
-                    boxSizing: 'border-box',
-                    borderRadius:'13px',
+                    border: `${hoverAshton}`
                 }}     
             >Ashton</button> 
 
@@ -251,19 +203,7 @@ function getRandomNum() {
                 onMouseEnter={handleHoverOverBey}
                 onMouseLeave={handleHoverOutBey}
                 style={{
-                    cursor: 'pointer',
-                    margin: `0 .2em 1em .2em`,
-                    position: 'inline-block', 
-                    height: '32px', 
-                    width: '106px', 
-                    background: '#FFFFFF',
-                    fontSize: '.6rem',
-                    letterSpacing: '.1rem',
-                    textTransform: 'uppercase',
-                    lineHeight: '.8rem',
-                    border: `${hoverBey}`,
-                    boxSizing: 'border-box',
-                    borderRadius:'13px',
+                    border: `${hoverBey}`
                 }}     
             >Beyonce</button> 
             
