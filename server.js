@@ -129,80 +129,6 @@ function cutOutUrl(string) {
     return string.replace(urlRegex, '')
 }
 
-// test array
-
-const testArray = [
-{
-    public_metrics: {
-        retweet_count: 5,
-        reply_count: 58,
-        like_count: 1235,
-        quote_count: 16
-        },
-    id: 1235,
-    text: 'Happy New Year everybody! I know a lot of people feel like this holiday is a time to “reset” and set goals. What if we also just kept going and brought our history with us? What if we honored that we work hard all the time to be brave and our goal was just to keep that courage ❤️',
-    author_id: '14230524',
-    created_at: '2022-01-01T19:53:09.000Z',
-    pinned_tweet_id: '1443788597103005734',
-    profile_image_url: 'https://pbs.twimg.com/profile_images/1422589226122584065/gdG2mkcY_normal.jpg',
-    verified: true,
-    username: 'ladygaga',
-    name: 'Lady Gaga',
-    dateString: 'Jan 1, 2022, 11:53 AM',
-    tweetString: 'Happy New Year everybody! I know a lot of people feel like this holiday is a time to “reset” and set goals. What if we also just kept going and brought our history with us? What if we honored that we work hard all the time to be brave and our goal was just to keep that courage ❤️',
-    url_string: null,
-        
-  },
-  {
-    public_metrics: {
-      retweet_count: 1262,
-      reply_count: 559,
-      like_count: 15501,
-      quote_count: 126
-    },
-    id: '14230524',
-    text: 'Last chance to shop the @hauslabs end-of-year sale with promo code BYE2021 💕 https://t.co/16HKLF1qsu https://t.co/E5UHLEaBIa',
-    author_id: '14230524',
-    created_at: '2021-12-29T17:01:02.000Z',
-    attachments: { media_keys: [Array] },
-    pinned_tweet_id: '1443788597103005734',
-    profile_image_url: 'https://pbs.twimg.com/profile_images/1422589226122584065/gdG2mkcY_normal.jpg',
-    verified: true,
-    username: 'ladygaga',
-    name: 'Lady Gaga',
-    dateString: 'Dec 29, 2021, 9:01 AM',
-    tweetString: 'Last chance to shop the @hauslabs end-of-year sale with promo code BYE2021 💕  ',
-    url_string: [ 'https://t.co/16HKLF1qsu', 'https://t.co/E5UHLEaBIa' ],
-    media_key: '3_1476236828676026368',
-    type: 'photo',
-    url: 'https://pbs.twimg.com/media/FHylkwGVcAAQTY_.jpg'
-  },
-  {
-    public_metrics: {
-      retweet_count: 1332,
-      reply_count: 582,
-      like_count: 15595,
-      quote_count: 132
-    },
-    id: '14230524',
-    text: 'The @hauslabs end-of-year sale is happening now! Use promo code BYE2021 on my favorites like the gel pencil eyeliner 💕 https://t.co/16HKLF1qsu https://t.co/MbH0yHfkeX',
-    author_id: '14230524',
-    created_at: '2021-12-27T17:04:56.000Z',
-    attachments: { media_keys: [Array] },
-    pinned_tweet_id: '1443788597103005734',
-    profile_image_url: 'https://pbs.twimg.com/profile_images/1422589226122584065/gdG2mkcY_normal.jpg',
-    verified: true,
-    username: 'ladygaga',
-    name: 'Lady Gaga',
-    dateString: 'Dec 27, 2021, 9:04 AM',
-    tweetString: 'The @hauslabs end-of-year sale is happening now! Use promo code BYE2021 on my favorites like the gel pencil eyeliner 💕  ',
-    url_string: [ 'https://t.co/16HKLF1qsu', 'https://t.co/MbH0yHfkeX' ],
-    media_key: '3_1475513035041112078',
-    type: 'photo',
-    url: 'https://pbs.twimg.com/media/FHoTSasVgA42hdb.jpg'
-  }
-]
-
 class Tweet {
     constructor(tweet) {
         this.username = tweet.username,
@@ -221,21 +147,14 @@ class Tweet {
     }
 }
 
-// const newTestArray = testArray.map(tweet => {
-//      return new Tweet(tweet)
-// })
-
-//console.log('newTestArray:' , newTestArray)
-
-//
 
 
-//bug - server not serving tweet data somehow??
+
 ///*** To Do */
-//create a class 
+//bug - server not serving tweet data somehow??
+//hover over buttons - cleaner approach
 //Move styles into a class in index.css. also using chrome dev tools to insert styling while troubleshooting.
 //litte bit of testing,
-//refactor.review prev code review. use the class constructor in server to construct tweet objects ? ? 
 //blog - fix and deploy.
 //write up in github!
 //deploy

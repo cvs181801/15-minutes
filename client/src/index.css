@@ -114,8 +114,6 @@ body {
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 13px;
-  /*width: 106px;
-  height: 32px;*/
   cursor: pointer;
   margin: 0 .2em 1em .2em;
   position: inline-block;
@@ -165,6 +163,14 @@ body {
 
 .tweet_card {
   text-align: left;
+}
+
+#buttonBorder {
+  border: 4px solid aqua;
+}
+
+#buttonBorderThin {
+  border: 3px solid aqua;
 }
 
 @media (min-width: 600px) {

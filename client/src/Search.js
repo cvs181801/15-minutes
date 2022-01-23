@@ -7,14 +7,15 @@ import TweetCard from './TweetCard'
 
 export default function Search() {
 
-    const [searchresult, setSearchresult] = useState([])
-    const [getByUserButton, setGetByUserButton] = useState(false)
-    const [getByContentButton, setGetByContentButton] = useState(false)
-    const [inputValue, setInputValue] = useState('')
-    const [errorValueUser, setErrorValueUser] = useState(false)
-    const [errorValueContent, setErrorValueContent] = useState(false)
-    const [hover1, setHover1] = useState('')
-    const [hover2, setHover2] = useState('')
+const [searchresult, setSearchresult] = useState([])
+const [getByUserButton, setGetByUserButton] = useState(false)
+const [getByContentButton, setGetByContentButton] = useState(false)
+const [inputValue, setInputValue] = useState('')
+const [errorValueUser, setErrorValueUser] = useState(false)
+const [errorValueContent, setErrorValueContent] = useState(false)
+//const [hover1, setHover1] = useState('')
+//const [hover2, setHover2] = useState('')
+const [hover, setHover] = useState('')
 
 
 async function searchTweets() {  
@@ -47,20 +48,28 @@ async function searchUser(id) {
     }
 }
 
-function handleHoverOver1() {
-   setHover1(`3px solid aqua`)
-}
+// function handleHoverOver1() {
+//    setHover1(`3px solid aqua`)
+// }
 
-function handleHoverOut1() {
-    setHover1(``)
-}
+// function handleHoverOut1() {
+//     setHover1(``)
+// }
 
-function handleHoverOver2() {
-    setHover2(`3px solid aqua`)
-}
+// function handleHoverOver2() {
+//     setHover2(`3px solid aqua`)
+// }
  
-function handleHoverOut2() {
-    setHover2(``)
+// function handleHoverOut2() {
+//     setHover2(``)
+// }
+
+function handleHoverOver() {
+    setHover('buttonBorderThin')
+}
+
+function handleHoverOut() {
+    setHover('')
 }
 
 function handleClickUser() {
@@ -420,19 +429,21 @@ const tweetCards = searchresult.map((tweet) => {
             <div className="searchBtnsContainer">
                 <button 
                     className="searchBtnUser"
+                    id={hover}
                     onClick={handleClickUser}
-                    onMouseEnter={handleHoverOver1}
-                    onMouseLeave={handleHoverOut1}
-                    style={{
-                        border:`${hover1}`}}
+                    onMouseEnter={handleHoverOver}
+                    onMouseLeave={handleHoverOut}
+                    // style={{
+                    //     border:`${hover1}`}}
                 >Search by User</button>
                 <button 
                     className="searchBtnContent"
+                    id={hover}
                     onClick={handleClickContent}
-                    onMouseEnter={handleHoverOver2}
-                    onMouseLeave={handleHoverOut2}
-                    style={{
-                        border:`${hover2}`}}
+                    onMouseEnter={handleHoverOver}
+                    onMouseLeave={handleHoverOut}
+                    // style={{
+                    //     border:`${hover2}`}}
                 >Search by Content</button>
                 <input 
                     type="text"     
