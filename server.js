@@ -151,9 +151,26 @@ class Tweet {
 
 
 ///*** To Do */
-//bug - server not serving tweet data somehow??
-//hover over buttons - cleaner approach
-//Move styles into a class in index.css. also using chrome dev tools to insert styling while troubleshooting.
+//bug - server not serving tweet data somehow?? ... once the below happens, the entire app breaks until server is refreshed.
+//data: {
+//     errors: [
+//         {
+//           parameters: { query: [Array] },
+//           message: "There were errors processing your request: no viable alternative at character '<' (at position 1), no viable alternative at character ''' (at position 20), no viable alternative at character '/' (at position 30), mismatched character '<EOF>' expecting '=' (at position 32)"
+//         }
+//       ],
+//       title: 'Invalid Request',
+//       detail: 'One or more parameters to your request was invalid.',
+//       type: 'https://api.twitter.com/2/problems/invalid-request'
+//     }
+//   },
+//   isAxiosError: true,
+//   toJSON: [Function: toJSON]
+//need a way to render a message re this issue in client. press a button to try again/refresh page ?
+
+
+
+
 //litte bit of testing,
 //blog - fix and deploy.
 //write up in github!
