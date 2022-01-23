@@ -63,7 +63,6 @@ function getRandomNum() {
                 .then(res=> {
                     
                     const randomTweet = res.data[getRandomNum()]
-                    console.log(randomTweet)
                     
                     setShow({
                         type: randomTweet.type,
@@ -85,11 +84,6 @@ function getRandomNum() {
             } 
         }, [buttonpushed])  
         
-        useEffect(()=>{
-            console.log('this is now in state :', show)
-        }, [show])
-
-
     return (
         <div 
         className="showcaseContainer"
