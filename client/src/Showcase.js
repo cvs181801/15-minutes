@@ -9,12 +9,6 @@ export default function Showcase() {
 const [show, setShow] = useState({})
 const [buttonpushed, setButtonpushed] = useState('')
 const [id, setId] = useState('')
-// const [hoverGaga, setHoverGaga] = useState('1px solid #000000')
-// const [hoverOprah, setHoverOprah] = useState('1px solid #000000')
-// const [hoverReese, setHoverReese] = useState('1px solid #000000')
-// const [hoverAshton, setHoverAshton] = useState('1px solid #000000')
-// const [hoverBey, setHoverBey] = useState('1px solid #000000')
-const [hover, setHover] = useState('')
 
 function handleClickGaga(event) {
     event.preventDefault(); 
@@ -55,54 +49,7 @@ async function searchUser() {
         console.log(err)
     }
 }
-
-function handleHoverOver() {
-    setHover('buttonBorder')
-}
-
-function handleHoverOut() {
-    setHover('')
-}
-
-    // function handleHoverOverGaga() {
-    //     setHoverGaga(`4px solid aqua`)
-    //  }
-     
-    // function handleHoverOutGaga() {
-    //      setHoverGaga(``)
-    // }
-     
-    // function handleHoverOverOprah() {
-    //      setHoverOprah(`4px solid aqua`)
-    // }
-      
-    // function handleHoverOutOprah() {
-    //       setHoverOprah(``)
-    // }
-
-    // function handleHoverOverReese() {
-    //     setHoverReese(`4px solid aqua`)
-    // }
-     
-    // function handleHoverOutReese() {
-    //      setHoverReese(``)
-    // }
-     
-    // function handleHoverOverAshton() {
-    //      setHoverAshton(`4px solid aqua`)
-    // }
-      
-    // function handleHoverOutAshton() {
-    //       setHoverAshton(``)
-    // }
-
-    // function handleHoverOverBey() {
-    //     setHoverBey(`4px solid aqua`)
-    // }
-     
-    // function handleHoverOutBey() {
-    //      setHoverBey(``)
-    // }
+  
 
 function getRandomNum() {
     let num = Math.round(Math.random() *10)
@@ -165,67 +112,28 @@ function getRandomNum() {
 
             <button
                 className="selectBtn"
-                id={hover}
                 onClick={handleClickGaga}
-                //onMouseEnter={handleHoverOverGaga}
-                //onMouseLeave={handleHoverOutGaga}
-                onMouseEnter={handleHoverOver}
-                onMouseLeave={handleHoverOut}
-                // style={{
-                //     border: //`${hoverGaga}`
-                // }}     
+  
             >Gaga</button> 
 
             <button
                 className="selectBtn"
-                id={hover}
-                onClick={handleClickOprah}
-                //onMouseEnter={handleHoverOverOprah}
-                //onMouseLeave={handleHoverOutOprah}
-                onMouseEnter={handleHoverOver}
-                onMouseLeave={handleHoverOut}
-                // style={{
-                //     border: //`${hoverOprah}` 
-                // }}     
+                onClick={handleClickOprah}    
             >Oprah</button> 
 
             <button
                 className="selectBtn"
-                id={hover}
-                onClick={handleClickReese}
-                //onMouseEnter={handleHoverOverReese}
-                //onMouseLeave={handleHoverOutReese}
-                onMouseEnter={handleHoverOver}
-                onMouseLeave={handleHoverOut}
-                // style={{
-                //     border: //`${hoverReese}` 
-                // }}     
+                onClick={handleClickReese}     
             >Reese</button> 
 
             <button
                 className="selectBtn"
-                id={hover}
-                onClick={handleClickAshton}
-                //onMouseEnter={handleHoverOverAshton}
-                //onMouseLeave={handleHoverOutAshton}
-                onMouseEnter={handleHoverOver}
-                onMouseLeave={handleHoverOut}
-                // style={{
-                //     border: //`${hoverAshton}`
-                // }}     
+                onClick={handleClickAshton}    
             >Ashton</button> 
 
             <button
                 className="selectBtn"
-                id={hover}
                 onClick={handleClickBeyonce}
-                //onMouseEnter={handleHoverOverBey}
-                //onMouseLeave={handleHoverOutBey}
-                onMouseEnter={handleHoverOver}
-                onMouseLeave={handleHoverOut}
-                // style={{
-                //     border: //`${hoverBey}`
-                // }}     
             >Beyonce</button> 
             
             

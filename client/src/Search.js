@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import './index.css'
 import TV from './pics/TV.png'
-//import DOMpurify from 'dompurify'
 import axios from 'axios'
 import TweetCard from './TweetCard'
 
@@ -13,10 +12,6 @@ const [getByContentButton, setGetByContentButton] = useState(false)
 const [inputValue, setInputValue] = useState('')
 const [errorValueUser, setErrorValueUser] = useState(false)
 const [errorValueContent, setErrorValueContent] = useState(false)
-//const [hover1, setHover1] = useState('')
-//const [hover2, setHover2] = useState('')
-const [hover, setHover] = useState('')
-
 
 async function searchTweets() {  
     try {
@@ -46,30 +41,6 @@ async function searchUser(id) {
     catch(err){
         console.log(err)
     }
-}
-
-// function handleHoverOver1() {
-//    setHover1(`3px solid aqua`)
-// }
-
-// function handleHoverOut1() {
-//     setHover1(``)
-// }
-
-// function handleHoverOver2() {
-//     setHover2(`3px solid aqua`)
-// }
- 
-// function handleHoverOut2() {
-//     setHover2(``)
-// }
-
-function handleHoverOver() {
-    setHover('buttonBorderThin')
-}
-
-function handleHoverOut() {
-    setHover('')
 }
 
 function handleClickUser() {
@@ -429,21 +400,11 @@ const tweetCards = searchresult.map((tweet) => {
             <div className="searchBtnsContainer">
                 <button 
                     className="searchBtnUser"
-                    id={hover}
                     onClick={handleClickUser}
-                    onMouseEnter={handleHoverOver}
-                    onMouseLeave={handleHoverOut}
-                    // style={{
-                    //     border:`${hover1}`}}
                 >Search by User</button>
                 <button 
                     className="searchBtnContent"
-                    id={hover}
                     onClick={handleClickContent}
-                    onMouseEnter={handleHoverOver}
-                    onMouseLeave={handleHoverOut}
-                    // style={{
-                    //     border:`${hover2}`}}
                 >Search by Content</button>
                 <input 
                     type="text"     

@@ -90,6 +90,11 @@ body {
   padding: .1em;
 }
 
+.searchBtnUser:hover,
+.searchBtnContent:hover {
+  border: 3px solid aqua;
+}
+
 .searchBtnsContainer > input {
   width: 266px;
   height: 32px;
@@ -126,6 +131,10 @@ body {
   line-height: .8rem;
   box-sizing: border-box;
   border-radius: 13px;
+}
+
+.selectBtn:hover {
+  border: 4px solid aqua;
 }
 
 .showcaseBtnsContainer {
