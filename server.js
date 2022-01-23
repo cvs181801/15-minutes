@@ -21,8 +21,8 @@ function getAllByContent() {
         console.log(search)
         const response1 = await axios.get(`https://api.twitter.com/2/tweets/search/recent?query=${search}&tweet.fields=created_at,public_metrics&expansions=attachments.media_keys,author_id&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers}) 
         const response2 = await axios.get(`https://api.twitter.com/2/users?ids=${response1.data.data[0].author_id},${response1.data.data[1].author_id},${response1.data.data[2].author_id},${response1.data.data[3].author_id},${response1.data.data[4].author_id},${response1.data.data[5].author_id},${response1.data.data[6].author_id},${response1.data.data[7].author_id},${response1.data.data[8].author_id},${response1.data.data[9].author_id}&expansions=pinned_tweet_id&user.fields=profile_image_url,verified`, {headers}) 
-        console.log('looped By Content :', loopByContent(response1.data.data, response1.data.includes.media, response2.data.data))
-        res.send(loopByContent(response1.data.data, response1.data.includes.media, response2.data.data))
+        console.log('looped By Content :', massageTwitterData(response1.data.data, response1.data.includes.media, response2.data.data))
+        res.send(massageTwitterData(response1.data.data, response1.data.includes.media, response2.data.data))
         return response1, response2
     })
 }
@@ -35,8 +35,8 @@ function getAllByUser() {
     console.log(search)
     const response1 = await axios.get(`https://api.twitter.com/2/users/${search}/tweets?tweet.fields=created_at,public_metrics&expansions=attachments.media_keys,author_id&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers})
     const response2 = await axios.get(`https://api.twitter.com/2/users/${search}?expansions=pinned_tweet_id&user.fields=profile_image_url,verified`, {headers}) 
-    
-        res.send(loopByUser(response1.data.data, response1.data.includes.media, response2.data.data))
+        console.log(massageTwitterUserData(response1.data.data, response1.data.includes.media, response2.data.data))
+        res.send(massageTwitterUserData(response1.data.data, response1.data.includes.media, response2.data.data))
         return response1, response2
     })
 }  
@@ -68,72 +68,74 @@ app.listen(port, () => {
 
 var urlRegex = /(https?:\/\/[^\s]+)/g;
 
-function loopByUser(array1, array2, object1) {
+function massageTwitterUserData(tweetsArr, mediaArr, userObject) {
     newArray = [];
-    array1.forEach(object=> {
-        var userObj = Object.assign(object, object1)
-        var dateObj = DateTime.fromISO(object.created_at)
-        parseTimestamp(dateObj.c.month, dateObj.c.day, dateObj.c.year, dateObj.c.hour, dateObj.c.minute)
-        object.dateString = parseTimestamp(dateObj.c.month, dateObj.c.day, dateObj.c.year, dateObj.c.hour, dateObj.c.minute)
-        object.tweetString= cutOutUrl(object.text)
-        object.url_string = object.text.match(urlRegex)
-        console.log('tweetstring :', object.tweetString, 'url_string :', object.url_string)
+    tweetsArr.forEach(tweet=> {
+        var userObj = Object.assign(tweet, userObject)
+        tweet.dateString = DateTime.fromISO(tweet.created_at).toLocaleString(DateTime.DATETIME_MED) 
+        tweet.tweetString= cutOutUrl(tweet.text)
+        tweet.url_string = tweet.text.match(urlRegex)
 
-       if (Object.keys(object).includes('attachments')) {
-            for (let i=0; i < array2.length; i++) {
-                    if (object.attachments.media_keys[0]=== array2[i].media_key) {
-                    var mergedObj = Object.assign(object, array2[i])
+       if (Object.keys(tweet).includes('attachments')) {
+            for (let i=0; i < mediaArr.length; i++) {
+                    if (tweet.attachments.media_keys[0]=== mediaArr[i].media_key) {
+                    var mergedObj = Object.assign(tweet, mediaArr[i])
                     newArray.push(mergedObj)
                 }
             } 
         } else {
-            newArray.push(object)
+            newArray.push(tweet)
             }
         })
         return newArray
-    }
+}
 
-function loopByContent(array1, array2, array3) {
+function massageTwitterData(tweetsArr, mediaArr, userArr) {
     newArray = [];
-    array1.forEach((object,index)=> {
-    var dateObj = DateTime.fromISO(object.created_at)
-    parseTimestamp(dateObj.c.month, dateObj.c.day, dateObj.c.year, dateObj.c.hour, dateObj.c.minute)
-    object.dateString = parseTimestamp(dateObj.c.month, dateObj.c.day, dateObj.c.year, dateObj.c.hour, dateObj.c.minute)
-    var userObj = Object.assign(object, array3[index])
-    object.tweetString= cutOutUrl(object.text)
-    object.url_string = object.text.match(urlRegex)
-    console.log('tweetstring :', object.tweetString, 'url_string :', object.url_string)
-    
-        if (Object.keys(object).includes('attachments')) {
-            for (let i=0; i < array2.length; i++) {
-                if (object.attachments.media_keys[0]=== array2[i].media_key) {
-                var mergedObj = Object.assign(object, array2[i])
-                newArray.push(mergedObj)
-            }
-        } 
-            } else {
-                newArray.push(object)
-            }
-        })
+    tweetsArr.forEach((tweet,index)=> {
+        tweet.dateString = DateTime.fromISO(tweet.created_at).toLocaleString(DateTime.DATETIME_MED) 
+        var userObj = Object.assign(tweet, userArr[index])
+        tweet.tweetString= cutOutUrl(tweet.text)
+        tweet.url_string = tweet.text.match(urlRegex)
+        
+        if (Object.keys(tweet).includes('attachments')) {
+            for (let i=0; i < mediaArr.length; i++) {
+                if (tweet.attachments.media_keys[0]=== mediaArr[i].media_key) {
+                    var mergedObj = Object.assign(tweet, mediaArr[i])
+                    newArray.push(mergedObj)
+                }
+            } 
+                } else {
+                    newArray.push(tweet)
+                }
+    })
         console.log(newArray)
         return newArray
     }    
 
-function parseTimestamp(month, day, year, hour, minute) {
-    if(hour >=13){
-        return `${month}.${day}.${year} at ${hour-12}:${minute}pm`
-    } else {
-        return `${month}.${day}.${year} at ${hour}:${minute}am`
-    }
-}  
 
 function cutOutUrl(string) {
     var URL = string.match(urlRegex)
     return string.replace(urlRegex, '')
 }
 
+//
 
-//bug when setting state :
+// class Tweet {
+//     constructor(tweet) {
+//         this.username = tweet.username,
+//         this.text = tweet.text
+//     }
+// }
+
+// tweets.map(tweet => {
+//     return new Tweet(tweet)
+// })
+
+//
+
+
+//bug when setting state ???
 // dateString: "1.17.2022 at 10:26am"
 // id: "19397785"
 // like_count: 0
@@ -141,17 +143,18 @@ function cutOutUrl(string) {
 // profile_image_url: "https://pbs.twimg.com/profile_images/1123359369570148353/Mh-Rf4Sk_normal.jpg"
 // retweet_count: 935
 // tweetString: "RT @ava: SELMA is streaming on Apple, Hulu, YouTube and Amazon, with Peacock offering free viewing in honor of Dr. King’s holiday.\n\nVoting…"
-// type: undefined  <<<< these undefined values causing issues wheen adding them in state
+// type: undefined  <<<< at first I thought these undefined values causing issues wheen adding them in state but upon trying to recreate the issue they didn't seem to cause issues when they were in state in showcase component
 // url: undefined
 // url_string: null
 // username: "Oprah"
 // verified: true
 
 ///*** To Do */
-//full text of tweet?
-//fix style issues. Move styles into a class in index.css.
+//create a class 
+//the time stamp isn't adding a 0 to min field if there is a single digit - fix
+//Move styles into a class in index.css. also using chrome dev tools to insert styling while troubleshooting.
 //litte bit of testing,
-//refactor.review prev code review.
+//refactor.review prev code review. use the class constructor in server to construct tweet objects ? ? 
 //blog - fix and deploy.
 //write up in github!
 //deploy

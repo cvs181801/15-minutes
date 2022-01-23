@@ -1,11 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import './index.css'
 import TV from './pics/TV.png'
-import SelectBtn from './SelectBtn'
 import ShowcaseResult from './ShowcaseResult'
 import axios from 'axios'
-import Video from './Video'
-import Image from './Image'
 
 export default function Showcase() {
 
@@ -58,6 +55,8 @@ const [hoverBey, setHoverBey] = useState('1px solid #000000')
         }
     }
 
+//hovering over a class in CSS ** 
+
     function handleHoverOverGaga() {
         setHoverGaga(`4px solid aqua`)
      }
@@ -103,12 +102,11 @@ function getRandomNum() {
     return num;
 }    
 
-    
     useEffect(()=> {
         if (buttonpushed) {
             setShow('')
             searchUser()
-                .then(res=>{
+                .then(res=> {
                     
                     const randomTweet = res.data[getRandomNum()]
                     console.log(randomTweet)
@@ -213,7 +211,7 @@ function getRandomNum() {
                 <div className="showcaseResult">
                     {buttonpushed}
                     <ShowcaseResult
-                        result={show}
+                        result={{tweet: show, celebrity: buttonpushed, toggleDisplay: 'inline'}}
                     />  
                 </div>
                 </div>

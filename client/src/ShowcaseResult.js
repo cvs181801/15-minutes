@@ -1,8 +1,9 @@
 import React from 'react'
-import Video from './Video.js'
 import Image from './Image.js'
+import ProfileImage from './ProfileImage.js'
 
 export default function ShowcaseResult(props) { 
+console.log(props.result)
     
     return (
         <div
@@ -15,29 +16,20 @@ export default function ShowcaseResult(props) {
                 }}
         >
 
-            <p>{props.result.dateString ? props.dateString  : ''}</p> 
+            <p>{props.result.tweet.dateString ? props.result.tweet.dateString  : ''}</p> 
             
-            <img
-            src={props.result.profile_image_url ? props.result.profile_image_url : ''}
-            alt='image' 
-            width='100%' 
-            style={{
-                borderRadius: `50%`,
-                height: `3em`,
-                width:`3em`
-                }}
-        ></img>
+            {props.result.tweet.profile_image_url ? <ProfileImage url={props.result.tweet.profile_image_url} /> : ''}
 
-        <p>{props.result.name ? props.result.name : ''} {props.result.verified ? `☑️` : ''}</p> 
-        <p>{props.result.username ? `@${props.result.username}` : ''}</p>
-   
-        <p>{props.result.tweetString ? props.result.tweetString : 'Select a celebrity above to view one of their recent tweets.'}</p>  
-        <p><a href={props.result.url_string ? props.result.url_string : ''}>{props.result.url_string ? props.result.url_string : ''}</a></p>
+            <p>{props.result.tweet.name ? props.result.tweet.name : ''} {props.result.tweet.verified ? `☑️` : ''}</p> 
+            <p>{props.result.tweet.username ? `@${props.result.tweet.username}` : ''}</p>
+    
+            <p>{props.result.tweet.tweetString ? props.result.tweet.tweetString : 'Select a celebrity above to view one of their recent tweets.'}</p>  
+            <p><a href={props.result.tweet.url_string ? props.result.tweet.url_string : ''}>{props.result.tweet.url_string ? props.result.tweet.url_string : ''}</a></p>
 
-        {props.result.type === 'photo' ? <Image result={props.result}/> : '' }
-                            
-        <p> {props.result.like_count ? `💚: ${props.result.like_count}` : ''}</p>
-        <p> {props.result.retweet_count ? `🔁: ${props.result.retweet_count}` : ''}</p>
+            {props.result.tweet.type === 'photo' ? <Image result={props.result.tweet}/> : '' }
+                                
+            <p> {props.result.tweet.like_count ? `💚: ${props.result.tweet.like_count}` : ''}</p>
+            <p> {props.result.tweet.retweet_count ? `🔁: ${props.result.tweet.retweet_count}` : ''}</p> 
 
         </div>
     )

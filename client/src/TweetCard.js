@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from './Image.js'
-//import Video from './Video.js'
+import ProfileImage from './ProfileImage.js'
 
 export default function TweetCard(props) {
     console.log(props)
@@ -22,7 +22,7 @@ export default function TweetCard(props) {
             display: 'flex',
             }}
         >
-            <img
+            {/* <img
                 src={props.profile_image_url ? props.profile_image_url : ''}
                 alt='image' 
                 width='100%' 
@@ -32,7 +32,8 @@ export default function TweetCard(props) {
                     width:`3em`,
                     margin: `.4em`
                     }}
-            ></img>
+            ></img> */}
+            {props.profile_image_url ? <ProfileImage url={props.profile_image_url} /> : ''}
             <div
             style={{
                 display: 'flex'
