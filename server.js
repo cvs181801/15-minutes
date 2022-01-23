@@ -19,6 +19,7 @@ function getAllByContent() {
     app.get('/api/searchdata', async (req, res) => {
         const {search} = req.query;
         console.log(search)
+        //const search = 'vaporwave'
         const response1 = await axios.get(`https://api.twitter.com/2/tweets/search/recent?query=${search}&tweet.fields=created_at,public_metrics&expansions=attachments.media_keys,author_id&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers}) 
         const response2 = await axios.get(`https://api.twitter.com/2/users?ids=${response1.data.data[0].author_id},${response1.data.data[1].author_id},${response1.data.data[2].author_id},${response1.data.data[3].author_id},${response1.data.data[4].author_id},${response1.data.data[5].author_id},${response1.data.data[6].author_id},${response1.data.data[7].author_id},${response1.data.data[8].author_id},${response1.data.data[9].author_id}&expansions=pinned_tweet_id&user.fields=profile_image_url,verified`, {headers}) 
         console.log('looped By Content :', massageTwitterData(response1.data.data, response1.data.includes.media, response2.data.data))
@@ -33,6 +34,7 @@ function getAllByUser() {
     app.get('/api/searchByUser', async (req, res) => {
     const {search} = req.query;
     console.log(search)
+    //const search = '31239408'
     const response1 = await axios.get(`https://api.twitter.com/2/users/${search}/tweets?tweet.fields=created_at,public_metrics&expansions=attachments.media_keys,author_id&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers})
     const response2 = await axios.get(`https://api.twitter.com/2/users/${search}?expansions=pinned_tweet_id&user.fields=profile_image_url,verified`, {headers}) 
         console.log(massageTwitterUserData(response1.data.data, response1.data.includes.media, response2.data.data))
@@ -87,7 +89,11 @@ function massageTwitterUserData(tweetsArr, mediaArr, userObject) {
             newArray.push(tweet)
             }
         })
-        return newArray
+        const newTweetsArray = newArray.map(tweet => {
+            return new Tweet(tweet)
+        })
+        console.log(newTweetsArray)
+        return newTweetsArray
 }
 
 function massageTwitterData(tweetsArr, mediaArr, userArr) {
@@ -109,8 +115,12 @@ function massageTwitterData(tweetsArr, mediaArr, userArr) {
                     newArray.push(tweet)
                 }
     })
-        console.log(newArray)
-        return newArray
+        //console.log(newArray)
+        const newTweetsArray = newArray.map(tweet => {
+            return new Tweet(tweet)
+        })
+        console.log(newTweetsArray)
+        return newTweetsArray
     }    
 
 
@@ -119,39 +129,110 @@ function cutOutUrl(string) {
     return string.replace(urlRegex, '')
 }
 
-//
+// test array
 
-// class Tweet {
-//     constructor(tweet) {
-//         this.username = tweet.username,
-//         this.text = tweet.text
-//     }
-// }
+const testArray = [
+{
+    public_metrics: {
+        retweet_count: 5,
+        reply_count: 58,
+        like_count: 1235,
+        quote_count: 16
+        },
+    id: 1235,
+    text: 'Happy New Year everybody! I know a lot of people feel like this holiday is a time to “reset” and set goals. What if we also just kept going and brought our history with us? What if we honored that we work hard all the time to be brave and our goal was just to keep that courage ❤️',
+    author_id: '14230524',
+    created_at: '2022-01-01T19:53:09.000Z',
+    pinned_tweet_id: '1443788597103005734',
+    profile_image_url: 'https://pbs.twimg.com/profile_images/1422589226122584065/gdG2mkcY_normal.jpg',
+    verified: true,
+    username: 'ladygaga',
+    name: 'Lady Gaga',
+    dateString: 'Jan 1, 2022, 11:53 AM',
+    tweetString: 'Happy New Year everybody! I know a lot of people feel like this holiday is a time to “reset” and set goals. What if we also just kept going and brought our history with us? What if we honored that we work hard all the time to be brave and our goal was just to keep that courage ❤️',
+    url_string: null,
+        
+  },
+  {
+    public_metrics: {
+      retweet_count: 1262,
+      reply_count: 559,
+      like_count: 15501,
+      quote_count: 126
+    },
+    id: '14230524',
+    text: 'Last chance to shop the @hauslabs end-of-year sale with promo code BYE2021 💕 https://t.co/16HKLF1qsu https://t.co/E5UHLEaBIa',
+    author_id: '14230524',
+    created_at: '2021-12-29T17:01:02.000Z',
+    attachments: { media_keys: [Array] },
+    pinned_tweet_id: '1443788597103005734',
+    profile_image_url: 'https://pbs.twimg.com/profile_images/1422589226122584065/gdG2mkcY_normal.jpg',
+    verified: true,
+    username: 'ladygaga',
+    name: 'Lady Gaga',
+    dateString: 'Dec 29, 2021, 9:01 AM',
+    tweetString: 'Last chance to shop the @hauslabs end-of-year sale with promo code BYE2021 💕  ',
+    url_string: [ 'https://t.co/16HKLF1qsu', 'https://t.co/E5UHLEaBIa' ],
+    media_key: '3_1476236828676026368',
+    type: 'photo',
+    url: 'https://pbs.twimg.com/media/FHylkwGVcAAQTY_.jpg'
+  },
+  {
+    public_metrics: {
+      retweet_count: 1332,
+      reply_count: 582,
+      like_count: 15595,
+      quote_count: 132
+    },
+    id: '14230524',
+    text: 'The @hauslabs end-of-year sale is happening now! Use promo code BYE2021 on my favorites like the gel pencil eyeliner 💕 https://t.co/16HKLF1qsu https://t.co/MbH0yHfkeX',
+    author_id: '14230524',
+    created_at: '2021-12-27T17:04:56.000Z',
+    attachments: { media_keys: [Array] },
+    pinned_tweet_id: '1443788597103005734',
+    profile_image_url: 'https://pbs.twimg.com/profile_images/1422589226122584065/gdG2mkcY_normal.jpg',
+    verified: true,
+    username: 'ladygaga',
+    name: 'Lady Gaga',
+    dateString: 'Dec 27, 2021, 9:04 AM',
+    tweetString: 'The @hauslabs end-of-year sale is happening now! Use promo code BYE2021 on my favorites like the gel pencil eyeliner 💕  ',
+    url_string: [ 'https://t.co/16HKLF1qsu', 'https://t.co/MbH0yHfkeX' ],
+    media_key: '3_1475513035041112078',
+    type: 'photo',
+    url: 'https://pbs.twimg.com/media/FHoTSasVgA42hdb.jpg'
+  }
+]
 
-// tweets.map(tweet => {
-//     return new Tweet(tweet)
+class Tweet {
+    constructor(tweet) {
+        this.username = tweet.username,
+        this.tweetString = tweet.tweetString,
+        this.id= tweet.id,
+        this.dateString= tweet.dateString,
+        this.name= tweet.name,
+        this.username= tweet.username,
+        this.verified= tweet.verified,
+        this.profile_image_url= tweet.profile_image_url,
+        this.url= tweet.url,
+        this.type= tweet.type,
+        this.like_count= tweet.public_metrics.like_count,
+        this.retweet_count= tweet.public_metrics.retweet_count,
+        this.url_string= tweet.url_string
+    }
+}
+
+// const newTestArray = testArray.map(tweet => {
+//      return new Tweet(tweet)
 // })
 
+//console.log('newTestArray:' , newTestArray)
+
 //
 
 
-//bug when setting state ???
-// dateString: "1.17.2022 at 10:26am"
-// id: "19397785"
-// like_count: 0
-// name: "Oprah Winfrey"
-// profile_image_url: "https://pbs.twimg.com/profile_images/1123359369570148353/Mh-Rf4Sk_normal.jpg"
-// retweet_count: 935
-// tweetString: "RT @ava: SELMA is streaming on Apple, Hulu, YouTube and Amazon, with Peacock offering free viewing in honor of Dr. King’s holiday.\n\nVoting…"
-// type: undefined  <<<< at first I thought these undefined values causing issues wheen adding them in state but upon trying to recreate the issue they didn't seem to cause issues when they were in state in showcase component
-// url: undefined
-// url_string: null
-// username: "Oprah"
-// verified: true
-
+//bug - server not serving tweet data somehow??
 ///*** To Do */
 //create a class 
-//the time stamp isn't adding a 0 to min field if there is a single digit - fix
 //Move styles into a class in index.css. also using chrome dev tools to insert styling while troubleshooting.
 //litte bit of testing,
 //refactor.review prev code review. use the class constructor in server to construct tweet objects ? ? 

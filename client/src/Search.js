@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './index.css'
 import TV from './pics/TV.png'
-import DOMpurify from 'dompurify'
+//import DOMpurify from 'dompurify'
 import axios from 'axios'
 import TweetCard from './TweetCard'
 
@@ -94,8 +94,7 @@ useEffect(()=>{
                         searchUser(element.id)
                             .then(res=>{
                             console.log(res.data)
-                             setSearchresult([
-                            {
+                             setSearchresult([{
                                 id: res.data[0].id,
                                 dateString: res.data[0].dateString,
                                 name: res.data[0].name,
@@ -105,8 +104,8 @@ useEffect(()=>{
                                 tweetString: res.data[0].tweetString,
                                 url: res.data[0].url,
                                 type: res.data[0].type,
-                                like_count: res.data[0].public_metrics.like_count,
-                                retweet_count: res.data[0].public_metrics.retweet_count,
+                                like_count: res.data[0].like_count,
+                                retweet_count: res.data[0].retweet_count,
                                 url_string: res.data[0].url_string
                             },
                             {
@@ -119,8 +118,8 @@ useEffect(()=>{
                                 tweetString: res.data[1].tweetString,
                                 url: res.data[1].url,
                                 type: res.data[1].type,
-                                like_count: res.data[1].public_metrics.like_count,
-                                retweet_count: res.data[1].public_metrics.retweet_count,
+                                like_count: res.data[1].like_count,
+                                retweet_count: res.data[1].retweet_count,
                                 url_string: res.data[1].url_string
                             },
                             {
@@ -133,8 +132,8 @@ useEffect(()=>{
                                 tweetString: res.data[2].tweetString,
                                 url: res.data[2].url,
                                 type: res.data[2].type,
-                                like_count: res.data[2].public_metrics.like_count,
-                                retweet_count: res.data[2].public_metrics.retweet_count,
+                                like_count: res.data[2].like_count,
+                                retweet_count: res.data[2].retweet_count,
                                 url_string: res.data[2].url_string
                             },
                             {
@@ -147,8 +146,8 @@ useEffect(()=>{
                                 tweetString: res.data[3].tweetString,
                                 url: res.data[3].url,
                                 type: res.data[3].type,
-                                like_count: res.data[3].public_metrics.like_count,
-                                retweet_count: res.data[3].public_metrics.retweet_count,
+                                like_count: res.data[3].like_count,
+                                retweet_count: res.data[3].retweet_count,
                                 url_string: res.data[3].url_string
                             },
                             {
@@ -161,8 +160,8 @@ useEffect(()=>{
                                 tweetString: res.data[4].tweetString,
                                 url: res.data[4].url,
                                 type: res.data[4].type,
-                                like_count: res.data[4].public_metrics.like_count,
-                                retweet_count: res.data[4].public_metrics.retweet_count,
+                                like_count: res.data[4].like_count,
+                                retweet_count: res.data[4].retweet_count,
                                 url_string: res.data[4].url_string
                             },
                             {
@@ -175,8 +174,8 @@ useEffect(()=>{
                                 tweetString: res.data[5].tweetString,
                                 url: res.data[5].url,
                                 type: res.data[5].type,
-                                like_count: res.data[5].public_metrics.like_count,
-                                retweet_count: res.data[5].public_metrics.retweet_count,
+                                like_count: res.data[5].like_count,
+                                retweet_count: res.data[5].retweet_count,
                                 url_string: res.data[5].url_string
                             },
                             {
@@ -189,8 +188,8 @@ useEffect(()=>{
                                 tweetString: res.data[6].tweetString,
                                 url: res.data[6].url,
                                 type: res.data[6].type,
-                                like_count: res.data[6].public_metrics.like_count,
-                                retweet_count: res.data[6].public_metrics.retweet_count,
+                                like_count: res.data[6].like_count,
+                                retweet_count: res.data[6].retweet_count,
                                 url_string: res.data[6].url_string
                             },
                             {
@@ -203,8 +202,8 @@ useEffect(()=>{
                                 tweetString: res.data[7].tweetString,
                                 url: res.data[7].url,
                                 type: res.data[7].type,
-                                like_count: res.data[7].public_metrics.like_count,
-                                retweet_count: res.data[7].public_metrics.retweet_count,
+                                like_count: res.data[7].like_count,
+                                retweet_count: res.data[7].retweet_count,
                                 url_string: res.data[7].url_string
                             },
                             {
@@ -217,8 +216,8 @@ useEffect(()=>{
                                 tweetString: res.data[8].tweetString,
                                 url: res.data[8].url,
                                 type: res.data[8].type,
-                                like_count: res.data[8].public_metrics.like_count,
-                                retweet_count: res.data[8].public_metrics.retweet_count,
+                                like_count: res.data[8].like_count,
+                                retweet_count: res.data[8].retweet_count,
                                 url_string: res.data[8].url_string
                             },
                             {
@@ -231,8 +230,8 @@ useEffect(()=>{
                                 tweetString: res.data[9].tweetString,
                                 url: res.data[9].url,
                                 type: res.data[9].type,
-                                like_count: res.data[9].public_metrics.like_count,
-                                retweet_count: res.data[9].public_metrics.retweet_count,
+                                like_count: res.data[9].like_count,
+                                retweet_count: res.data[9].retweet_count,
                                 url_string: res.data[9].url_string
                             }
                         ])
@@ -261,8 +260,8 @@ useEffect(()=>{
                                 tweetString: res.data[0].tweetString,
                                 url: res.data[0].url,
                                 type: res.data[0].type,
-                                like_count: res.data[0].public_metrics.like_count,
-                                retweet_count: res.data[0].public_metrics.retweet_count,
+                                like_count: res.data[0].like_count,
+                                retweet_count: res.data[0].retweet_count,
                                 url_string: res.data[0].url_string
                             },
                             {
@@ -275,8 +274,8 @@ useEffect(()=>{
                                 tweetString: res.data[1].tweetString,
                                 url: res.data[1].url,
                                 type: res.data[1].type,
-                                like_count: res.data[1].public_metrics.like_count,
-                                retweet_count: res.data[1].public_metrics.retweet_count,
+                                like_count: res.data[1].like_count,
+                                retweet_count: res.data[1].retweet_count,
                                 url_string: res.data[1].url_string
                             },
                             {
@@ -289,8 +288,8 @@ useEffect(()=>{
                                 tweetString: res.data[2].tweetString,
                                 url: res.data[2].url,
                                 type: res.data[2].type,
-                                like_count: res.data[2].public_metrics.like_count,
-                                retweet_count: res.data[2].public_metrics.retweet_count,
+                                like_count: res.data[2].like_count,
+                                retweet_count: res.data[2].retweet_count,
                                 url_string: res.data[2].url_string
                             },
                             {
@@ -303,8 +302,8 @@ useEffect(()=>{
                                 tweetString: res.data[3].tweetString,
                                 url: res.data[3].url,
                                 type: res.data[3].type,
-                                like_count: res.data[3].public_metrics.like_count,
-                                retweet_count: res.data[3].public_metrics.retweet_count,
+                                like_count: res.data[3].like_count,
+                                retweet_count: res.data[3].retweet_count,
                                 url_string: res.data[3].url_string
                             },
                             {
@@ -317,8 +316,8 @@ useEffect(()=>{
                                 tweetString: res.data[4].tweetString,
                                 url: res.data[4].url,
                                 type: res.data[4].type,
-                                like_count: res.data[4].public_metrics.like_count,
-                                retweet_count: res.data[4].public_metrics.retweet_count,
+                                like_count: res.data[4].like_count,
+                                retweet_count: res.data[4].retweet_count,
                                 url_string: res.data[4].url_string
                             },
                             {
@@ -331,8 +330,8 @@ useEffect(()=>{
                                 tweetString: res.data[5].tweetString,
                                 url: res.data[5].url,
                                 type: res.data[5].type,
-                                like_count: res.data[5].public_metrics.like_count,
-                                retweet_count: res.data[5].public_metrics.retweet_count,
+                                like_count: res.data[5].like_count,
+                                retweet_count: res.data[5].retweet_count,
                                 url_string: res.data[5].url_string
                             },
                             {
@@ -345,8 +344,8 @@ useEffect(()=>{
                                 tweetString: res.data[6].tweetString,
                                 url: res.data[6].url,
                                 type: res.data[6].type,
-                                like_count: res.data[6].public_metrics.like_count,
-                                retweet_count: res.data[6].public_metrics.retweet_count,
+                                like_count: res.data[6].like_count,
+                                retweet_count: res.data[6].retweet_count,
                                 url_string: res.data[6].url_string
                             },
                             {
@@ -359,8 +358,8 @@ useEffect(()=>{
                                 tweetString: res.data[7].tweetString,
                                 url: res.data[7].url,
                                 type: res.data[7].type,
-                                like_count: res.data[7].public_metrics.like_count,
-                                retweet_count: res.data[7].public_metrics.retweet_count,
+                                like_count: res.data[7].like_count,
+                                retweet_count: res.data[7].retweet_count,
                                 url_string: res.data[7].url_string
                             },
                             {
@@ -373,8 +372,8 @@ useEffect(()=>{
                                 tweetString: res.data[8].tweetString,
                                 url: res.data[8].url,
                                 type: res.data[8].type,
-                                like_count: res.data[8].public_metrics.like_count,
-                                retweet_count: res.data[8].public_metrics.retweet_count,
+                                like_count: res.data[8].like_count,
+                                retweet_count: res.data[8].retweet_count,
                                 url_string: res.data[8].url_string
                             },
                             {
@@ -387,8 +386,8 @@ useEffect(()=>{
                                 tweetString: res.data[9].tweetString,
                                 url: res.data[9].url,
                                 type: res.data[9].type,
-                                like_count: res.data[9].public_metrics.like_count,
-                                retweet_count: res.data[9].public_metrics.retweet_count,
+                                like_count: res.data[9].like_count,
+                                retweet_count: res.data[9].retweet_count,
                                 url_string: res.data[9].url_string
                             }
                         ])

@@ -114,8 +114,8 @@ function getRandomNum() {
                     setShow({
                         type: randomTweet.type,
                         url: randomTweet.url,
-                        retweet_count: randomTweet.public_metrics.retweet_count,
-                        like_count: randomTweet.public_metrics.like_count,
+                        retweet_count: randomTweet.retweet_count,
+                        like_count: randomTweet.like_count,
                         dateString: randomTweet.dateString,
                         id: randomTweet.id,
                         name: randomTweet.name,
@@ -211,7 +211,7 @@ function getRandomNum() {
                 <div className="showcaseResult">
                     {buttonpushed}
                     <ShowcaseResult
-                        result={{tweet: show, celebrity: buttonpushed, toggleDisplay: 'inline'}}
+                        result={{tweet: show, celebrity: buttonpushed, toggleDisplay: 'true'}}
                     />  
                 </div>
                 </div>
