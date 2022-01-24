@@ -151,7 +151,7 @@ class Tweet {
 
 
 ///*** To Do */
-//bug - server not serving tweet data somehow?? ... once the below happens, the entire app breaks until server is refreshed.
+//bug - server not serving tweet data somehow?? ... once the below happens, the entire app breaks until server is refreshed. Not just the page.
 //data: {
 //     errors: [
 //         {
@@ -169,8 +169,7 @@ class Tweet {
 //need a way to render a message re this issue in client. press a button to try again/refresh page ?
 
 
-
-
+//add DOM purify ?
 //litte bit of testing,
 //blog - fix and deploy.
 //write up in github!
