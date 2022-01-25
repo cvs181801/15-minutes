@@ -34,12 +34,21 @@ function getAllByUser() {
     app.get('/api/searchByUser', async (req, res) => {
     const {search} = req.query;
     console.log(search)
-    //const search = '31239408'
+    //const search = Tyson '2193167360'//Queen Bey'31239408'
     const response1 = await axios.get(`https://api.twitter.com/2/users/${search}/tweets?tweet.fields=created_at,public_metrics&expansions=attachments.media_keys,author_id&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers})
     const response2 = await axios.get(`https://api.twitter.com/2/users/${search}?expansions=pinned_tweet_id&user.fields=profile_image_url,verified`, {headers}) 
+        
+   
+    if(Object.keys(response1.data).includes('errors')) {
+        res.send(response1.data)
+        console.log('no one here')
+     } else {
+        console.log('found someone')
         console.log(massageTwitterUserData(response1.data.data, response1.data.includes.media, response2.data.data))
         res.send(massageTwitterUserData(response1.data.data, response1.data.includes.media, response2.data.data))
         return response1, response2
+     }
+    
     })
 }  
 
