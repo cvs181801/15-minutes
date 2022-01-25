@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+15 Minutes: How Will You Use Your 15 Minutes of Fame?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+This project challenges the viewer/user to consider how they're using social media.  Are you using your platform for chaos, or creation?
 
-In the project directory, you can run:
+Take it for a joyride here: [Link to come]
 
-### `npm start`
+[screenshot/image/gif of application]
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+15 Minutes is a take on the concept introduced by Andy Warhol "15 Minutes of Fame".  I think Andy would have loved all forms of social media, including Twitter.  He was fascinated by celebrities, probably due to the way celebrity itself markets, packages and sells human beings to the public. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The goal of this project is to encourage the user/viewer to think critically about their use of social media.  Now that we're living in an age when each person can have their 15 minutes of fame, isn't it time to take Andy's excitement about fame a step further?  Instead of simply having your 15 minutes, shouldn't we use that 15 Minutes for something positive?  
 
-### `npm test`
+I decided to showcase 5 celebrities who are frequently using their Twitter platform to send positive messages to the public:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Lady Gaga
+2. Oprah Winfrey
+3. Reese Witherspoon 
+4. Ashton Kutcher
+5. Beyonce Knowles
 
-### `npm run build`
+You can also search tweets based on content, or username. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Find more info in the blog post here. [Link to come]
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This project was built using React.js and Node.js - popular weets are retreived from the Twitter API.  You can read more about the Twitter API here: https://developer.twitter.com/en/docs/twitter-api.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Cas Spicer, Web Developer and Problem Solver Extraordinare
+Find more info about me and my work at www.casspicer.com
+Connect with me on Linked In: https://www.linkedin.com/in/cas-spicer/
