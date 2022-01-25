@@ -13,6 +13,8 @@ body {
 .App {
   text-align: center;
   font-family: 'Work Sans', sans-serif;
+  font-style: italic;
+  letter-spacing: .05rem;
 }
 
 .container {
@@ -20,17 +22,24 @@ body {
   font-size: 1.2rem;
   font-weight: 600;
   padding: 1em;
-  position: absolute;
   width: 324px;
   height: 482px;
-  left: 45px;
-  top: 178px;
+  margin: 2em auto 0 auto;
+  align-items: center;
+  text-align: center;
   background-color: rgba(255, 251, 251, 0.3);
   background-image: url('./pics/TV.png');
   background-blend-mode: lighten;
   border: 15px solid #000000;
   border-radius: 25%;
   box-shadow: -20px 10px rgb(48, 47, 47);
+}
+
+.contentContainer {
+  font-size: .9rem;
+  letter-spacing: .1rem;
+  line-height: 1.3rem;
+  text-shadow: white -3px -3px;
 }
 
 .buttonsContainer {
@@ -43,53 +52,36 @@ body {
   text-align: center;
   margin: 0 auto;
   z-index: 2;
-}
-
-.contentContainer {
-  font-size: .9rem;
-  letter-spacing: .1rem;
-  line-height: 1.3rem;
+  margin-top: .7em;
 }
 
 .searchResultContainer {
-  position: absolute;
   width: 299px;
   height: 717px;
-  left: 55px;
-  top: 132px;
+  margin: 0 auto;
   background: #FFFFFF;
   border: 5px solid #000000;
   border-radius: 13px;
 }
 
-.searchBtnUser {
-  font-size: .4rem;
-  letter-spacing: .1rem;
-  line-height: .8rem;
-  text-transform: uppercase;
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  left: 7px;
-  top: 60px;
-  background: #FFFFFF;
-  border: 1px solid #000000;
-  box-sizing: border-box;
-  border-radius: 13px;
-  cursor: pointer;
-  padding: .1em;
+.searchBtnsContainer {
+  display: flex;
+  justify-content: center;
+  width: 23em;
+  margin: 0 auto;
+  padding: .3em;
 }
 
+.searchBtnUser,
 .searchBtnContent {
   font-size: .4rem;
   letter-spacing: .1rem;
-  text-transform: uppercase;
   line-height: .8rem;
-  position: absolute;
+  text-transform: uppercase;
+  text-align: center;
   width: 50px;
   height: 50px;
-  left: 67px;
-  top: 60px;
+  margin: 0 .3em 0 .3em;
   background: #FFFFFF;
   border: 1px solid #000000;
   box-sizing: border-box;
@@ -98,12 +90,14 @@ body {
   padding: .1em;
 }
 
+.searchBtnUser:hover,
+.searchBtnContent:hover {
+  border: 3px solid aqua;
+}
+
 .searchBtnsContainer > input {
-  position: absolute;
   width: 266px;
   height: 32px;
-  left: 124px;
-  top: 60px;
   background: #FFFFFF;
   border: 1px solid #000000;
   box-sizing: border-box;
@@ -111,11 +105,10 @@ body {
 }
 
 .showcaseResultContainer {
-  position: absolute;
+  position: block;
   width: 322px;
   height: 597px;
-  left: 45px;
-  top: 224px;
+  margin: 0 auto;
   background: #FFFFFF;
   border: 5px solid #000000;
   border-radius: 13px;
@@ -126,57 +119,103 @@ body {
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 13px;
-  width: 106px;
+  cursor: pointer;
+  margin: 0 .2em 1em .2em;
+  position: inline-block;
   height: 32px;
+  width: 106px; 
+  background: #FFFFFF;
+  font-size: .6rem;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  line-height: .8rem;
+  box-sizing: border-box;
+  border-radius: 13px;
+}
+
+.selectBtn:hover {
+  border: 4px solid aqua;
 }
 
 .showcaseBtnsContainer {
-  position: absolute;
-  left: 45px;
-  top: 100px;
   display: flex;
   flex-wrap: wrap;
   text-align: center;
   align-items: center;
   justify-content: space-between;
-  margin: 0 auto;
+  margin: .5em auto 1em auto;
   width: 322px;
+  padding-bottom: .5em;
 }
 
+.hoveredLink {
+  color: magenta;
+  text-shadow: indigo -2px -2px;
+  transition: all .5s ease-in-out;
+}
+
+.hoveredButton {
+  border: 3px solid aqua;
+  transition: all .5s ease-in-out;
+}
+
+.active {
+  color: magenta;
+  text-shadow: indigo -2px -2px;
+  transition: all .5s ease-in-out;
+}
+
+.tweet {
+  border: 1px solid black;
+  border-radius: 13px;
+}
+
+.tweet_card {
+  text-align: left;
+}
+
+#buttonBorder {
+  border: 4px solid aqua;
+}
+
+#buttonBorderThin {
+  border: 3px solid aqua;
+}
 
 @media (min-width: 600px) {
   .container {
     width: 677px;
     height: 470px;
-    left: 78px;
-    top: 325px;
+    margin: 3.5em auto 0 auto;
   }
 
   .contentContainer {
-    font-size: 1rem;
+    font-size: 1.3rem;
+    text-shadow: white -3px -3px;
   }
+
   .searchResultContainer {
     width: 784px;
     height: 930px;
-    left: 21px;
-    top: 223px;
   }
   .searchResult,
   .showcaseResult {
-    position: relative;
-    border-left: 2px solid #000000;
-    border-right: 2px solid #000000;
+    position: relative; 
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
     margin: 0 auto;
     width: 60%;
-    height: 100%;
+    height: 100%; 
+    overflow-y: scroll;
+    font-weight: 700;
+    padding: .4em;
   }
   
   .showcaseResultContainer {
-    position: absolute;
     width: 778px;
     height: 789px;
-    left: 25px;
-    top: 366px;
     background: #FFFFFF;
     border: 5px solid #000000;
     border-radius: 13px;
@@ -184,9 +223,7 @@ body {
 
   .showcaseBtnsContainer {
     width: 778px;
-    left: 25px;
   }
-
 }
 
 @media (min-width: 1025px) {
@@ -194,11 +231,12 @@ body {
   .container {
     width: 857px;
     height: 477px;
-    left: 295px;
-    top: 191px;
+    margin: 5em auto 0 auto;
   }
+
   .contentContainer {
     font-size: 1.2rem;
+    text-shadow: white -3px -3px;
   }
   .buttonsContainer { 
     width: 40%;
@@ -207,22 +245,19 @@ body {
   .searchResultContainer {
     width: 1232px;
     height: 697px;
-    left: 104px;
-    top: 243px;
+    /* left: 104px;
+    top: 243px; */
   }
+
   .showcaseResultContainer {
-    position: absolute;
     width: 1219px;
     height: 583px;
-    left: 104px;
-    top: 366px;
     background: #FFFFFF;
     border: 5px solid #000000;
     border-radius: 13px;
   }
   .showcaseBtnsContainer {
     width: 1219px;
-    left: 104px;
   }
 
 }
