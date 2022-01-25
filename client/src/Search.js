@@ -3,7 +3,6 @@ import './index.css'
 import TV from './pics/TV.png'
 import axios from 'axios'
 import TweetCard from './TweetCard'
-import DOMPurify from 'dompurify'
 
 export default function Search() {
 
@@ -16,7 +15,6 @@ const [errorValueContent, setErrorValueContent] = useState(false)
 const [errorValueCharacters, setErrorValueCharacters] = useState('')
 const [errorValueAuthorized, setErrorValueAuthorized] = useState('')
 
-//const clean = DOMPurify.sanitize( dirty );
 
 async function searchTweets() {  
     try {

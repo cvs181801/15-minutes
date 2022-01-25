@@ -3,7 +3,7 @@ const axios = require('axios')
 const { DateTime } = require("luxon")
 const app = express()
 const path = require('path')
-const port = 3001
+//const port = 3001
 
 app.use('/', express.static(path.join(__dirname, "client", "build")));
 
@@ -73,9 +73,14 @@ app.get('/api/searchByUsername', async (req, res) => {
         })
     })    
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+//app.listen(port, () => {
+//  console.log(`Example app listening at http://localhost:${port}`)
+//})
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
 
 var urlRegex = /(https?:\/\/[^\s]+)/g;
 
@@ -157,29 +162,6 @@ class Tweet {
 }
 
 
-
-
-///*** To Do */
-//bug - server not serving tweet data somehow?? ... once the below happens, the entire app breaks until server is refreshed. Not just the page.
-//data: {
-//     errors: [
-//         {
-//           parameters: { query: [Array] },
-//           message: "There were errors processing your request: no viable alternative at character '<' (at position 1), no viable alternative at character ''' (at position 20), no viable alternative at character '/' (at position 30), mismatched character '<EOF>' expecting '=' (at position 32)"
-//         }
-//       ],
-//       title: 'Invalid Request',
-//       detail: 'One or more parameters to your request was invalid.',
-//       type: 'https://api.twitter.com/2/problems/invalid-request'
-//     }
-//   },
-//   isAxiosError: true,
-//   toJSON: [Function: toJSON]
-//need a way to render a message re this issue in client. press a button to try again/refresh page ?
-
-
-//add DOM purify ?
-//litte bit of testing,
 //blog - fix and deploy.
 //write up in github!
 //deploy
