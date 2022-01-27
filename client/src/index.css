@@ -90,8 +90,8 @@ body {
   line-height: .8rem;
   text-transform: uppercase;
   text-align: center;
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
   margin: 0 .3em 0 .3em;
   background: #FFFFFF;
   border: 1px solid #000000;
@@ -300,6 +300,13 @@ body {
     width: 40%;
   }
  
+  .searchBtnUser,
+  .searchBtnContent {
+    height: 50px;
+    width: 75px;
+    padding: .2em;
+  }
+
   .searchResultContainer {
     width: 1232px;
     height: 697px;
