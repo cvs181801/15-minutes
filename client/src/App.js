@@ -7,68 +7,20 @@ import Home from './Home'
 
 function App() {
 
-const [hoveredSearch, setHoveredSearch] = useState('')
-const [hoveredHome, setHoveredHome] = useState('')
-const [hoveredShow, setHoveredShow] = useState('')
-
-function handleHoverOverSearch() {
-  setHoveredSearch('hoveredLink')
- } 
-
- function handleHoverOutSearch() {
-    setHoveredSearch('')
- }
-
- function handleHoverOverHome() {
-  setHoveredHome('hoveredLink')
- } 
-
- function handleHoverOutHome() {
-    setHoveredHome('')
- }
-
- function handleHoverOverShow() {
-  setHoveredShow('hoveredLink')
- } 
-
- function handleHoverOutShow() {
-    setHoveredShow('')
- }
-
   return (
     <BrowserRouter>
     <div className="App">
      
       <div className="buttonsContainer">
           <NavLink exact="true" activeclassname="active" to="/search"
-            style={{
-              textDecoration: 'none',
-              //color: 'indigo'
-            
-            }}
-            onMouseEnter={handleHoverOverSearch}
-            onMouseLeave={handleHoverOutSearch}
-            className= {hoveredSearch}
+            className= "nav_link"
             
           >Search Tweets</NavLink>  
           <NavLink exact="true" activeclassname="active" to="/"
-            style={{
-              textDecoration: 'none',
-              //color: 'indigo'
-              
-            }}
-            onMouseEnter={handleHoverOverHome}
-            onMouseLeave={handleHoverOutHome}
-            className= {hoveredHome}
+            className= "nav_link"
           >Home</NavLink>  
-          <NavLink exact="true" activeclassname="active" to="/showcase"
-            style={{
-              textDecoration: 'none',
-              //color: 'indigo'
-            }}
-            onMouseEnter={handleHoverOverShow}
-            onMouseLeave={handleHoverOutShow}
-            className= {hoveredShow}
+          <NavLink exact="true" activeclassname="active" to="/showcase" 
+            className= "nav_link"
           >Go to Showcase</NavLink>  
       </div>
         <Routes>

@@ -8,7 +8,7 @@ body {
   box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Corben:wght@400;700&family=Racing+Sans+One&family=Work+Sans:wght@100;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Corben:wght@400;700&family=Racing+Sans+One&family=Work+Sans:wght@100;900&display=swap&family=Work+Sans&display=swap');
 
 .App {
   text-align: center;
@@ -123,6 +123,18 @@ body {
   background: #FFFFFF;
   border: 5px solid #000000;
   border-radius: 13px;
+  padding: .4em;
+  font-weight: 500;
+}
+
+.showcase_result {
+  overflow-x: scroll;
+  word-wrap: break-word;
+  font-weight: 700;
+}
+
+.showcase_result * p {
+  word-wrap: break-word;
 }
 
 .selectBtn{
@@ -159,6 +171,11 @@ body {
   padding-bottom: .5em;
 }
 
+.nav_link {
+  text-decoration: none;
+  color: indigo;
+}
+
 .hoveredLink {
   color: magenta;
   text-shadow: indigo -2px -2px;
@@ -185,6 +202,7 @@ body {
   text-align: left;
   word-wrap: break-word;
   overflow-x: scroll;
+  overflow-y: scroll;
 }
 
 .tweet-card * p {
@@ -200,10 +218,12 @@ body {
 }
 
 .tweetCardImg {
-    width: 100%;
-    max-height: 10em;
+    max-width: 10em;
+    max-height: 12em;
     border-radius: 13px;
 }
+
+
 
 @media (min-width: 600px) {
   .container {
@@ -237,7 +257,7 @@ body {
     width: 60%;
     height: 100%; 
     overflow-y: scroll;
-    font-weight: 700;
+    font-weight: 800;
     padding: .4em;
   }
   
@@ -254,8 +274,8 @@ body {
   }
   
   .tweetCardImg {
-      width: 100%;
-      max-height: 15em;
+      max-width: 13em;
+      max-height: 18em;
       border-radius: 13px;
   }
 }
@@ -299,8 +319,8 @@ body {
   }
   
   .tweetCardImg {
-      width: 100%;
-      max-height: 20em;
+      max-width: 18em;
+      max-height: 23em;
       border-radius: 13px;
   }
 
