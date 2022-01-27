@@ -42,7 +42,8 @@ function handleHoverOverSearch() {
       <div className="buttonsContainer">
           <NavLink exact="true" activeclassname="active" to="/search"
             style={{
-              textDecoration: 'none'
+              textDecoration: 'none',
+              //color: 'indigo'
             
             }}
             onMouseEnter={handleHoverOverSearch}
@@ -52,7 +53,8 @@ function handleHoverOverSearch() {
           >Search Tweets</NavLink>  
           <NavLink exact="true" activeclassname="active" to="/"
             style={{
-              textDecoration: 'none'
+              textDecoration: 'none',
+              //color: 'indigo'
               
             }}
             onMouseEnter={handleHoverOverHome}
@@ -61,7 +63,8 @@ function handleHoverOverSearch() {
           >Home</NavLink>  
           <NavLink exact="true" activeclassname="active" to="/showcase"
             style={{
-              textDecoration: 'none'
+              textDecoration: 'none',
+              //color: 'indigo'
             }}
             onMouseEnter={handleHoverOverShow}
             onMouseLeave={handleHoverOutShow}

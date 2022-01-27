@@ -22,7 +22,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Corben:wght@400;700&family=Racing+Sans+One&family=Work+Sans:wght@100;900&display=swap);"]);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_pics_TV_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, "body {\n  margin: 0 auto;\n  padding: 0;\n  margin: 0;\n}\n\n* {\n  box-sizing: border-box;\n}\n\n.App {\n  text-align: center;\n  font-family: 'Work Sans', sans-serif;\n  font-style: italic;\n  letter-spacing: .05rem;\n}\n\n.container {\n  font-family: 'Work Sans', sans-serif;\n  font-size: 3rem;\n  font-weight: 600;\n  padding: .5em;\n  width: 5.8em;\n  /*height: 680px; */\n  margin: .5em auto 0 auto;\n  align-items: center;\n  text-align: center;\n  background-color: rgba(255, 251, 251, 0.3);\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  background-blend-mode: lighten;\n  border: 15px solid #000000;\n  border-radius: 25%;\n  box-shadow: -20px 10px rgb(48, 47, 47);\n}\n\n.contentContainer {\n  font-size: .9rem;\n  letter-spacing: .1rem;\n  line-height: 1.3rem;\n  text-shadow: white -3px -3px;\n}\n\n.contentContainer_blogtxt {\n  margin-top: .3em;\n}\n\n.buttonsContainer {\n  display: flex;\n  font-weight: 600;\n  font-family: 'Work Sans', sans-serif;\n  width: 88%;\n  font-size: 1.1rem;\n  justify-content: space-between;\n  text-align: center;\n  margin: 0 auto;\n  z-index: 2;\n  margin-top: .7em;\n}\n\n.searchResultContainer {\n  width: 299px;\n  height: 717px;\n  margin: 0 auto;\n  background: #FFFFFF;\n  border: 5px solid #000000;\n  border-radius: 13px;\n}\n\n.searchBtnsContainer {\n  display: flex;\n  justify-content: center;\n  width: 23em;\n  margin: 0 auto;\n  padding: .3em;\n}\n\n.searchBtnUser,\n.searchBtnContent {\n  font-size: .4rem;\n  letter-spacing: .1rem;\n  line-height: .8rem;\n  text-transform: uppercase;\n  text-align: center;\n  width: 50px;\n  height: 50px;\n  margin: 0 .3em 0 .3em;\n  background: #FFFFFF;\n  border: 1px solid #000000;\n  box-sizing: border-box;\n  border-radius: 13px;\n  cursor: pointer;\n  padding: .1em;\n}\n\n.searchBtnUser:hover,\n.searchBtnContent:hover {\n  border: 3px solid aqua;\n}\n\n.searchBtnsContainer > input {\n  width: 266px;\n  height: 32px;\n  background: #FFFFFF;\n  border: 1px solid #000000;\n  box-sizing: border-box;\n  border-radius: 13px;\n}\n\n.showcaseResultContainer {\n  position: block;\n  width: 322px;\n  height: 597px;\n  margin: 0 auto;\n  background: #FFFFFF;\n  border: 5px solid #000000;\n  border-radius: 13px;\n}\n\n.selectBtn{\n  background: #FFFFFF;\n  border: 1px solid #000000;\n  box-sizing: border-box;\n  border-radius: 13px;\n  cursor: pointer;\n  margin: 0 .2em 1em .2em;\n  position: inline-block;\n  height: 32px;\n  width: 106px; \n  background: #FFFFFF;\n  font-size: .6rem;\n  letter-spacing: .1rem;\n  text-transform: uppercase;\n  line-height: .8rem;\n  box-sizing: border-box;\n  border-radius: 13px;\n}\n\n.selectBtn:hover {\n  border: 4px solid aqua;\n}\n\n.showcaseBtnsContainer {\n  display: flex;\n  flex-wrap: wrap;\n  text-align: center;\n  align-items: center;\n  justify-content: space-between;\n  margin: .5em auto 1em auto;\n  width: 322px;\n  padding-bottom: .5em;\n}\n\n.hoveredLink {\n  color: magenta;\n  text-shadow: indigo -2px -2px;\n  transition: all .5s ease-in-out;\n}\n\n.hoveredButton {\n  border: 3px solid aqua;\n  transition: all .5s ease-in-out;\n}\n\n.active {\n  color: magenta;\n  text-shadow: indigo -2px -2px;\n  transition: all .5s ease-in-out;\n}\n\n.tweet {\n  border: 1px solid black;\n  border-radius: 13px;\n}\n\n.tweet_card {\n  text-align: left;\n}\n\n#buttonBorder {\n  border: 4px solid aqua;\n}\n\n#buttonBorderThin {\n  border: 3px solid aqua;\n}\n\n@media (min-width: 600px) {\n  .container {\n    width: 677px;\n    height: 470px;\n    font-size: 2rem;\n    margin: 1.5em auto 0 auto;\n  }\n\n  .contentContainer {\n    font-size: 1.3rem;\n    text-shadow: white -3px -3px;\n  }\n\n  .contentContainer_blogtxt {\n    margin-top: 0;\n  }\n\n  .searchResultContainer {\n    width: 784px;\n    height: 930px;\n  }\n  .searchResult,\n  .showcaseResult {\n    position: relative; \n    border-left: 2px solid black;\n    border-right: 2px solid black;\n    border-top: 2px solid white;\n    border-bottom: 2px solid white;\n    margin: 0 auto;\n    width: 60%;\n    height: 100%; \n    overflow-y: scroll;\n    font-weight: 700;\n    padding: .4em;\n  }\n  \n  .showcaseResultContainer {\n    width: 778px;\n    height: 789px;\n    background: #FFFFFF;\n    border: 5px solid #000000;\n    border-radius: 13px;\n  }\n\n  .showcaseBtnsContainer {\n    width: 778px;\n  }\n}\n\n@media (min-width: 1025px) {\n\n  .container {\n    width: 857px;\n    height: 477px;\n    margin: 3em auto 0 auto;\n    font-size: 2rem;\n  }\n\n  .contentContainer {\n    font-size: 1.2rem;\n    text-shadow: white -3px -3px;\n  }\n\n  .contentContainer_blogtxt {\n    margin-top: 0;\n  }\n\n  .buttonsContainer { \n    width: 40%;\n  }\n \n  .searchResultContainer {\n    width: 1232px;\n    height: 697px;\n  }\n\n  .showcaseResultContainer {\n    width: 1219px;\n    height: 583px;\n    background: #FFFFFF;\n    border: 5px solid #000000;\n    border-radius: 13px;\n  }\n  .showcaseBtnsContainer {\n    width: 1219px;\n  }\n\n}", "",{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"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","sourcesContent":["body {\n  margin: 0 auto;\n  padding: 0;\n  margin: 0;\n}\n\n* {\n  box-sizing: border-box;\n}\n\n@import url('https://fonts.googleapis.com/css2?family=Corben:wght@400;700&family=Racing+Sans+One&family=Work+Sans:wght@100;900&display=swap');\n\n.App {\n  text-align: center;\n  font-family: 'Work Sans', sans-serif;\n  font-style: italic;\n  letter-spacing: .05rem;\n}\n\n.container {\n  font-family: 'Work Sans', sans-serif;\n  font-size: 3rem;\n  font-weight: 600;\n  padding: .5em;\n  width: 5.8em;\n  /*height: 680px; */\n  margin: .5em auto 0 auto;\n  align-items: center;\n  text-align: center;\n  background-color: rgba(255, 251, 251, 0.3);\n  background-image: url('./pics/TV.png');\n  background-blend-mode: lighten;\n  border: 15px solid #000000;\n  border-radius: 25%;\n  box-shadow: -20px 10px rgb(48, 47, 47);\n}\n\n.contentContainer {\n  font-size: .9rem;\n  letter-spacing: .1rem;\n  line-height: 1.3rem;\n  text-shadow: white -3px -3px;\n}\n\n.contentContainer_blogtxt {\n  margin-top: .3em;\n}\n\n.buttonsContainer {\n  display: flex;\n  font-weight: 600;\n  font-family: 'Work Sans', sans-serif;\n  width: 88%;\n  font-size: 1.1rem;\n  justify-content: space-between;\n  text-align: center;\n  margin: 0 auto;\n  z-index: 2;\n  margin-top: .7em;\n}\n\n.searchResultContainer {\n  width: 299px;\n  height: 717px;\n  margin: 0 auto;\n  background: #FFFFFF;\n  border: 5px solid #000000;\n  border-radius: 13px;\n}\n\n.searchBtnsContainer {\n  display: flex;\n  justify-content: center;\n  width: 23em;\n  margin: 0 auto;\n  padding: .3em;\n}\n\n.searchBtnUser,\n.searchBtnContent {\n  font-size: .4rem;\n  letter-spacing: .1rem;\n  line-height: .8rem;\n  text-transform: uppercase;\n  text-align: center;\n  width: 50px;\n  height: 50px;\n  margin: 0 .3em 0 .3em;\n  background: #FFFFFF;\n  border: 1px solid #000000;\n  box-sizing: border-box;\n  border-radius: 13px;\n  cursor: pointer;\n  padding: .1em;\n}\n\n.searchBtnUser:hover,\n.searchBtnContent:hover {\n  border: 3px solid aqua;\n}\n\n.searchBtnsContainer > input {\n  width: 266px;\n  height: 32px;\n  background: #FFFFFF;\n  border: 1px solid #000000;\n  box-sizing: border-box;\n  border-radius: 13px;\n}\n\n.showcaseResultContainer {\n  position: block;\n  width: 322px;\n  height: 597px;\n  margin: 0 auto;\n  background: #FFFFFF;\n  border: 5px solid #000000;\n  border-radius: 13px;\n}\n\n.selectBtn{\n  background: #FFFFFF;\n  border: 1px solid #000000;\n  box-sizing: border-box;\n  border-radius: 13px;\n  cursor: pointer;\n  margin: 0 .2em 1em .2em;\n  position: inline-block;\n  height: 32px;\n  width: 106px; \n  background: #FFFFFF;\n  font-size: .6rem;\n  letter-spacing: .1rem;\n  text-transform: uppercase;\n  line-height: .8rem;\n  box-sizing: border-box;\n  border-radius: 13px;\n}\n\n.selectBtn:hover {\n  border: 4px solid aqua;\n}\n\n.showcaseBtnsContainer {\n  display: flex;\n  flex-wrap: wrap;\n  text-align: center;\n  align-items: center;\n  justify-content: space-between;\n  margin: .5em auto 1em auto;\n  width: 322px;\n  padding-bottom: .5em;\n}\n\n.hoveredLink {\n  color: magenta;\n  text-shadow: indigo -2px -2px;\n  transition: all .5s ease-in-out;\n}\n\n.hoveredButton {\n  border: 3px solid aqua;\n  transition: all .5s ease-in-out;\n}\n\n.active {\n  color: magenta;\n  text-shadow: indigo -2px -2px;\n  transition: all .5s ease-in-out;\n}\n\n.tweet {\n  border: 1px solid black;\n  border-radius: 13px;\n}\n\n.tweet_card {\n  text-align: left;\n}\n\n#buttonBorder {\n  border: 4px solid aqua;\n}\n\n#buttonBorderThin {\n  border: 3px solid aqua;\n}\n\n@media (min-width: 600px) {\n  .container {\n    width: 677px;\n    height: 470px;\n    font-size: 2rem;\n    margin: 1.5em auto 0 auto;\n  }\n\n  .contentContainer {\n    font-size: 1.3rem;\n    text-shadow: white -3px -3px;\n  }\n\n  .contentContainer_blogtxt {\n    margin-top: 0;\n  }\n\n  .searchResultContainer {\n    width: 784px;\n    height: 930px;\n  }\n  .searchResult,\n  .showcaseResult {\n    position: relative; \n    border-left: 2px solid black;\n    border-right: 2px solid black;\n    border-top: 2px solid white;\n    border-bottom: 2px solid white;\n    margin: 0 auto;\n    width: 60%;\n    height: 100%; \n    overflow-y: scroll;\n    font-weight: 700;\n    padding: .4em;\n  }\n  \n  .showcaseResultContainer {\n    width: 778px;\n    height: 789px;\n    background: #FFFFFF;\n    border: 5px solid #000000;\n    border-radius: 13px;\n  }\n\n  .showcaseBtnsContainer {\n    width: 778px;\n  }\n}\n\n@media (min-width: 1025px) {\n\n  .container {\n    width: 857px;\n    height: 477px;\n    margin: 3em auto 0 auto;\n    font-size: 2rem;\n  }\n\n  .contentContainer {\n    font-size: 1.2rem;\n    text-shadow: white -3px -3px;\n  }\n\n  .contentContainer_blogtxt {\n    margin-top: 0;\n  }\n\n  .buttonsContainer { \n    width: 40%;\n  }\n \n  .searchResultContainer {\n    width: 1232px;\n    height: 697px;\n  }\n\n  .showcaseResultContainer {\n    width: 1219px;\n    height: 583px;\n    background: #FFFFFF;\n    border: 5px solid #000000;\n    border-radius: 13px;\n  }\n  .showcaseBtnsContainer {\n    width: 1219px;\n  }\n\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.i, "body {\n  margin: 0 auto;\n  padding: 0;\n  margin: 0;\n}\n\n* {\n  box-sizing: border-box;\n}\n\n.App {\n  text-align: center;\n  font-family: 'Work Sans', sans-serif;\n  font-style: italic;\n  letter-spacing: .05rem;\n}\n\n.container {\n  font-family: 'Work Sans', sans-serif;\n  font-size: 3rem;\n  font-weight: 600;\n  padding: .5em;\n  width: 5.8em;\n  margin: .5em auto 0 auto;\n  align-items: center;\n  text-align: center;\n  background-color: rgba(255, 251, 251, 0.3);\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  background-blend-mode: lighten;\n  border: 15px solid #000000;\n  border-radius: 25%;\n  box-shadow: -20px 10px rgb(48, 47, 47);\n}\n\n.contentContainer {\n  font-size: .9rem;\n  letter-spacing: .1rem;\n  line-height: 1.3rem;\n  text-shadow: white -3px -3px;\n}\n\n.contentContainer_blogtxt {\n  margin-top: .3em;\n}\n\n.buttonsContainer {\n  display: flex;\n  font-weight: 600;\n  font-family: 'Work Sans', sans-serif;\n  width: 88%;\n  font-size: 1.1rem;\n  justify-content: space-between;\n  text-align: center;\n  margin: 0 auto;\n  z-index: 2;\n  margin-top: .7em;\n}\n\n.searchResultContainer {\n  width: 299px;\n  height: 717px;\n  margin: 1em auto 1em auto;\n  background: #FFFFFF;\n  border: 5px solid #000000;\n  border-radius: 13px;\n}\n\n.searchResult {\n  margin: 0 auto;\n  width: 289px;\n  height: 707px;\n  padding: .4em;\n  overflow-y: scroll;\n}\n\n.searchBtnsContainer {\n  display: flex;\n  justify-content: center;\n  width: 23em;\n  margin: 0 auto;\n  padding: .3em;\n}\n\n.searchBtnUser,\n.searchBtnContent {\n  font-size: .4rem;\n  letter-spacing: .1rem;\n  line-height: .8rem;\n  text-transform: uppercase;\n  text-align: center;\n  width: 50px;\n  height: 50px;\n  margin: 0 .3em 0 .3em;\n  background: #FFFFFF;\n  border: 1px solid #000000;\n  box-sizing: border-box;\n  border-radius: 13px;\n  cursor: pointer;\n  padding: .1em;\n}\n\n.searchBtnUser:hover,\n.searchBtnContent:hover {\n  border: 3px solid aqua;\n}\n\n.searchBtnsContainer > input {\n  width: 266px;\n  height: 32px;\n  background: #FFFFFF;\n  border: 1px solid #000000;\n  box-sizing: border-box;\n  border-radius: 13px;\n}\n\n.showcaseResultContainer {\n  position: block;\n  width: 322px;\n  height: 597px;\n  margin: 0 auto;\n  background: #FFFFFF;\n  border: 5px solid #000000;\n  border-radius: 13px;\n}\n\n.selectBtn{\n  background: #FFFFFF;\n  border: 1px solid #000000;\n  box-sizing: border-box;\n  border-radius: 13px;\n  cursor: pointer;\n  margin: 0 .2em 1em .2em;\n  position: inline-block;\n  height: 32px;\n  width: 106px; \n  background: #FFFFFF;\n  font-size: .6rem;\n  letter-spacing: .1rem;\n  text-transform: uppercase;\n  line-height: .8rem;\n  box-sizing: border-box;\n  border-radius: 13px;\n}\n\n.selectBtn:hover {\n  border: 4px solid aqua;\n}\n\n.showcaseBtnsContainer {\n  display: flex;\n  flex-wrap: wrap;\n  text-align: center;\n  align-items: center;\n  justify-content: space-between;\n  margin: .5em auto 1em auto;\n  width: 322px;\n  padding-bottom: .5em;\n}\n\n.hoveredLink {\n  color: magenta;\n  text-shadow: indigo -2px -2px;\n  transition: all .5s ease-in-out;\n}\n\n.hoveredButton {\n  border: 3px solid aqua;\n  transition: all .5s ease-in-out;\n}\n\n.active {\n  color: magenta;\n  text-shadow: indigo -2px -2px;\n  transition: all .5s ease-in-out;\n}\n\n.tweet {\n  border: 1px solid black;\n  border-radius: 13px;\n}\n\n.tweet_card {\n  text-align: left;\n  word-wrap: break-word;\n  overflow-x: scroll;\n}\n\n.tweet-card * p {\n  word-wrap: break-word;\n}\n\n#buttonBorder {\n  border: 4px solid aqua;\n}\n\n#buttonBorderThin {\n  border: 3px solid aqua;\n}\n\n.tweetCardImg {\n    width: 100%;\n    max-height: 10em;\n    border-radius: 13px;\n}\n\n@media (min-width: 600px) {\n  .container {\n    width: 677px;\n    height: 470px;\n    font-size: 2rem;\n    margin: 1.5em auto 0 auto;\n  }\n\n  .contentContainer {\n    font-size: 1.3rem;\n    text-shadow: white -3px -3px;\n  }\n\n  .contentContainer_blogtxt {\n    margin-top: 0;\n  }\n\n  .searchResultContainer {\n    width: 784px;\n    height: 930px;\n  }\n  .searchResult,\n  .showcaseResult {\n    position: relative; \n    border-left: 2px solid black;\n    border-right: 2px solid black;\n    border-top: 2px solid white;\n    border-bottom: 2px solid white;\n    margin: 0 auto;\n    width: 60%;\n    height: 100%; \n    overflow-y: scroll;\n    font-weight: 700;\n    padding: .4em;\n  }\n  \n  .showcaseResultContainer {\n    width: 778px;\n    height: 789px;\n    background: #FFFFFF;\n    border: 5px solid #000000;\n    border-radius: 13px;\n  }\n\n  .showcaseBtnsContainer {\n    width: 778px;\n  }\n  \n  .tweetCardImg {\n      width: 100%;\n      max-height: 15em;\n      border-radius: 13px;\n  }\n}\n\n@media (min-width: 1025px) {\n\n  .container {\n    width: 857px;\n    height: 477px;\n    margin: 3em auto 0 auto;\n    font-size: 2rem;\n  }\n\n  .contentContainer {\n    font-size: 1.2rem;\n    text-shadow: white -3px -3px;\n  }\n\n  .contentContainer_blogtxt {\n    margin-top: 0;\n  }\n\n  .buttonsContainer { \n    width: 40%;\n  }\n \n  .searchResultContainer {\n    width: 1232px;\n    height: 697px;\n  }\n\n  .showcaseResultContainer {\n    width: 1219px;\n    height: 583px;\n    background: #FFFFFF;\n    border: 5px solid #000000;\n    border-radius: 13px;\n  }\n  .showcaseBtnsContainer {\n    width: 1219px;\n  }\n  \n  .tweetCardImg {\n      width: 100%;\n      max-height: 20em;\n      border-radius: 13px;\n  }\n\n}", "",{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"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","sourcesContent":["body {\n  margin: 0 auto;\n  padding: 0;\n  margin: 0;\n}\n\n* {\n  box-sizing: border-box;\n}\n\n@import url('https://fonts.googleapis.com/css2?family=Corben:wght@400;700&family=Racing+Sans+One&family=Work+Sans:wght@100;900&display=swap');\n\n.App {\n  text-align: center;\n  font-family: 'Work Sans', sans-serif;\n  font-style: italic;\n  letter-spacing: .05rem;\n}\n\n.container {\n  font-family: 'Work Sans', sans-serif;\n  font-size: 3rem;\n  font-weight: 600;\n  padding: .5em;\n  width: 5.8em;\n  margin: .5em auto 0 auto;\n  align-items: center;\n  text-align: center;\n  background-color: rgba(255, 251, 251, 0.3);\n  background-image: url('./pics/TV.png');\n  background-blend-mode: lighten;\n  border: 15px solid #000000;\n  border-radius: 25%;\n  box-shadow: -20px 10px rgb(48, 47, 47);\n}\n\n.contentContainer {\n  font-size: .9rem;\n  letter-spacing: .1rem;\n  line-height: 1.3rem;\n  text-shadow: white -3px -3px;\n}\n\n.contentContainer_blogtxt {\n  margin-top: .3em;\n}\n\n.buttonsContainer {\n  display: flex;\n  font-weight: 600;\n  font-family: 'Work Sans', sans-serif;\n  width: 88%;\n  font-size: 1.1rem;\n  justify-content: space-between;\n  text-align: center;\n  margin: 0 auto;\n  z-index: 2;\n  margin-top: .7em;\n}\n\n.searchResultContainer {\n  width: 299px;\n  height: 717px;\n  margin: 1em auto 1em auto;\n  background: #FFFFFF;\n  border: 5px solid #000000;\n  border-radius: 13px;\n}\n\n.searchResult {\n  margin: 0 auto;\n  width: 289px;\n  height: 707px;\n  padding: .4em;\n  overflow-y: scroll;\n}\n\n.searchBtnsContainer {\n  display: flex;\n  justify-content: center;\n  width: 23em;\n  margin: 0 auto;\n  padding: .3em;\n}\n\n.searchBtnUser,\n.searchBtnContent {\n  font-size: .4rem;\n  letter-spacing: .1rem;\n  line-height: .8rem;\n  text-transform: uppercase;\n  text-align: center;\n  width: 50px;\n  height: 50px;\n  margin: 0 .3em 0 .3em;\n  background: #FFFFFF;\n  border: 1px solid #000000;\n  box-sizing: border-box;\n  border-radius: 13px;\n  cursor: pointer;\n  padding: .1em;\n}\n\n.searchBtnUser:hover,\n.searchBtnContent:hover {\n  border: 3px solid aqua;\n}\n\n.searchBtnsContainer > input {\n  width: 266px;\n  height: 32px;\n  background: #FFFFFF;\n  border: 1px solid #000000;\n  box-sizing: border-box;\n  border-radius: 13px;\n}\n\n.showcaseResultContainer {\n  position: block;\n  width: 322px;\n  height: 597px;\n  margin: 0 auto;\n  background: #FFFFFF;\n  border: 5px solid #000000;\n  border-radius: 13px;\n}\n\n.selectBtn{\n  background: #FFFFFF;\n  border: 1px solid #000000;\n  box-sizing: border-box;\n  border-radius: 13px;\n  cursor: pointer;\n  margin: 0 .2em 1em .2em;\n  position: inline-block;\n  height: 32px;\n  width: 106px; \n  background: #FFFFFF;\n  font-size: .6rem;\n  letter-spacing: .1rem;\n  text-transform: uppercase;\n  line-height: .8rem;\n  box-sizing: border-box;\n  border-radius: 13px;\n}\n\n.selectBtn:hover {\n  border: 4px solid aqua;\n}\n\n.showcaseBtnsContainer {\n  display: flex;\n  flex-wrap: wrap;\n  text-align: center;\n  align-items: center;\n  justify-content: space-between;\n  margin: .5em auto 1em auto;\n  width: 322px;\n  padding-bottom: .5em;\n}\n\n.hoveredLink {\n  color: magenta;\n  text-shadow: indigo -2px -2px;\n  transition: all .5s ease-in-out;\n}\n\n.hoveredButton {\n  border: 3px solid aqua;\n  transition: all .5s ease-in-out;\n}\n\n.active {\n  color: magenta;\n  text-shadow: indigo -2px -2px;\n  transition: all .5s ease-in-out;\n}\n\n.tweet {\n  border: 1px solid black;\n  border-radius: 13px;\n}\n\n.tweet_card {\n  text-align: left;\n  word-wrap: break-word;\n  overflow-x: scroll;\n}\n\n.tweet-card * p {\n  word-wrap: break-word;\n}\n\n#buttonBorder {\n  border: 4px solid aqua;\n}\n\n#buttonBorderThin {\n  border: 3px solid aqua;\n}\n\n.tweetCardImg {\n    width: 100%;\n    max-height: 10em;\n    border-radius: 13px;\n}\n\n@media (min-width: 600px) {\n  .container {\n    width: 677px;\n    height: 470px;\n    font-size: 2rem;\n    margin: 1.5em auto 0 auto;\n  }\n\n  .contentContainer {\n    font-size: 1.3rem;\n    text-shadow: white -3px -3px;\n  }\n\n  .contentContainer_blogtxt {\n    margin-top: 0;\n  }\n\n  .searchResultContainer {\n    width: 784px;\n    height: 930px;\n  }\n  .searchResult,\n  .showcaseResult {\n    position: relative; \n    border-left: 2px solid black;\n    border-right: 2px solid black;\n    border-top: 2px solid white;\n    border-bottom: 2px solid white;\n    margin: 0 auto;\n    width: 60%;\n    height: 100%; \n    overflow-y: scroll;\n    font-weight: 700;\n    padding: .4em;\n  }\n  \n  .showcaseResultContainer {\n    width: 778px;\n    height: 789px;\n    background: #FFFFFF;\n    border: 5px solid #000000;\n    border-radius: 13px;\n  }\n\n  .showcaseBtnsContainer {\n    width: 778px;\n  }\n  \n  .tweetCardImg {\n      width: 100%;\n      max-height: 15em;\n      border-radius: 13px;\n  }\n}\n\n@media (min-width: 1025px) {\n\n  .container {\n    width: 857px;\n    height: 477px;\n    margin: 3em auto 0 auto;\n    font-size: 2rem;\n  }\n\n  .contentContainer {\n    font-size: 1.2rem;\n    text-shadow: white -3px -3px;\n  }\n\n  .contentContainer_blogtxt {\n    margin-top: 0;\n  }\n\n  .buttonsContainer { \n    width: 40%;\n  }\n \n  .searchResultContainer {\n    width: 1232px;\n    height: 697px;\n  }\n\n  .showcaseResultContainer {\n    width: 1219px;\n    height: 583px;\n    background: #FFFFFF;\n    border: 5px solid #000000;\n    border-radius: 13px;\n  }\n  .showcaseBtnsContainer {\n    width: 1219px;\n  }\n  \n  .tweetCardImg {\n      width: 100%;\n      max-height: 20em;\n      border-radius: 13px;\n  }\n\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
 
@@ -96,7 +96,8 @@ function App() {
           activeclassname: "active",
           to: "/search",
           style: {
-            textDecoration: 'none'
+            textDecoration: 'none' //color: 'indigo'
+
           },
           onMouseEnter: handleHoverOverSearch,
           onMouseLeave: handleHoverOutSearch,
@@ -111,7 +112,8 @@ function App() {
           activeclassname: "active",
           to: "/",
           style: {
-            textDecoration: 'none'
+            textDecoration: 'none' //color: 'indigo'
+
           },
           onMouseEnter: handleHoverOverHome,
           onMouseLeave: handleHoverOutHome,
@@ -119,14 +121,15 @@ function App() {
           children: "Home"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 53,
+          lineNumber: 54,
           columnNumber: 11
         }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["NavLink"], {
           exact: "true",
           activeclassname: "active",
           to: "/showcase",
           style: {
-            textDecoration: 'none'
+            textDecoration: 'none' //color: 'indigo'
+
           },
           onMouseEnter: handleHoverOverShow,
           onMouseLeave: handleHoverOutShow,
@@ -134,7 +137,7 @@ function App() {
           children: "Go to Showcase"
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 62,
+          lineNumber: 64,
           columnNumber: 11
         }, this)]
       }, void 0, true, {
@@ -146,39 +149,39 @@ function App() {
           path: "/search",
           element: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(_Search__WEBPACK_IMPORTED_MODULE_4__["default"], {}, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 72,
+            lineNumber: 75,
             columnNumber: 44
           }, this)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 72,
+          lineNumber: 75,
           columnNumber: 13
         }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
           path: "/showcase",
           element: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(_Showcase__WEBPACK_IMPORTED_MODULE_3__["default"], {}, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 73,
+            lineNumber: 76,
             columnNumber: 46
           }, this)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 73,
+          lineNumber: 76,
           columnNumber: 13
         }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
           path: "/",
           element: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(_Home__WEBPACK_IMPORTED_MODULE_5__["default"], {}, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 74,
+            lineNumber: 77,
             columnNumber: 38
           }, this)
         }, void 0, false, {
           fileName: _jsxFileName,
-          lineNumber: 74,
+          lineNumber: 77,
           columnNumber: 13
         }, this)]
       }, void 0, true, {
         fileName: _jsxFileName,
-        lineNumber: 71,
+        lineNumber: 74,
         columnNumber: 9
       }, this)]
     }, void 0, true, {
@@ -319,11 +322,10 @@ function Image(props) {
   return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("div", {
     children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("img", {
       src: props.result.url,
-      alt: "image",
-      width: "100%",
-      style: {
-        borderRadius: `13px`
-      }
+      alt: "tweet image" //width='100%' 
+      ,
+      className: "tweetCardImg" //</div>style={{borderRadius: `13px`}}
+
     }, void 0, false, {
       fileName: _jsxFileName,
       lineNumber: 7,
@@ -1232,7 +1234,6 @@ var _jsxFileName = "/Users/casvalkyriespicer/Documents/GitHub/15-minutes/client/
 
 
 function TweetCard(props) {
-  console.log(props);
   return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])("div", {
     className: "tweet_card",
     style: {
@@ -1245,14 +1246,13 @@ function TweetCard(props) {
     },
     children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])("div", {
       style: {
-        //width:`30em`,
         display: 'flex'
       },
       children: [props.profile_image_url ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])(_ProfileImage_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
         url: props.profile_image_url
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 36,
+        lineNumber: 24,
         columnNumber: 40
       }, this) : '', /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])("div", {
         style: {
@@ -1267,19 +1267,19 @@ function TweetCard(props) {
             children: [props.name ? props.name : '', " ", props.verified ? `☑️` : '', " ", props.dateString ? props.dateString : '']
           }, void 0, true, {
             fileName: _jsxFileName,
-            lineNumber: 48,
+            lineNumber: 36,
             columnNumber: 21
           }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])("p", {
             children: props.username ? `@${props.username}` : ''
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 49,
+            lineNumber: 37,
             columnNumber: 21
           }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])("p", {
             children: props.tweetString ? props.tweetString : ''
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 50,
+            lineNumber: 38,
             columnNumber: 21
           }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])("p", {
             children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])("a", {
@@ -1287,50 +1287,50 @@ function TweetCard(props) {
               children: props.url_string ? props.url_string : ''
             }, void 0, false, {
               fileName: _jsxFileName,
-              lineNumber: 51,
+              lineNumber: 39,
               columnNumber: 24
             }, this)
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 51,
+            lineNumber: 39,
             columnNumber: 21
           }, this), props.type === 'photo' ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])(_Image_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
             result: props
           }, void 0, false, {
             fileName: _jsxFileName,
-            lineNumber: 53,
-            columnNumber: 47
+            lineNumber: 41,
+            columnNumber: 51
           }, this) : '', /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])("p", {
             children: [" ", props.like_count ? `💚: ${props.like_count}` : '']
           }, void 0, true, {
             fileName: _jsxFileName,
-            lineNumber: 55,
+            lineNumber: 43,
             columnNumber: 21
           }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])("p", {
             children: [" ", props.retweet_count ? `🔁: ${props.retweet_count}` : '']
           }, void 0, true, {
             fileName: _jsxFileName,
-            lineNumber: 56,
+            lineNumber: 44,
             columnNumber: 21
           }, this)]
         }, void 0, true, {
           fileName: _jsxFileName,
-          lineNumber: 42,
+          lineNumber: 30,
           columnNumber: 17
         }, this)
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 37,
+        lineNumber: 25,
         columnNumber: 13
       }, this)]
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 19,
+      lineNumber: 18,
       columnNumber: 9
     }, this)
   }, void 0, false, {
     fileName: _jsxFileName,
-    lineNumber: 8,
+    lineNumber: 7,
     columnNumber: 5
   }, this);
 }

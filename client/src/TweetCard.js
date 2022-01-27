@@ -3,7 +3,6 @@ import Image from './Image.js'
 import ProfileImage from './ProfileImage.js'
 
 export default function TweetCard(props) {
-    console.log(props)
     return (
     <div
         className='tweet_card'
@@ -18,21 +17,10 @@ export default function TweetCard(props) {
         >
         <div
         style={{
-            //width:`30em`,
-            display: 'flex',
+            display: 'flex'
             }}
         >
-            {/* <img
-                src={props.profile_image_url ? props.profile_image_url : ''}
-                alt='image' 
-                width='100%' 
-                style={{
-                    borderRadius: `50%`,
-                    height: `3em`,
-                    width:`3em`,
-                    margin: `.4em`
-                    }}
-            ></img> */}
+
             {props.profile_image_url ? <ProfileImage url={props.profile_image_url} /> : ''}
             <div
             style={{
@@ -50,8 +38,8 @@ export default function TweetCard(props) {
                     <p>{props.tweetString ? props.tweetString : ''}</p>   
                     <p><a href={props.url_string ? props.url_string : ''}>{props.url_string ? props.url_string : ''}</a></p>
 
-                    {props.type === 'photo' ? <Image result={props}/> : '' }
-                                    
+                        {props.type === 'photo' ? <Image result={props}/> : '' }        
+
                     <p> {props.like_count ? `💚: ${props.like_count}` : ''}</p>
                     <p> {props.retweet_count ? `🔁: ${props.retweet_count}` : ''}</p>  
                 </div>

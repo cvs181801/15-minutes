@@ -6,9 +6,11 @@ export default function Image(props) {
         <div>
             <img 
                 src={props.result.url}
-                alt='image' 
-                width='100%' 
-                style={{borderRadius: `13px`}}>
+                alt='tweet image' 
+                //width='100%' 
+                className='tweetCardImg'
+                //</div>style={{borderRadius: `13px`}}
+                >
             </img> 
             
         </div>
