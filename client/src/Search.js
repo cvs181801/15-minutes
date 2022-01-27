@@ -441,11 +441,11 @@ const tweetCards = searchresult.map((tweet) => {
                     <p
                         style={{
                             fontWeight: `600`,
-                            paddingBottom: `1em`
+                            paddingBottom: `1em`,
+                            marginTop: `1.5em`
                         }}
                     >Why did I build this?  Read the blog post <a href="#">here.</a></p> 
             </div>
         </div>
     )
 }
-//encodeURIComponent
