@@ -1,7 +1,7 @@
 
 How Will You User Your 15 Minutes?
 
-<img width="1019" alt="Screen Shot 2022-01-28 at 3 31 11 PM" width="150px" height="150px" src="https://user-images.githubusercontent.com/79177146/151635564-ce514f99-1061-4100-a5bd-a9ca63a94a0e.png">
+<img width="1019" alt="Screen Shot 2022-01-28 at 3 31 11 PM" src="https://user-images.githubusercontent.com/79177146/151635564-ce514f99-1061-4100-a5bd-a9ca63a94a0e.png">
 
 15 Minutes is a take on the concept introduced by Andy Warhol "15 Minutes of Fame".  I think Andy would have loved all forms of social media, including Twitter.  He was fascinated by celebrities, probably due to the way celebrity itself markets, packages and sells human beings to the public. 
 
