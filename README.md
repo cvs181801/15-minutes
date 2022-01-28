@@ -21,3 +21,5 @@ Wishlist:
 - Create a better user search interface. Currently, the user has to enter the exact Twitter handle (starts with @) for a user in order to find their tweets.  Even one letter off, and it won't pull up the user.  I'd like to design a more flexible search using the GET users/search endpoint, which allows the user to search by multiple criteria.  Find info on this endpoint at https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/follow-search-get-users/api-reference/get-users-search
 
 Developed by Cas Spicer, Web Developer & Problem Solver Extroadinaire 
+Learn more about myself and my work at www.casspicer.com
+Connect with me on LinkedIn! https://www.linkedin.com/in/cas-spicer/
