@@ -143,7 +143,7 @@ function getRandomNum() {
             </div>
                 <p
                 className='searchResult_blog'
-                >Why did I build this?  Read the blog post <a href="#">here.</a></p>
+                >Why did I build this?  Read the blog post <a href="https://casspicerblog.netlify.app">here.</a></p>
         </div>
     )
 }

@@ -17,7 +17,7 @@ export default function Home() {
                     Select ‘Go to Showcase’ to browse tweets from celebrities using their fame for good.</p>
                     <br/>
                     <br/>
-                    <p className="contentContainer_blogtxt">Why did I build this?  Read the blog post <a href="#">here.</a></p>
+                    <p className="contentContainer_blogtxt">Why did I build this?  Read the blog post <a href="https://casspicerblog.netlify.app">here.</a></p>
                 </div>
             </div>
             
