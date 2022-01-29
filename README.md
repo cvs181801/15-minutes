@@ -1,7 +1,7 @@
 
 15 Minutes: How Will You Use Your 15 Minutes of Fame?
 
-<img width="997" alt="Screen Shot 2022-01-29 at 9 06 36 AM" src="https://user-images.githubusercontent.com/79177146/151674899-5b6bd8ee-1a1e-4d74-a6c2-b1a85bdf4f7e.png">
+<img width="1019" alt="Screen Shot 2022-01-28 at 3 31 11 PM" src="https://user-images.githubusercontent.com/79177146/151635564-ce514f99-1061-4100-a5bd-a9ca63a94a0e.png">
 
 15 Minutes is a take on the concept introduced by Andy Warhol "15 Minutes of Fame". This project was built in React and Node.js with Express using the Twitter API.  Find more info on the Twitter API at https://developer.twitter.com/en/products/twitter-api.  
 
@@ -12,13 +12,9 @@ The goal of this project is to encourage the user/viewer to think critically abo
 I decided to choose 5 celebrities who are frequently using their Twitter platform to send positive messages to their fans.  They are:
 
 Lady Gaga.
-
 Oprah Winfrey.
-
 Reese Witherspoon.
-
 Ashton Kutcher.
-
 Beyonce Knowles. 
 
 Read more about this project in my blog at https://casspicerblog.netlify.app/blog/15-minutes

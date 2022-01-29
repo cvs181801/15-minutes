@@ -6,11 +6,7 @@ export default function ProfileImage(props) {
             src={props.url ? props.url : ''}
             alt='profile image' 
             width='100%' 
-            style={{
-                borderRadius: `50%`,
-                height: `3em`,
-                width:`3em`
-                }}
+            className="profileImg"
         ></img> 
     </div>;
 }

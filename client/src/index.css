@@ -123,6 +123,18 @@ body {
   border-radius: 13px;
 }
 
+.searchContainer {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(255, 251, 251, 0.3);
+  background-image: url('./pics/TV.png');
+  background-blend-mode: lighten;
+  z-index: 1;
+}
+
 .searchResult_blog {
   font-weight: 800px;
   padding-bottom: 1em;
@@ -148,10 +160,28 @@ body {
   font-weight: 500;
 }
 
+.showcaseContainer {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(255, 251, 251, 0.3);
+  background-image: url('./pics/TV.png');
+  background-blend-mode: lighten;
+  z-index: 1;
+}
+
 .showcase_result {
   overflow-x: scroll;
   word-wrap: break-word;
   font-weight: 700;
+  border: 1px solid black;
+  border-radius: 13px;
+  font-weight: 400;
+  font-style: normal;
+  padding: .5em;
+  margin: .4em auto .4em auto;
 }
 
 .showcase_result * p {
@@ -230,10 +260,32 @@ body {
   word-wrap: break-word;
   overflow-x: scroll;
   overflow-y: scroll;
+  border: 1px solid black;
+  border-radius: 13px;
+  font-weight: 400;
+  font-style: normal;
+  padding: .5em;
+  margin: .4em auto .4em auto;
+}
+
+.tweet_cardContain,
+.tweet_cardContain--inner {
+  display: flex;
+}
+
+.tweet_cardContain--innercontent {
+  padding: .4em;
+  margin-right: 3em;
 }
 
 .tweet-card * p {
   word-wrap: break-word;
+}
+
+.profileImg {
+  border-radius: 50%;
+  height: 3em;
+  width:3em;
 }
 
 #buttonBorder {

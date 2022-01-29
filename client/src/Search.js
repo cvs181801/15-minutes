@@ -398,18 +398,8 @@ const tweetCards = searchresult.map((tweet) => {
     />})
    
     return (
-        <div className="searchContainer"
-            style={{
-                position: 'absolute',
-                top: '50px',
-                left: '0px',
-                width: '100vw',
-                height: '100%',
-                backgroundColor: 'rgba(255, 251, 251, 0.3)',
-                backgroundImage: `url(${TV})`,
-                backgroundBlendMode: 'lighten',
-                zIndex: '1'
-            }}
+        <div 
+            className="searchContainer"
         >
             <div className="searchBtnsContainer">
                 <button 
@@ -440,7 +430,7 @@ const tweetCards = searchresult.map((tweet) => {
                 </div> 
                     <p
                         className="searchResult_blog"
-                    >Why did I build this?  Read the blog post <a href="https://casspicerblog.netlify.app">here.</a></p> 
+                    >Why did I build this?  Read the blog post <a href="https://casspicerblog.netlify.app/blog/15-minutes">here.</a></p> 
             </div>
         </div>
     )

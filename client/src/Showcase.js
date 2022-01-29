@@ -86,18 +86,7 @@ function getRandomNum() {
         
     return (
         <div 
-        className="showcaseContainer"
-        style={{
-            position: 'absolute',
-            top: '50px',
-            left: '0px',
-            width: '100vw',
-            height: '100%',
-            backgroundColor: 'rgba(255, 251, 251, 0.3)',
-            backgroundImage: `url(${TV})`,
-            backgroundBlendMode: 'lighten',
-            zIndex: '1'
-        }}
+            className="showcaseContainer"
         >
         <div
             className="showcaseBtnsContainer"
@@ -143,7 +132,7 @@ function getRandomNum() {
             </div>
                 <p
                 className='searchResult_blog'
-                >Why did I build this?  Read the blog post <a href="https://casspicerblog.netlify.app">here.</a></p>
+                >Why did I build this?  Read the blog post <a href="https://casspicerblog.netlify.app/blog/15-minutes">here.</a></p>
         </div>
     )
 }

@@ -6,32 +6,17 @@ export default function TweetCard(props) {
     return (
     <div
         className='tweet_card'
-       style={{
-            border: `1px solid black`,
-            borderRadius: `13px`,
-            fontWeight: `400`,
-            fontStyle: `normal`,
-            padding: `.5em`,
-            margin: `.4em auto .4em auto`
-            }}
-        >
+    >
         <div
-        style={{
-            display: 'flex'
-            }}
+            className='tweet_cardContain'
         >
 
             {props.profile_image_url ? <ProfileImage url={props.profile_image_url} /> : ''}
             <div
-            style={{
-                display: 'flex'
-            }}
+                className='tweet_cardContain--inner'
             >
                 <div
-                style={{
-                    padding: `.4em`,
-                    marginRight: `3em`
-                }}
+                    className='tweet_cardContain--innercontent'
                 >
                     <p>{props.name ? props.name : ''} {props.verified ? `☑️` : ''} {props.dateString ? props.dateString  : ''}</p> 
                     <p>{props.username ? `@${props.username}` : ''}</p> 
@@ -44,9 +29,7 @@ export default function TweetCard(props) {
                     <p> {props.retweet_count ? `🔁: ${props.retweet_count}` : ''}</p>  
                 </div>
             </div>
-        </div> 
-
-              
-        </div>
+        </div>         
+    </div>
     )
 }
