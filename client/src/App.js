@@ -1,5 +1,5 @@
 import './index.css';
-import React, {useState} from 'react'
+import React from 'react'
 import {BrowserRouter, NavLink, Route, Routes} from "react-router-dom"
 import Showcase from './Showcase'
 import Search from './Search'

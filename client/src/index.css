@@ -23,15 +23,15 @@ body {
   font-weight: 600;
   padding: .5em;
   width: 5.8em;
-  margin: .5em auto 0 auto;
+  margin: .6em auto 0 auto;
   align-items: center;
   text-align: center;
   background-color: rgba(255, 251, 251, 0.3);
-  background-image: url('./pics/TV.png');
+  background-image: url('./pics/TV.png'), url('./pics/static.gif');
   background-blend-mode: lighten;
   border: 15px solid #000000;
   border-radius: 25%;
-  box-shadow: -20px 10px rgb(48, 47, 47);
+  box-shadow: -30px 10px rgb(48, 47, 47);
 }
 
 .contentContainer {
@@ -47,10 +47,11 @@ body {
 
 .buttonsContainer {
   display: flex;
+  letter-spacing: 0;
   font-weight: 600;
   font-family: 'Work Sans', sans-serif;
-  width: 88%;
-  font-size: 1.1rem;
+  width: 90%;
+  font-size: 1rem;
   justify-content: space-between;
   text-align: center;
   margin: 0 auto;
@@ -235,6 +236,11 @@ body {
     height: 470px;
     font-size: 2rem;
     margin: 1.5em auto 0 auto;
+  }
+
+  .buttonsContainer {
+    font-size: 1rem;
+    letter-spacing: .1rem;
   }
 
   .contentContainer {

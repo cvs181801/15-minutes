@@ -20,6 +20,7 @@ export default function Home() {
                     <p className="contentContainer_blogtxt">Why did I build this?  Read the blog post <a href="#">here.</a></p>
                 </div>
             </div>
+            
         </div>
     )
 }
