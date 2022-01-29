@@ -38,7 +38,7 @@ body {
   font-size: .9rem;
   letter-spacing: .1rem;
   line-height: 1.3rem;
-  text-shadow: white -3px -3px;
+  text-shadow:  -3px -3px .5em white, -3px -3px .5em white, -3px -3px .5em white, -3px -3px .5em white, -3px -3px .5em white;
 }
 
 .contentContainer_blogtxt {
@@ -266,7 +266,6 @@ body {
 
   .contentContainer {
     font-size: 1.3rem;
-    text-shadow: white -3px -3px;
   }
 
   .searchResultContainer {
@@ -324,7 +323,6 @@ body {
   .contentContainer {
     margin-top: 2em;
     font-size: 1.5rem;
-    text-shadow: white -3px -3px;
     line-height: 1.6rem;
   }
 
