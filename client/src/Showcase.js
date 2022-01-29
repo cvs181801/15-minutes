@@ -142,10 +142,7 @@ function getRandomNum() {
                 </div>
             </div>
                 <p
-                style={{
-                    fontWeight: `600`,
-                    paddingBottom: `1em`
-                }}
+                className='searchResult_blog'
                 >Why did I build this?  Read the blog post <a href="#">here.</a></p>
         </div>
     )

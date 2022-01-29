@@ -439,11 +439,7 @@ const tweetCards = searchresult.map((tweet) => {
  
                 </div> 
                     <p
-                        style={{
-                            fontWeight: `600`,
-                            paddingBottom: `1em`,
-                            marginTop: `1.5em`
-                        }}
+                        className="searchResult_blog"
                     >Why did I build this?  Read the blog post <a href="#">here.</a></p> 
             </div>
         </div>
