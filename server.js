@@ -1,20 +1,28 @@
+
 const express = require('express')
 const axios = require('axios')
 const { DateTime } = require("luxon")
+
 const app = express()
 const path = require('path')
+require('dotenv').config()
+
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
+
+const headers = {
+    Authorization: `Bearer ${process.env.BEARER_TOKEN}`
+}
+const urlRegex = /(https?:\/\/[^\s]+)/g;
 
 app.use('/', express.static(path.join(__dirname, "client", "build")));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/client/build/index.html'))
 })
-
-require('dotenv').config()
-
-const headers = {
-    Authorization: `Bearer ${process.env.BEARER_TOKEN}`
-}
 
 function getAllByContent() {
     app.get('/api/searchdata', async (req, res) => {
@@ -62,15 +70,6 @@ app.get('/api/searchByUsername', async (req, res) => {
         })
     })    
 
-
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 8000;
-}
-app.listen(port);
-
-const urlRegex = /(https?:\/\/[^\s]+)/g;
-
 function massageTwitterUserData(tweetsArr, mediaArr, userObject) {
     newArray = [];
     tweetsArr.forEach(tweet=> {
@@ -82,7 +81,7 @@ function massageTwitterUserData(tweetsArr, mediaArr, userObject) {
        if (Object.keys(tweet).includes('attachments')) {
             for (let i=0; i < mediaArr.length; i++) {
                     if (tweet.attachments.media_keys[0]=== mediaArr[i].media_key) {
-            const mergedObj = Object.assign(tweet, mediaArr[i])
+                    const mergedObj = Object.assign(tweet, mediaArr[i])
                     newArray.push(mergedObj)
                 }
             } 
@@ -99,8 +98,8 @@ function massageTwitterUserData(tweetsArr, mediaArr, userObject) {
 function massageTwitterData(tweetsArr, mediaArr, userArr) {
     newArray = [];
     tweetsArr.forEach((tweet,index)=> {
-        tweet.dateString = DateTime.fromISO(tweet.created_at).toLocaleString(DateTime.DATETIME_MED) 
         const userObj = Object.assign(tweet, userArr[index])
+        tweet.dateString = DateTime.fromISO(tweet.created_at).toLocaleString(DateTime.DATETIME_MED) 
         tweet.tweetString= cutOutUrl(tweet.text)
         tweet.url_string = tweet.text.match(urlRegex)
         
@@ -143,3 +142,86 @@ class Tweet {
         this.url_string= tweet.url_string
     }
 }
+
+//** */
+//Lennart suggested this for the parts where I start massaging data, 
+//but he didn't account for the the User array vs. User Object in the massage function.
+
+// function tweetSetValues(tweet) {
+//   tweet.dateString = DateTime.fromISO(tweet.created_at).toLocaleString(
+//     DateTime.DATETIME_MED
+//   );
+//   tweet.tweetString = cutOutUrl(tweet.text);
+//   tweet.url_string = tweet.text.match(urlRegex);
+// }
+
+// function areThereAttachments(tweet) {
+//   if (Object.keys(tweet).includes('attachments')) {
+//     return true;
+//   }
+//   return false;
+// }
+
+// function addAttachmentsToTweet(tweet, mediaArr) {
+//   for (let i = 0; i < mediaArr.length; i++) {
+//     if (tweet.attachments.media_keys[0] === mediaArr[i].media_key) {
+//       const mergedObj = Object.assign(tweet, mediaArr[i]);
+//       newArray.push(mergedObj);
+//     }
+//   }
+// }
+
+// function massageTwitterUserData(tweetsArr, mediaArr, userObject) {
+//   newArray = [];
+//   tweetsArr.forEach((tweet) => {
+//     tweetSetValues(tweet);
+//     if (areThereAttachments(tweet)) {
+//       addAttachmentsToTweet(tweet, mediaArr);
+//     } else {
+//       newArray.push(tweet);
+//     }
+//   });
+//   const newTweetsArray = newArray.map((tweet) => {
+//     return new Tweet(tweet);
+//   });
+//   return newTweetsArray;
+// }
+
+// function massageTwitterData(tweetsArr, mediaArr, userArr) {
+//   newArray = [];
+//   tweetsArr.forEach((tweet, index) => {
+//     tweetSetValues(tweet);
+//     if (areThereAttachments(tweet)) {
+//       addAttachmentsToTweet(tweet, mediaArr);
+//     } else {
+//       newArray.push(tweet);
+//     }
+//   });
+//   const newTweetsArray = newArray.map((tweet) => {
+//     return new Tweet(tweet);
+//   });
+//   return newTweetsArray;
+// }
+
+// function cutOutUrl(string) {
+//   return string.replace(urlRegex, '');
+// }
+// const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+// class Tweet {
+//   constructor(tweet) {
+//     (this.username = tweet.username),
+//       (this.tweetString = tweet.tweetString),
+//       (this.id = tweet.id),
+//       (this.dateString = tweet.dateString),
+//       (this.name = tweet.name),
+//       (this.username = tweet.username),
+//       (this.verified = tweet.verified),
+//       (this.profile_image_url = tweet.profile_image_url),
+//       (this.url = tweet.url),
+//       (this.type = tweet.type),
+//       (this.like_count = tweet.public_metrics.like_count),
+//       (this.retweet_count = tweet.public_metrics.retweet_count),
+//       (this.url_string = tweet.url_string);
+//   }
+// }

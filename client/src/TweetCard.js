@@ -3,6 +3,7 @@ import Image from './Image.js'
 import ProfileImage from './ProfileImage.js'
 
 export default function TweetCard(props) {
+    console.log('tweet card props :', props)
     return (
     <div
         className='tweet_card'
