@@ -371,7 +371,7 @@ function Search() {
 
   async function searchTweets() {
     try {
-      var search = await axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(`/api/searchdata?search=${inputValue}`);
+      const search = await axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(`/api/searchdata?search=${inputValue}`);
       return search;
     } catch (err) {
       console.log(err);
@@ -380,7 +380,7 @@ function Search() {
 
   async function searchByUsername() {
     try {
-      var search = await axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(`/api/searchByUsername?search=${inputValue}`);
+      const search = await axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(`/api/searchByUsername?search=${inputValue}`);
       return search;
     } catch (err) {
       console.log(err);
@@ -389,7 +389,7 @@ function Search() {
 
   async function searchUser(id) {
     try {
-      var search = await axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(`/api/searchByUser?search=${id}`);
+      const search = await axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(`/api/searchByUser?search=${id}`);
       return search;
     } catch (err) {
       console.log(err);
@@ -892,7 +892,7 @@ function Showcase() {
 
   async function searchUser() {
     try {
-      var search = await axios__WEBPACK_IMPORTED_MODULE_4___default.a.get(`/api/searchByUser?search=${id}`);
+      const search = await axios__WEBPACK_IMPORTED_MODULE_4___default.a.get(`/api/searchByUser?search=${id}`);
       return search;
     } catch (err) {
       console.log(err);
@@ -1281,19 +1281,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App */ "./src/App.js");
 /* harmony import */ var _reportWebVitals__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./reportWebVitals */ "./src/reportWebVitals.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-dev-runtime */ "./node_modules/react/jsx-dev-runtime.js");
-/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-dev-runtime */ "./node_modules/react/jsx-dev-runtime.js");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__);
 var _jsxFileName = "/Users/casvalkyriespicer/Documents/GitHub/15-minutes/client/src/index.js";
 
 
 
 
+ //import {BrowserRouter as Router} from "react-router-dom"
 
 
-
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.StrictMode, {
-  children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_6__["jsxDEV"])(_App__WEBPACK_IMPORTED_MODULE_3__["default"], {}, void 0, false, {
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(react__WEBPACK_IMPORTED_MODULE_0___default.a.StrictMode, {
+  children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_5__["jsxDEV"])(_App__WEBPACK_IMPORTED_MODULE_3__["default"], {}, void 0, false, {
     fileName: _jsxFileName,
     lineNumber: 11,
     columnNumber: 9

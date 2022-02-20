@@ -18,7 +18,7 @@ const [errorValueAuthorized, setErrorValueAuthorized] = useState('')
 
 async function searchTweets() {  
     try {
-        var search = await axios.get(`/api/searchdata?search=${inputValue}`)
+        const search = await axios.get(`/api/searchdata?search=${inputValue}`)
         return search
     }
     catch(err){
@@ -28,7 +28,7 @@ async function searchTweets() {
 
 async function searchByUsername() {
     try {
-        var search = await axios.get(`/api/searchByUsername?search=${inputValue}`)
+        const search = await axios.get(`/api/searchByUsername?search=${inputValue}`)
         return search
     }
     catch(err){
@@ -38,7 +38,7 @@ async function searchByUsername() {
 
 async function searchUser(id) {  
     try {
-        var search = await axios.get(`/api/searchByUser?search=${id}`)
+        const search = await axios.get(`/api/searchByUser?search=${id}`)
         return search
     }
     catch(err){

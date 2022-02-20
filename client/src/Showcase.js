@@ -42,7 +42,7 @@ function handleClickBeyonce(event) {
 
 async function searchUser() {  
     try {
-        var search = await axios.get(`/api/searchByUser?search=${id}`)
+        const search = await axios.get(`/api/searchByUser?search=${id}`)
         return search
     }
     catch(err){

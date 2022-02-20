@@ -10,17 +10,17 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/client/build/index.html'))
 })
 
+require('dotenv').config()
+
 const headers = {
-    Authorization: 'Bearer AAAAAAAAAAAAAAAAAAAAADR8XgEAAAAATyPleVonva9OPPeVm9Yl4x4gP6U%3DOC2OrGQ7rPMf8QD6qwjhFw1XpYZrpQwt27ohaiMVwLJ8VfVBeg'
+    Authorization: `Bearer ${process.env.BEARER_TOKEN}`
 }
 
 function getAllByContent() {
     app.get('/api/searchdata', async (req, res) => {
         const {search} = req.query;
-        console.log(search)
         const response1 = await axios.get(`https://api.twitter.com/2/tweets/search/recent?query=${search}&tweet.fields=created_at,public_metrics&expansions=attachments.media_keys,author_id&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers}) 
         const response2 = await axios.get(`https://api.twitter.com/2/users?ids=${response1.data.data[0].author_id},${response1.data.data[1].author_id},${response1.data.data[2].author_id},${response1.data.data[3].author_id},${response1.data.data[4].author_id},${response1.data.data[5].author_id},${response1.data.data[6].author_id},${response1.data.data[7].author_id},${response1.data.data[8].author_id},${response1.data.data[9].author_id}&expansions=pinned_tweet_id&user.fields=profile_image_url,verified`, {headers}) 
-        console.log('looped By Content :', massageTwitterData(response1.data.data, response1.data.includes.media, response2.data.data))
         res.send(massageTwitterData(response1.data.data, response1.data.includes.media, response2.data.data))
         return response1, response2
     })
@@ -31,17 +31,13 @@ getAllByContent()
 function getAllByUser() {
     app.get('/api/searchByUser', async (req, res) => {
     const {search} = req.query;
-    console.log(search)
     const response1 = await axios.get(`https://api.twitter.com/2/users/${search}/tweets?tweet.fields=created_at,public_metrics&expansions=attachments.media_keys,author_id&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers})
     const response2 = await axios.get(`https://api.twitter.com/2/users/${search}?expansions=pinned_tweet_id&user.fields=profile_image_url,verified`, {headers}) 
         
    
     if(Object.keys(response1.data).includes('errors')) {
         res.send(response1.data)
-        console.log('no one here')
      } else {
-        console.log('found someone')
-        console.log(massageTwitterUserData(response1.data.data, response1.data.includes.media, response2.data.data))
         res.send(massageTwitterUserData(response1.data.data, response1.data.includes.media, response2.data.data))
         return response1, response2
      }
@@ -53,15 +49,11 @@ getAllByUser()
 
 app.get('/api/searchByUsername', async (req, res) => {
     const {search} = req.query;
-        console.log(search)
         const response = await axios.get(`https://api.twitter.com/2/users/by?usernames=${search}`, {headers})
         .then(function (response) {
-            console.log(response.data.errors)  
             if(response.data.errors){
-                console.log('error!')
                 res.send(error)
             } else {
-                console.log('no err')
                 res.send(response.data)
             }
         })
@@ -77,12 +69,12 @@ if (port == null || port == "") {
 }
 app.listen(port);
 
-var urlRegex = /(https?:\/\/[^\s]+)/g;
+const urlRegex = /(https?:\/\/[^\s]+)/g;
 
 function massageTwitterUserData(tweetsArr, mediaArr, userObject) {
     newArray = [];
     tweetsArr.forEach(tweet=> {
-        var userObj = Object.assign(tweet, userObject)
+        const userObj = Object.assign(tweet, userObject)
         tweet.dateString = DateTime.fromISO(tweet.created_at).toLocaleString(DateTime.DATETIME_MED) 
         tweet.tweetString= cutOutUrl(tweet.text)
         tweet.url_string = tweet.text.match(urlRegex)
@@ -90,7 +82,7 @@ function massageTwitterUserData(tweetsArr, mediaArr, userObject) {
        if (Object.keys(tweet).includes('attachments')) {
             for (let i=0; i < mediaArr.length; i++) {
                     if (tweet.attachments.media_keys[0]=== mediaArr[i].media_key) {
-                    var mergedObj = Object.assign(tweet, mediaArr[i])
+            const mergedObj = Object.assign(tweet, mediaArr[i])
                     newArray.push(mergedObj)
                 }
             } 
@@ -101,7 +93,6 @@ function massageTwitterUserData(tweetsArr, mediaArr, userObject) {
         const newTweetsArray = newArray.map(tweet => {
             return new Tweet(tweet)
         })
-        console.log(newTweetsArray)
         return newTweetsArray
 }
 
@@ -109,14 +100,14 @@ function massageTwitterData(tweetsArr, mediaArr, userArr) {
     newArray = [];
     tweetsArr.forEach((tweet,index)=> {
         tweet.dateString = DateTime.fromISO(tweet.created_at).toLocaleString(DateTime.DATETIME_MED) 
-        var userObj = Object.assign(tweet, userArr[index])
+        const userObj = Object.assign(tweet, userArr[index])
         tweet.tweetString= cutOutUrl(tweet.text)
         tweet.url_string = tweet.text.match(urlRegex)
         
         if (Object.keys(tweet).includes('attachments')) {
             for (let i=0; i < mediaArr.length; i++) {
                 if (tweet.attachments.media_keys[0]=== mediaArr[i].media_key) {
-                    var mergedObj = Object.assign(tweet, mediaArr[i])
+                    const mergedObj = Object.assign(tweet, mediaArr[i])
                     newArray.push(mergedObj)
                 }
             } 
@@ -127,13 +118,11 @@ function massageTwitterData(tweetsArr, mediaArr, userArr) {
         const newTweetsArray = newArray.map(tweet => {
             return new Tweet(tweet)
         })
-        console.log(newTweetsArray)
         return newTweetsArray
     }    
 
 
 function cutOutUrl(string) {
-    var URL = string.match(urlRegex)
     return string.replace(urlRegex, '')
 }
 
