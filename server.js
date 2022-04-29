@@ -42,13 +42,12 @@ function getAllByUser() {
     const response1 = await axios.get(`https://api.twitter.com/2/users/${search}/tweets?tweet.fields=created_at,public_metrics&expansions=attachments.media_keys,author_id&media.fields=media_key,type,preview_image_url,url,alt_text`, {headers})
     const response2 = await axios.get(`https://api.twitter.com/2/users/${search}?expansions=pinned_tweet_id&user.fields=profile_image_url,verified`, {headers}) 
         
-   
     if(Object.keys(response1.data).includes('errors')) {
-        res.send(response1.data)
-     } else {
-        res.send(massageTwitterUserData(response1.data.data, response1.data.includes.media, response2.data.data))
-        return response1, response2
-     }
+            res.send(response1.data)
+        } else {
+            res.send(massageTwitterUserData(response1.data.data, response1.data.includes.media, response2.data.data))
+            return response1, response2
+        }
     
     })
 }  
@@ -117,6 +116,7 @@ function massageTwitterData(tweetsArr, mediaArr, userArr) {
         const newTweetsArray = newArray.map(tweet => {
             return new Tweet(tweet)
         })
+        
         return newTweetsArray
     }    
 

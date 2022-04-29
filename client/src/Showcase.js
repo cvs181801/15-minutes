@@ -65,8 +65,8 @@ function getRandomNum() {
                     const randomTweet = res.data[getRandomNum()]
                     
                     setShow({
-                        type: randomTweet.type,
-                        url: randomTweet.url,
+                        type: randomTweet.type ? randomTweet.type : "none",
+                        url: randomTweet.url ? randomTweet.url : "none",
                         retweet_count: randomTweet.retweet_count,
                         like_count: randomTweet.like_count,
                         dateString: randomTweet.dateString,

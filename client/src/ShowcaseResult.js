@@ -3,6 +3,7 @@ import Image from './Image.js'
 import ProfileImage from './ProfileImage.js'
 
 export default function ShowcaseResult(props) { 
+    console.log(props)
     
     return (
         <div

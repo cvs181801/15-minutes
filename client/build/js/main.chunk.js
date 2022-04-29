@@ -312,7 +312,6 @@ var _jsxFileName = "/Users/casvalkyriespicer/Documents/GitHub/15-minutes/client/
 
 
 function ProfileImage(props) {
-  console.log(props);
   return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("div", {
     children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("img", {
       src: props.url ? props.url : '',
@@ -321,12 +320,12 @@ function ProfileImage(props) {
       className: "profileImg"
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 6,
+      lineNumber: 5,
       columnNumber: 9
     }, this)
   }, void 0, false, {
     fileName: _jsxFileName,
-    lineNumber: 5,
+    lineNumber: 4,
     columnNumber: 11
   }, this);
 }
@@ -1099,8 +1098,8 @@ function Showcase() {
       searchUser().then(res => {
         const randomTweet = res.data[getRandomNum()];
         setShow({
-          type: randomTweet.type,
-          url: randomTweet.url,
+          type: randomTweet.type ? randomTweet.type : "none",
+          url: randomTweet.url ? randomTweet.url : "none",
           retweet_count: randomTweet.retweet_count,
           like_count: randomTweet.like_count,
           dateString: randomTweet.dateString,
@@ -1241,37 +1240,38 @@ var _jsxFileName = "/Users/casvalkyriespicer/Documents/GitHub/15-minutes/client/
 
 
 function ShowcaseResult(props) {
+  console.log(props);
   return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])("div", {
     className: "showcase_result",
     children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])("p", {
       children: props.result.tweet.dateString ? props.result.tweet.dateString : ''
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 12,
+      lineNumber: 13,
       columnNumber: 13
     }, this), props.result.tweet.profile_image_url ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])(_ProfileImage_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
       url: props.result.tweet.profile_image_url
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 14,
+      lineNumber: 15,
       columnNumber: 53
     }, this) : '', /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])("p", {
       children: [props.result.tweet.name ? props.result.tweet.name : '', " ", props.result.tweet.verified ? `☑️` : '']
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 16,
+      lineNumber: 17,
       columnNumber: 13
     }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])("p", {
       children: props.result.tweet.username ? `@${props.result.tweet.username}` : ''
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 17,
+      lineNumber: 18,
       columnNumber: 13
     }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])("p", {
       children: props.result.tweet.tweetString ? props.result.tweet.tweetString : 'Select a celebrity above to view one of their recent tweets.'
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 19,
+      lineNumber: 20,
       columnNumber: 13
     }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])("p", {
       children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])("a", {
@@ -1279,35 +1279,35 @@ function ShowcaseResult(props) {
         children: props.result.tweet.url_string ? props.result.tweet.url_string : ''
       }, void 0, false, {
         fileName: _jsxFileName,
-        lineNumber: 20,
+        lineNumber: 21,
         columnNumber: 16
       }, this)
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 21,
       columnNumber: 13
     }, this), props.result.tweet.type === 'photo' ? /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])(_Image_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
       result: props.result.tweet
     }, void 0, false, {
       fileName: _jsxFileName,
-      lineNumber: 22,
+      lineNumber: 23,
       columnNumber: 52
     }, this) : '', /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])("p", {
       children: [" ", props.result.tweet.like_count ? `💚: ${props.result.tweet.like_count}` : '']
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 24,
+      lineNumber: 25,
       columnNumber: 13
     }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_3__["jsxDEV"])("p", {
       children: [" ", props.result.tweet.retweet_count ? `🔁: ${props.result.tweet.retweet_count}` : '']
     }, void 0, true, {
       fileName: _jsxFileName,
-      lineNumber: 25,
+      lineNumber: 26,
       columnNumber: 13
     }, this)]
   }, void 0, true, {
     fileName: _jsxFileName,
-    lineNumber: 8,
+    lineNumber: 9,
     columnNumber: 9
   }, this);
 }
