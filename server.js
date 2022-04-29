@@ -24,6 +24,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/client/build/index.html'))
 })
 
+
 function getAllByContent() {
     app.get('/api/searchdata', async (req, res) => {
         const {search} = req.query;
@@ -142,6 +143,10 @@ class Tweet {
         this.url_string= tweet.url_string
     }
 }
+
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/build/index.html'))
+  })
 
 //** */
 //Lennart suggested this for the parts where I start massaging data, 
