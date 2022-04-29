@@ -19,6 +19,16 @@ Beyonce Knowles.
 
 Read more about this project in my blog post at https://casspicerblog.netlify.app/blog/15-minutes
 
+*Bug Fixes*
+4/29/2022 Bug Fix: 
+1. Added a "catch-all" route in the server which will allow the user to refresh from any page of the application without experiencing issues.  I added this route at the bottom of the server side code:
+
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/build/index.html'))
+  })
+ 
+2. Fixed the bug that was causing intermittent issues with the random tweets on the showcase page not rendering.  (I simply added a conditional ternary statement within the setShow() method in the Showcase component which added the string "none" if the media type or url came back from the server as undefined, meaning there was no photo or video attached.)
+
 Feature Wishlist:
 - Create a better user search interface. Currently, the user has to enter the exact Twitter handle (starts with @) for a user in order to find their tweets.  Even one letter off, and it won't pull up the user.  I'd like to design a more flexible search using the GET users/search endpoint, which allows the user to search by multiple criteria.  Find info on this endpoint at https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/follow-search-get-users/api-reference/get-users-search
 
